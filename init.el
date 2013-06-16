@@ -73,6 +73,24 @@
 
 (global-set-key (kbd "<C-tab>") 'other-window)
 
+;;;;;;;; EDITING KEYBINDINGS
+
+(global-set-key (kbd "C-c i") 'iedit-mode)
+
+;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
+
+(global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "<f6>") 'recover-this-file)
+
+;;;;;;; DISPLAY MANAGEMENT KEYBINDINGS
+
+(global-set-key (kbd "<f7>") 'visual-line-mode)
+(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+(global-set-key (kbd "<f11>") 'randomize-buffer-background)
+(global-set-key (kbd "<f12>") 'toggle-mode-line)
+
+
+
 ;;;;;;;; ELECTRIC PAIRS
 
 (electric-pair-mode)
@@ -497,7 +515,6 @@
     (set-face-background face-symbol new-color)
     (message (concat "changed to " new-color))))
 ;;(add-hook 'buffer-list-changed-hook 'randomize-buffer-background)
-(global-set-key (kbd "<f11>") 'randomize-buffer-background)
 
 
 ;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
@@ -508,7 +525,7 @@
 	    (default-value 'mode-line-format)
 	  nil))
   (redraw-display))
-(global-set-key (kbd "<f12>") 'toggle-mode-line)
+
 
 ;;;;;;;; MODE-LINE
 
