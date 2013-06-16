@@ -526,20 +526,20 @@
 
 ;;;;;;;; ENSIME
 
-;; load the ensime lisp code...
-(add-to-list 'load-path "/home/we/installations/ensime/elisp/")
-(require 'ensime)
+;; ;; load the ensime lisp code...
+;; (add-to-list 'load-path "/home/we/installations/ensime/elisp/")
+;; (require 'ensime)
 
-;; This step causes the ensime-mode to be started whenever
-;; scala-mode is started for a buffer. You may have to customize this step
-;; if you're not using the standard scala mode.
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;; ;; This step causes the ensime-mode to be started whenever
+;; ;; scala-mode is started for a buffer. You may have to customize this step
+;; ;; if you're not using the standard scala mode.
+;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-;; assuming that this is $SCALA_HOME:
-(push "/usr/bin/" exec-path)
+;; ;; assuming that this is $SCALA_HOME:
+;; (push "/usr/bin/" exec-path)
 
-;; http://stackoverflow.com/a/15720945
-(setq ensime-inf-default-cmd-line '("sbt" "console"))
+;; ;; http://stackoverflow.com/a/15720945
+;; (setq ensime-inf-default-cmd-line '("sbt" "console"))
 
 
 ;;;;;;;; CLOJURE
