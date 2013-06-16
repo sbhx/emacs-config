@@ -89,7 +89,8 @@
 (global-set-key (kbd "<f11>") 'randomize-buffer-background)
 (global-set-key (kbd "<f12>") 'toggle-mode-line)
 
-
+;;;;;;;; EXTERNAL COMMANDS KEYBINDINGS
+(global-set-key (kbd "C-c d") (lambda() (interactive) (message (format-time-string "%c" (current-time)))))
 
 ;;;;;;;; ELECTRIC PAIRS
 
@@ -343,38 +344,33 @@
 ;; (setq dired-external-apps-list 
 ;;       (append (list "libreoffice" "xpdf" "evince" "vlc" "eog" "gimp") dired-external-apps-list))
 ;; (dired-external-apps-generate-wrapper-functions-for-apps) ;; reinitialize after changes
-;; (setq dired-external-apps-save-to-registers-flag t)
-
+(setq dired-external-apps-save-to-registers-flag t)
 
 ;; ;; http://lists.gnu.org/archive/html/help-gnu-emacs/2002-10/msg00556.html
-;; (defun dired-copy-filename ()
-;;   "push the path and filename of the file under the point to the kill ring"
-;;   (interactive)
-;;   (message "added %s to kill ring" (kill-new (dired-get-filename))))
+(defun dired-copy-filename ()
+  "push the path and filename of the file under the point to the kill ring"
+  (interactive)
+  (message "added %s to kill ring" (kill-new (dired-get-filename))))
 
-;; (make-face 'dired-base-face)
-;; ;; (set-face-background 'dired-base-face "grey10")
-;; (add-hook 'dired-mode-hook
-;;                  '(lambda ()
-;; 		    (highline-mode)
-;;                     ;; (buffer-face-mode t)
-;;                     ;; (buffer-face-set 'dired-base-face)
-;; 		    (bidi)
-;; 		    (bidi-fix-ltr)
-;; 		    (define-key dired-mode-map "c"
-;; 		      'dired-copy-filename
-;; 		    )
-;; 		    (define-key dired-mode-map "L"
-;; 		      'dired-external-apps-open-with-libreoffice
-;; 		      )
-;; 		    (define-key dired-mode-map "P"
-;; 		      'dired-external-apps-open-with-xpdf
-;; 		      )
-;; 		    (define-key dired-mode-map "E"
-;; 		      'dired-external-apps-open-with-evince
-;; 		      )
-;; 		    )
-;; 		 )
+(add-hook 'dired-mode-hook
+                 '(lambda ()
+		    (highline-mode)
+		    (bidi)
+		    (bidi-fix-ltr)
+		    (define-key dired-mode-map "c"
+		      'dired-copy-filename
+		    )
+		    ;; (define-key dired-mode-map "L"
+		    ;;   'dired-external-apps-open-with-libreoffice
+		    ;;   )
+		    ;; (define-key dired-mode-map "P"
+		    ;;   'dired-external-apps-open-with-xpdf
+		    ;;   )
+		    ;; (define-key dired-mode-map "E"
+		    ;;   'dired-external-apps-open-with-evince
+		    ;;   )
+		    ;; )
+		 ))
 
 
 ;; http://www.emacswiki.org/emacs/DiredDoShellAsynchronous
