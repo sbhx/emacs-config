@@ -682,6 +682,15 @@
 (setq ess-smart-operators nil)
 
 
+
+(defun toggle-ess-eval-visibly-p ()
+  (interactive)
+  (setq ess-eval-visibly-p (not ess-eval-visibly-p)) ;; With nil ess-eval-visibly-p it is supposed to make things faster according to https://stat.ethz.ch/pipermail/ess-help/2011-March/006736.html .
+  )
+(toggle-ess-eval-visibly-p)
+(define-key ess-mode-map (kbd "<C-return>") 'toggle-ess-eval-visibly-p)
+
+
 ;; ;;;;;;;; BITLBEE
 
 ;; (add-to-list 'load-path "~/.emacs.d/manual-installations/")
