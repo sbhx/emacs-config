@@ -124,29 +124,30 @@
 			  (add-hook 'ediff-suspend-hook 'ediff-toggle-wide-display)))))
 
 
-;;; ;;;;;;;;;;; EMACS-ECLIM (TODO: organize)
-;;; ;;; ;;https://github.com/senny/emacs-eclim
-;;; (add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/senny-emacs-eclim-8d9a311"))
-;;; ;; only add the vendor path when you want to use the libraries provided with emacs-eclim
-;;; (add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/senny-emacs-eclim-8d9a311/vendor"))
-;;; (require 'eclim)
-;;; (setq eclim-auto-save nil)
-;;; (global-eclim-mode)
-;;; (require 'eclimd)
-;;; (setq eclim-executable "/home/danny/installations/juno/eclipse/plugins/org.eclim_2.2.3/bin/eclim")
-;;; (setq eclim-eclipse-dirs '("/home/danny/installations/juno/eclipse/"))
+;;;;;;;;;;; EMACS-ECLIM
+;;; ;;https://github.com/senny/emacs-eclim
+(add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/emacs-eclim"))
+;; only add the vendor path when you want to use the libraries provided with emacs-eclim
+(add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/emacs-eclim/vendor"))
+(require 'eclim)
+(setq eclim-auto-save nil)
+(global-eclim-mode)
+(require 'eclimd)
+(setq eclim-executable "/home/danny/installations/juno/eclipse/plugins/org.eclim_2.2.5/bin/eclim")
+(setq eclim-eclipse-dirs '("/home/danny/installations/juno/eclipse/"))
 
-;;; (setq eclimd-default-workspace "~/projects")
+(setq eclimd-default-workspace "~/projects")
 
-;;; (setq help-at-pt-display-when-idle t)
-;;; (setq help-at-pt-timer-delay 0.3)
-;;; (help-at-pt-set-timer)
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.3)
+(help-at-pt-set-timer)
 
-;;; ;; add the emacs-eclim source
-;;; (require 'ac-emacs-eclim-source)
-;;; (add-hook 'eclim-mode-hook (lambda ()
-;;;                                 (add-to-list 'ac-sources 'ac-source-emacs-eclim)
-;;;                                 (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)))
+;; add the emacs-eclim source
+(require 'ac-emacs-eclim-source)
+(add-hook 'eclim-mode-hook (lambda ()
+			     (add-to-list 'ac-sources 'ac-source-emacs-eclim)
+			     ;; TODO: Make this work. (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)
+			     ))
 
 
 ;;;;;;;; JTAGS
