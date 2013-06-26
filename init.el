@@ -779,3 +779,19 @@
 ;; (global-set-key (kbd "<down>") 'next-one-line)
 ;; (global-set-key (kbd "<up>") 'previous-one-line)
 (put 'scroll-left 'disabled nil)
+
+
+
+;;;;;;;; W3M
+
+(setq w3m-use-cookies t)
+
+(add-hook 'w3m-mode-hook
+	  (lambda ()
+	    (visual-line-mode)
+	    ;; (local-unset-key '[down])
+	    ;; (local-unset-key '[up])
+	    ;; (local-unset-key '[left])	    
+	    ;; (local-unset-key '[right])
+	    (local-set-key (kbd "M-p") 'w3m-previous-buffer)
+	    (local-set-key (kbd "M-n") 'w3m-next-buffer)))
