@@ -609,6 +609,33 @@
 ;; (require 'nrepl-inspect)
 
 
+
+;;;;
+;; http://stackoverflow.com/a/13031547
+;; "kill previous nrepl sessions when nrepl-jack-in called?"
+;;
+;; Disable prompt on killing buffer with a process
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function
+            kill-buffer-query-functions))
+;;
+(defun nrepl-kill ()
+  "Kill all nrepl buffers and processes"
+  (interactive)
+  (when (get-process "nrepl-server")
+    (set-process-sentinel (get-process "nrepl-server")
+                          (lambda (proc evt) t)))
+  (dolist (buffer (buffer-list))
+    (when (string-prefix-p "*nrepl" (buffer-name buffer))
+      (kill-buffer buffer))))
+;;
+(defun nrepl-me ()
+  (interactive)
+  (nrepl-kill)
+  (nrepl-jack-in nil))
+;;;;
+
+
 ;;;;;;;; CLOJURESCRIPT
 
 ;;https://github.com/brentonashworth/one/wiki/Emacs
@@ -751,3 +778,4 @@
 ;;     (previous-line 1)))
 ;; (global-set-key (kbd "<down>") 'next-one-line)
 ;; (global-set-key (kbd "<up>") 'previous-one-line)
+(put 'scroll-left 'disabled nil)
