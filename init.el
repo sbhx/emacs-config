@@ -69,6 +69,10 @@
     (package-install p)))
 
 
+;;;;;;;; MANUAL INSTALLATION
+
+(add-to-list 'load-path "~/.emacs.d/manual-installations/")
+
 ;;;;;;;; NAVIGATION KEYBINDINGS
 
 (global-set-key (kbd "<C-tab>") 'other-window)
@@ -600,7 +604,8 @@
 (add-hook 'clojure-mode-hook
 	  '(lambda()
 	     ;; (highline-mode)
-	     (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+             (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+             (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
 	     ))
 
 
@@ -795,3 +800,10 @@
 	    ;; (local-unset-key '[right])
 	    (local-set-key (kbd "M-p") 'w3m-previous-buffer)
 	    (local-set-key (kbd "M-n") 'w3m-next-buffer)))
+
+;;;;;;;; XTERM EXTRAS
+
+(when (string-match "^xterm" (getenv "TERM"))
+  (require 'xterm-extras)
+ (xterm-extra-keys))
+
