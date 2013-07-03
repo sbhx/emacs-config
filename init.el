@@ -128,43 +128,6 @@
 			  (add-hook 'ediff-suspend-hook 'ediff-toggle-wide-display)))))
 
 
-;;;;;;;;;;; EMACS-ECLIM
-;;; ;;https://github.com/senny/emacs-eclim
-(add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/emacs-eclim"))
-;; only add the vendor path when you want to use the libraries provided with emacs-eclim
-(add-to-list 'load-path (expand-file-name "/home/danny/.emacs.d/emacs-eclim/vendor"))
-(require 'eclim)
-(setq eclim-auto-save nil)
-(global-eclim-mode)
-(require 'eclimd)
-(setq eclim-executable "/home/danny/installations/juno/eclipse/plugins/org.eclim_2.2.5/bin/eclim")
-(setq eclim-eclipse-dirs '("/home/danny/installations/juno/eclipse/"))
-
-(setq eclimd-default-workspace "~/projects")
-
-(setq help-at-pt-display-when-idle t)
-(setq help-at-pt-timer-delay 0.3)
-(help-at-pt-set-timer)
-
-;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(add-hook 'eclim-mode-hook (lambda ()
-			     (add-to-list 'ac-sources 'ac-source-emacs-eclim)
-			     ;; TODO: Make this work. (add-to-list 'ac-sources 'ac-source-emacs-eclim-c-dot)
-			     ))
-
-
-;;;;;;;; JTAGS
-
-(autoload 'jtags-mode "jtags" "Toggle jtags mode." t)
-(add-hook 'java-mode-hook 'jtags-mode)
-(setq tags-table-list '("/home/danny/projects/platform.20130213/platform/algotrading/src"))
-(setq tags-revert-without-query 't)
-
-(autoload 'jtags-extras "jtags-extras" "Load jtags-extras.")
-(add-hook 'java-mode-hook 'jtags-extras)
-(setq jtags-extras-organize-after-add-flag 't)
-
 ;;;;;;;; BIDI
 
 (defun bidi ()
@@ -188,7 +151,11 @@
   (setq bidi-paragraph-direction nil)
 )
 
+;;;;;;;; JAVA-SETUP
 
+(let ((filename "~/.emacs.d/java-setup.el"))
+  (if (file-exists-p filename)
+      (load-file filename)))
 
 ;;;;;;;; GIT-GUTTER
 
