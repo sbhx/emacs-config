@@ -466,7 +466,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.2 (+ x (/ (- (random 100) 50) 900.0)))))
+                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1200.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
@@ -497,6 +497,10 @@
 
 (set-fringe-style '(0 . 0))
 
+
+(color-theme-initialize)
+(color-theme-jb-simple)
+(color-theme-jedit-grey)
 
 
 ;;;;;;;; MODE-LINE
