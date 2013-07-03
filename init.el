@@ -26,6 +26,8 @@
                                   nrepl-ritz
                                   ;; lisp
                                   slime
+                                  ;; java
+                                  jtags
                                   ;; haskell
                                   haskell-mode
                                   ;; display
@@ -54,6 +56,7 @@
                                   ;;??? uniquify
                                   ;; vim
                                   evil
+                                  ido-vertical-mode
                                   ;; programming -- general
                                   flycheck
                                   ess
@@ -757,6 +760,10 @@
 (put 'scroll-left 'disabled nil)
 
 
+
+;;;;;;;; IDO
+
+(ido-vertical-mode)
 
 ;;;;;;;; W3M
 
