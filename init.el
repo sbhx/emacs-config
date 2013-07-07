@@ -559,27 +559,39 @@
 ;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
 ;; I
 ;; my variation:
-(defun my-interactive-eval-to-repl (form)
+(defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
   (let ((orig-buffer (current-buffer)))
     (progn
       (switch-to-buffer "*nrepl*")
       ;; TODO: How not to assume this specific name?
       ;; nrepl-repl-buffer seems not to work.
-      (nrepl-replace-input form)
+      (nrepl-replace-input (concat prefix form suffix))
       (nrepl-return)
       (switch-to-buffer orig-buffer))))
+(defun my-interactive-eval-to-repl (form)
+  (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
+(defun my-interactive-eval-def-to-repl (form)
+  (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
 ;; same as original suggestion from here:
 (defun my-eval-last-expression-to-repl ()
   (interactive)
   (my-interactive-eval-to-repl
    (if mark-active
 	(buffer-substring (region-beginning) (region-end))
-	(nrepl-last-expression))))
+     (nrepl-last-expression))))
+(defun my-eval-def-last-expression-to-repl ()
+  (interactive)
+  (my-interactive-eval-def-to-repl
+   (if mark-active
+       (buffer-substring (region-beginning) (region-end))
+     (nrepl-last-expression))))
+;; keybindings:
 (add-hook 'clojure-mode-hook
 	  '(lambda()
 	     ;; (highline-mode)
              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+             (local-set-key [(control shift return)] 'my-eval-def-eval-last-expression-to-repl)
 	     ))
 
 
