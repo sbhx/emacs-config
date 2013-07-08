@@ -591,7 +591,7 @@
 	     ;; (highline-mode)
              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
-             (local-set-key [(control shift return)] 'my-eval-def-eval-last-expression-to-repl)
+             (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
 	     ))
 
 
