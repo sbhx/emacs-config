@@ -31,6 +31,7 @@
                                   ;; haskell
                                   haskell-mode
                                   ;; display
+                                  xterm-frobs
                                   color-theme color-theme-library color-theme-sanityinc-solarized
                                   hexrgb
                                   highline
@@ -60,6 +61,8 @@
                                   ;; programming -- general
                                   flycheck
                                   ess
+                                  ess-R-data-view
+                                  ess-R-object-popup
                                   r-autoyas
                                   ;; other
                                   ;;google-maps
