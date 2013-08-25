@@ -22,6 +22,7 @@
                                   scala-mode2
                                   ;; clojure
                                   clojure-mode
+                                  clojure-cheatsheet
                                   nrepl ac-nrepl
                                   nrepl-ritz
                                   ;; lisp
@@ -47,7 +48,7 @@
                                   ;; communication
                                   ssh
                                   tramp
-                                  ;; w3m
+                                  w3m
                                   org
                                   ;;??? org-latex
                                   ;; file management
