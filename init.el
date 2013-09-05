@@ -634,7 +634,24 @@
 (defun nrepl-me ()
   (interactive)
   (nrepl-kill)
-  (nrepl-jack-in nil))
+  (nrepl-jack-in nil)
+  (split-window)
+  (switch-to-buffer "*nrepl-server*")
+  (end-of-buffer)
+  ;(other-window)
+  )
+(global-set-key (kbd "C-c n") 'nrepl-me)
+
+
+(defun show-nrepl-and-its-server ()
+  (interactive)
+  (switch-to-buffer "*nrepl*")
+  (split-window)
+  (switch-to-buffer "*nrepl-server*")
+  (other-window))
+
+
+
 ;;;;
 
 
