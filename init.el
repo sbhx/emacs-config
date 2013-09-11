@@ -555,11 +555,28 @@
 ;;(add-to-list 'same-window-buffer-names "*nrepl*")
 ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'nrepl-mode-hook 'paredit-mode)
-
+(add-hook 'nrepl-mode-hook 'auto-complete-mode)
 
 (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 (defun my-nrepl-mode-setup ()
   (require 'nrepl-ritz))
+
+;; Limiting output size, combining
+;; https://github.com/clojure-emacs/nrepl.el/issues/30
+;; https://gist.github.com/jonneale/5669318
+;; (What is the difference between nrepl-send-string-sync to
+;; nrepl-interactive-eval ?).
+;;
+(defun nrepl-limit-print-length ()
+  (interactive)
+  (nrepl-send-string-sync "(do (set! *print-length* 103) (set! *print-level* 15))" "clojure.core"))
+(defun nrepl-unlimit-print-length ()
+  (interactive)
+  (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
+(defun my-nrepl-connected-hook ()
+  (nrepl-limit-print-length))
+(add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
+
 
 
 ;; Suggestion of:
@@ -649,6 +666,8 @@
   (split-window)
   (switch-to-buffer "*nrepl-server*")
   (other-window))
+
+
 
 
 
@@ -827,11 +846,11 @@
 
 
 
-;;;;;;;; XTERM EXTRAS
+;; ;;;;;;;; XTERM EXTRAS
 
-(when (string-match "^xterm" (getenv "TERM"))
-  (require 'xterm-extras)
- (xterm-extra-keys))
+;; (when (string-match "^xterm" (getenv "TERM"))
+;;   (require 'xterm-extras)
+;;  (xterm-extra-keys))
 
 
 
