@@ -55,6 +55,7 @@
                                   openwith 
                                   dired+ ;;???dired-external-apps ;;??? dired-x
                                   ;; emacs navigation and command-management
+                                  guru-mode
                                   ;;??? uniquify
                                   ;; vim
                                   evil
