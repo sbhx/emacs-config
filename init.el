@@ -85,6 +85,17 @@
 
 (global-set-key (kbd "<C-tab>") 'other-window)
 
+;;;;;;;; EVIL-MODE
+;; See emacs-wiki
+(define-key evil-normal-state-map "\C-y" 'yank)
+(define-key evil-insert-state-map "\C-y" 'yank)
+(define-key evil-visual-state-map "\C-y" 'yank)
+(define-key evil-insert-state-map "\C-e" 'end-of-line)
+(define-key evil-normal-state-map "\C-w" 'evil-delete)
+(define-key evil-insert-state-map "\C-w" 'evil-delete)
+(define-key evil-insert-state-map "\C-r" 'search-backward)
+(define-key evil-visual-state-map "\C-w" 'evil-delete)
+(setq evil-want-fine-undo t)
 ;;;;;;;; EDITING KEYBINDINGS
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
