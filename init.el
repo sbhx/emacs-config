@@ -53,7 +53,9 @@
                                   ;;??? org-latex
                                   ;; file management
                                   openwith 
-                                  dired+ ;;???dired-external-apps ;;??? dired-x
+                                  dired+ ;;???dired-external-apps
+                                  ;;;;??? dired-x
+                                  dired-details+
                                   ;; emacs navigation and command-management
                                   guru-mode
                                   ;;??? uniquify
@@ -87,6 +89,7 @@
 
 ;;;;;;;; EVIL-MODE
 ;; See emacs-wiki
+(require 'evil)
 (define-key evil-normal-state-map "\C-y" 'yank)
 (define-key evil-insert-state-map "\C-y" 'yank)
 (define-key evil-visual-state-map "\C-y" 'yank)
@@ -96,7 +99,7 @@
 (define-key evil-insert-state-map "\C-r" 'search-backward)
 (define-key evil-visual-state-map "\C-w" 'evil-delete)
 (setq evil-want-fine-undo t)
-;;;;;;;; EDITING KEYBINDINGS
+;
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
 
