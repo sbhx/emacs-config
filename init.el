@@ -61,6 +61,7 @@
                                   ;;??? uniquify
                                   ;; vim
                                   evil
+                                  evil-paredit
                                   ido-vertical-mode
                                   ;; programming -- general
                                   flycheck
@@ -132,6 +133,9 @@
 ;
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
+
+(add-hook 'paredit-mode-hook 'evil-paredit-mode)
+
 
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
 
