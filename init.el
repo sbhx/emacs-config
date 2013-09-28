@@ -92,7 +92,13 @@
 ;; See emacs-wiki, http://stackoverflow.com/a/16226006
 
 (require 'evil)
-(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
+(define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
+(define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
+(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
+(define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
+(define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
+((define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'end-of-line)
 (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-normal-state-map "\C-f" 'evil-forward-char)
@@ -130,11 +136,13 @@
 
 
 (setq evil-want-fine-undo t)
-;
+
+(setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
 
-(add-hook 'paredit-mode-hook 'evil-paredit-mode)
+(require 'evil-paredit)
+;;(add-hook 'paredit-mode-hook 'evil-paredit-mode)
 
 
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
