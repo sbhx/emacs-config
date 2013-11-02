@@ -154,6 +154,7 @@
 
 (global-set-key (kbd "<f7>") 'visual-line-mode)
 (global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+(global-set-key (kbd "<f9>") 'hl-line-mode)
 (global-set-key (kbd "<f11>") 'randomize-buffer-background)
 (global-set-key (kbd "<f12>") 'toggle-mode-line)
 
