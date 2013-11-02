@@ -896,6 +896,10 @@
 	    (local-set-key (kbd "M-n") 'w3m-next-buffer)))
 
 
+;;;;;;;; SMART-SCAN
+(load-file "~/.emacs.d/manual-installations/smart-scan/smartscan.el")
+;(require 'smartscan)
+(smartscan-mode)
 
 ;;;;;;;; OTHER
 
