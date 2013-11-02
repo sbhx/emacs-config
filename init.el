@@ -898,9 +898,13 @@
 
 
 ;;;;;;;; SMART-SCAN
-(load-file "~/.emacs.d/manual-installations/smart-scan/smartscan.el")
-;(require 'smartscan)
-(smartscan-mode)
+
+(let ((filename "~/.emacs.d/manual-installations/smart-scan/smartscan.el"))
+  (if (file-exists-p filename)
+      (progn
+        (load-file filename)
+        (require 'smartscan)
+        (global-smartscan-mode))))
 
 ;;;;;;;; OTHER
 
