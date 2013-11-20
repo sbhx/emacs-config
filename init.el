@@ -31,6 +31,8 @@
                                   ;; haskell
                                   haskell-mode
                                   ;; display
+                                  hideshowvis
+                                  rainbow-delimiters
                                   xterm-frobs
                                   color-theme color-theme-library color-theme-sanityinc-solarized
                                   hexrgb
@@ -626,7 +628,7 @@
 ;;
 (defun nrepl-limit-print-length ()
   (interactive)
-  (nrepl-send-string-sync "(do (set! *print-length* 103) (set! *print-level* 15))" "clojure.core"))
+  (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
 (defun nrepl-unlimit-print-length ()
   (interactive)
   (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
@@ -644,10 +646,15 @@
 ;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
 ;; I
 ;; my variation:
+(defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
+  (replace-regexp-in-string
+  "-connection"
+  ""
+  (first nrepl-connection-list)))
 (defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
   (let ((orig-buffer (current-buffer)))
     (progn
-      (switch-to-buffer "*nrepl*")
+      (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
       ;; TODO: How not to assume this specific name?
       ;; nrepl-repl-buffer seems not to work.
       (nrepl-replace-input (concat prefix form suffix))
@@ -670,6 +677,16 @@
    (if mark-active
        (buffer-substring (region-beginning) (region-end))
      (nrepl-last-expression))))
+(defun my-eval-combination0 ()
+  (interactive)
+  (mark-sexp)
+  (my-eval-last-expression-to-repl)
+  (next-line))
+(defun my-eval-combination1 ()
+  (interactive)
+  (mark-sexp 2)
+  (my-eval-def-last-expression-to-repl)
+  (next-line))
 ;; keybindings:
 (add-hook 'clojure-mode-hook
 	  '(lambda()
@@ -677,7 +694,8 @@
              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
-	     ))
+             (local-set-key [(control meta return)] 'my-eval-combination0)
+             (local-set-key [(control meta shift return)] 'my-eval-combination1)))
 
 
 ;; ;; https://github.com/vitalreactor/nrepl-inspect
@@ -715,6 +733,8 @@
   ;(other-window)
   )
 (global-set-key (kbd "C-c n") 'nrepl-me)
+(global-set-key (kbd "C-c k") 'nrepl-clear-buffer) ;; TODO: make this
+;; local to nrepl
 
 
 (defun show-nrepl-and-its-server ()
@@ -913,9 +933,9 @@
 
 ;; ;;;;;;;; XTERM EXTRAS
 
-;; (when (string-match "^xterm" (getenv "TERM"))
-;;   (require 'xterm-extras)
-;;  (xterm-extra-keys))
+(when (string-match "^xterm" (getenv "TERM"))
+  (require 'xterm-extras)
+ (xterm-extra-keys))
 
 
 
