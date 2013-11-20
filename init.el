@@ -34,7 +34,7 @@
                                   hideshowvis
                                   rainbow-delimiters
                                   xterm-frobs
-                                  color-theme color-theme-library color-theme-sanityinc-solarized
+                                  color-theme color-theme-library color-theme-sanityinc-solarized calmer-forest-theme
                                   hexrgb
                                   highline
                                   ;; git
