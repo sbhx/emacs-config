@@ -22,8 +22,9 @@
                                   ;; clojure
                                   clojure-mode
                                   clojure-cheatsheet
-                                  nrepl ac-nrepl
-                                  nrepl-ritz
+                                  ;;nrepl ac-nrepl
+                                  ;;nrepl-ritz
+                                  cider
                                   ;; lisp
                                   slime
                                   ;; java
@@ -610,139 +611,139 @@
 
 ;;;;;;;; CLOJURE
 
-;;(setq nrepl-popup-stacktraces nil)
-;;(add-to-list 'same-window-buffer-names "*nrepl*")
-;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(add-hook 'nrepl-mode-hook 'paredit-mode)
-(add-hook 'nrepl-mode-hook 'auto-complete-mode)
+;; ;;(setq nrepl-popup-stacktraces nil)
+;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
+;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+;; (add-hook 'nrepl-mode-hook 'paredit-mode)
+;; (add-hook 'nrepl-mode-hook 'auto-complete-mode)
 
-(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
-(defun my-nrepl-mode-setup ()
-  (require 'nrepl-ritz))
+;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
+;; (defun my-nrepl-mode-setup ()
+;;   (require 'nrepl-ritz))
 
-;; Limiting output size, combining
-;; https://github.com/clojure-emacs/nrepl.el/issues/30
-;; https://gist.github.com/jonneale/5669318
-;; (What is the difference between nrepl-send-string-sync to
-;; nrepl-interactive-eval ?).
-;;
-(defun nrepl-limit-print-length ()
-  (interactive)
-  (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
-(defun nrepl-unlimit-print-length ()
-  (interactive)
-  (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
-(defun my-nrepl-connected-hook ()
-  (nrepl-limit-print-length))
-(add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
+;; ;; Limiting output size, combining
+;; ;; https://github.com/clojure-emacs/nrepl.el/issues/30
+;; ;; https://gist.github.com/jonneale/5669318
+;; ;; (What is the difference between nrepl-send-string-sync to
+;; ;; nrepl-interactive-eval ?).
+;; ;;
+;; (defun nrepl-limit-print-length ()
+;;   (interactive)
+;;   (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
+;; (defun nrepl-unlimit-print-length ()
+;;   (interactive)
+;;   (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
+;; (defun my-nrepl-connected-hook ()
+;;   (nrepl-limit-print-length))
+;; (add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
 
 
 
-;; Suggestion of:
-;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
-;; commented out:
+;; ;; Suggestion of:
+;; ;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
+;; ;; commented out:
+;; ;; (defun my-interactive-eval-to-repl (form)
+;; ;;   (let ((buffer nrepl-repl-buffer))
+;; ;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
+;; ;; I
+;; ;; my variation:
+;; (defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
+;;   (replace-regexp-in-string
+;;   "-connection"
+;;   ""
+;;   (first nrepl-connection-list)))
+;; (defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
+;;   (let ((orig-buffer (current-buffer)))
+;;     (progn
+;;       (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
+;;       ;; TODO: How not to assume this specific name?
+;;       ;; nrepl-repl-buffer seems not to work.
+;;       (nrepl-replace-input (concat prefix form suffix))
+;;       (nrepl-return)
+;;       (switch-to-buffer orig-buffer))))
 ;; (defun my-interactive-eval-to-repl (form)
-;;   (let ((buffer nrepl-repl-buffer))
-;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
-;; I
-;; my variation:
-(defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
-  (replace-regexp-in-string
-  "-connection"
-  ""
-  (first nrepl-connection-list)))
-(defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
-  (let ((orig-buffer (current-buffer)))
-    (progn
-      (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
-      ;; TODO: How not to assume this specific name?
-      ;; nrepl-repl-buffer seems not to work.
-      (nrepl-replace-input (concat prefix form suffix))
-      (nrepl-return)
-      (switch-to-buffer orig-buffer))))
-(defun my-interactive-eval-to-repl (form)
-  (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
-(defun my-interactive-eval-def-to-repl (form)
-  (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
-;; same as original suggestion from here:
-(defun my-eval-last-expression-to-repl ()
-  (interactive)
-  (my-interactive-eval-to-repl
-   (if mark-active
-	(buffer-substring (region-beginning) (region-end))
-     (nrepl-last-expression))))
-(defun my-eval-def-last-expression-to-repl ()
-  (interactive)
-  (my-interactive-eval-def-to-repl
-   (if mark-active
-       (buffer-substring (region-beginning) (region-end))
-     (nrepl-last-expression))))
-(defun my-eval-combination0 ()
-  (interactive)
-  (mark-sexp)
-  (my-eval-last-expression-to-repl)
-  (next-line))
-(defun my-eval-combination1 ()
-  (interactive)
-  (mark-sexp 2)
-  (my-eval-def-last-expression-to-repl)
-  (next-line))
-;; keybindings:
-(add-hook 'clojure-mode-hook
-	  '(lambda()
-	     ;; (highline-mode)
-             (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
-             (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
-             (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
-             (local-set-key [(control meta return)] 'my-eval-combination0)
-             (local-set-key [(control meta shift return)] 'my-eval-combination1)))
+;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
+;; (defun my-interactive-eval-def-to-repl (form)
+;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
+;; ;; same as original suggestion from here:
+;; (defun my-eval-last-expression-to-repl ()
+;;   (interactive)
+;;   (my-interactive-eval-to-repl
+;;    (if mark-active
+;; 	(buffer-substring (region-beginning) (region-end))
+;;      (nrepl-last-expression))))
+;; (defun my-eval-def-last-expression-to-repl ()
+;;   (interactive)
+;;   (my-interactive-eval-def-to-repl
+;;    (if mark-active
+;;        (buffer-substring (region-beginning) (region-end))
+;;      (nrepl-last-expression))))
+;; (defun my-eval-combination0 ()
+;;   (interactive)
+;;   (mark-sexp)
+;;   (my-eval-last-expression-to-repl)
+;;   (next-line))
+;; (defun my-eval-combination1 ()
+;;   (interactive)
+;;   (mark-sexp 2)
+;;   (my-eval-def-last-expression-to-repl)
+;;   (next-line))
+;; ;; keybindings:
+;; (add-hook 'clojure-mode-hook
+;; 	  '(lambda()
+;; 	     ;; (highline-mode)
+;;              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+;;              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+;;              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
+;;              (local-set-key [(control meta return)] 'my-eval-combination0)
+;;              (local-set-key [(control meta shift return)] 'my-eval-combination1)))
 
 
-;; ;; https://github.com/vitalreactor/nrepl-inspect
-;; (add-to-list 'load-path "/home/we/.emacs.d/manual-installations/nrepl-inspect/")
-;; (require 'nrepl-inspect)
+;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
+;; ;; (add-to-list 'load-path "/home/we/.emacs.d/manual-installations/nrepl-inspect/")
+;; ;; (require 'nrepl-inspect)
 
 
 
-;;;;
-;; http://stackoverflow.com/a/13031547
-;; "kill previous nrepl sessions when nrepl-jack-in called?"
-;;
-;; Disable prompt on killing buffer with a process
-(setq kill-buffer-query-functions
-      (remq 'process-kill-buffer-query-function
-            kill-buffer-query-functions))
-;;
-(defun nrepl-kill ()
-  "Kill all nrepl buffers and processes"
-  (interactive)
-  (when (get-process "nrepl-server")
-    (set-process-sentinel (get-process "nrepl-server")
-                          (lambda (proc evt) t)))
-  (dolist (buffer (buffer-list))
-    (when (string-prefix-p "*nrepl" (buffer-name buffer))
-      (kill-buffer buffer))))
-;;
-(defun nrepl-me ()
-  (interactive)
-  (nrepl-kill)
-  (nrepl-jack-in nil)
-  (split-window)
-  (switch-to-buffer "*nrepl-server*")
-  (end-of-buffer)
-  ;(other-window)
-  )
-(global-set-key (kbd "C-c n") 'nrepl-me)
-(global-set-key (kbd "C-c k") 'nrepl-clear-buffer) ;; TODO: make this
-;; local to nrepl
+;; ;;;;
+;; ;; http://stackoverflow.com/a/13031547
+;; ;; "kill previous nrepl sessions when nrepl-jack-in called?"
+;; ;;
+;; ;; Disable prompt on killing buffer with a process
+;; (setq kill-buffer-query-functions
+;;       (remq 'process-kill-buffer-query-function
+;;             kill-buffer-query-functions))
+;; ;;
+;; (defun nrepl-kill ()
+;;   "Kill all nrepl buffers and processes"
+;;   (interactive)
+;;   (when (get-process "nrepl-server")
+;;     (set-process-sentinel (get-process "nrepl-server")
+;;                           (lambda (proc evt) t)))
+;;   (dolist (buffer (buffer-list))
+;;     (when (string-prefix-p "*nrepl" (buffer-name buffer))
+;;       (kill-buffer buffer))))
+;; ;;
+;; (defun nrepl-me ()
+;;   (interactive)
+;;   (nrepl-kill)
+;;   (nrepl-jack-in nil)
+;;   (split-window)
+;;   (switch-to-buffer "*nrepl-server*")
+;;   (end-of-buffer)
+;;   ;(other-window)
+;;   )
+;; (global-set-key (kbd "C-c n") 'nrepl-me)
+;; (global-set-key (kbd "C-c k") 'nrepl-clear-buffer) ;; TODO: make this
+;; ;; local to nrepl
 
 
-(defun show-nrepl-and-its-server ()
-  (interactive)
-  (switch-to-buffer "*nrepl*")
-  (split-window)
-  (switch-to-buffer "*nrepl-server*")
-  (other-window))
+;; (defun show-nrepl-and-its-server ()
+;;   (interactive)
+;;   (switch-to-buffer "*nrepl*")
+;;   (split-window)
+;;   (switch-to-buffer "*nrepl-server*")
+;;   (other-window))
 
 
 
@@ -933,9 +934,9 @@
 
 ;; ;;;;;;;; XTERM EXTRAS
 
-(when (string-match "^xterm" (getenv "TERM"))
-  (require 'xterm-extras)
- (xterm-extra-keys))
+;; (when (string-match "^xterm" (getenv "TERM"))
+;;   (require 'xterm-extras)
+;;  (xterm-extra-keys))
 
 
 
