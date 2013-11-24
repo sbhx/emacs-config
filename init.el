@@ -35,11 +35,11 @@
                                   hideshowvis
                                   rainbow-delimiters
                                   xterm-frobs
-                                  color-theme color-theme-library color-theme-sanityinc-solarized calmer-forest-theme
+                                  color-theme color-theme-library color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
                                   hexrgb
                                   highline
                                   ;; git
-                                  magit git-gutter magithub gitconfig-mode
+                                  magit git-gutter gitconfig-mode
                                   ;; editing
                                   all
                                   auto-complete
@@ -73,7 +73,8 @@
                                   r-autoyas
                                   ;; other
                                   ;;google-maps
-                                  mediawiki
+                                  mediawiki 
+                                  pandoc-mode
                                   )
   "A list of packages to ensure are installed at launch.")
 
@@ -614,95 +615,97 @@
 ;; ;;(setq nrepl-popup-stacktraces nil)
 ;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
 ;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-;; (add-hook 'nrepl-mode-hook 'paredit-mode)
-;; (add-hook 'nrepl-mode-hook 'auto-complete-mode)
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'auto-complete-mode)
 
 ;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 ;; (defun my-nrepl-mode-setup ()
 ;;   (require 'nrepl-ritz))
 
-;; ;; Limiting output size, combining
-;; ;; https://github.com/clojure-emacs/nrepl.el/issues/30
-;; ;; https://gist.github.com/jonneale/5669318
-;; ;; (What is the difference between nrepl-send-string-sync to
-;; ;; nrepl-interactive-eval ?).
-;; ;;
-;; (defun nrepl-limit-print-length ()
-;;   (interactive)
-;;   (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
-;; (defun nrepl-unlimit-print-length ()
-;;   (interactive)
-;;   (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
-;; (defun my-nrepl-connected-hook ()
-;;   (nrepl-limit-print-length))
-;; (add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
+;; Limiting output size, combining
+;; https://github.com/clojure-emacs/nrepl.el/issues/30
+;; https://gist.github.com/jonneale/5669318
+;; (What is the difference between nrepl-send-string-sync to
+;; nrepl-interactive-eval ?).
+;;
+(defun nrepl-limit-print-length ()
+  (interactive)
+  (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
+(defun nrepl-unlimit-print-length ()
+  (interactive)
+  (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
+(defun my-nrepl-connected-hook ()
+  (nrepl-limit-print-length))
+(add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
 
 
 
-;; ;; Suggestion of:
-;; ;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
-;; ;; commented out:
-;; ;; (defun my-interactive-eval-to-repl (form)
-;; ;;   (let ((buffer nrepl-repl-buffer))
-;; ;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
-;; ;; I
-;; ;; my variation:
-;; (defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
-;;   (replace-regexp-in-string
-;;   "-connection"
-;;   ""
-;;   (first nrepl-connection-list)))
-;; (defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
-;;   (let ((orig-buffer (current-buffer)))
-;;     (progn
-;;       (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
-;;       ;; TODO: How not to assume this specific name?
-;;       ;; nrepl-repl-buffer seems not to work.
-;;       (nrepl-replace-input (concat prefix form suffix))
-;;       (nrepl-return)
-;;       (switch-to-buffer orig-buffer))))
+;; Suggestion of:
+;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
+;; commented out:
 ;; (defun my-interactive-eval-to-repl (form)
-;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
-;; (defun my-interactive-eval-def-to-repl (form)
-;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
-;; ;; same as original suggestion from here:
-;; (defun my-eval-last-expression-to-repl ()
-;;   (interactive)
-;;   (my-interactive-eval-to-repl
-;;    (if mark-active
-;; 	(buffer-substring (region-beginning) (region-end))
-;;      (nrepl-last-expression))))
-;; (defun my-eval-def-last-expression-to-repl ()
-;;   (interactive)
-;;   (my-interactive-eval-def-to-repl
-;;    (if mark-active
-;;        (buffer-substring (region-beginning) (region-end))
-;;      (nrepl-last-expression))))
-;; (defun my-eval-combination0 ()
-;;   (interactive)
-;;   (mark-sexp)
-;;   (my-eval-last-expression-to-repl)
-;;   (next-line))
-;; (defun my-eval-combination1 ()
-;;   (interactive)
-;;   (mark-sexp 2)
-;;   (my-eval-def-last-expression-to-repl)
-;;   (next-line))
-;; ;; keybindings:
-;; (add-hook 'clojure-mode-hook
-;; 	  '(lambda()
-;; 	     ;; (highline-mode)
-;;              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
-;;              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
-;;              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
-;;              (local-set-key [(control meta return)] 'my-eval-combination0)
-;;              (local-set-key [(control meta shift return)] 'my-eval-combination1)))
+;;   (let ((buffer nrepl-repl-buffer))
+;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
+;; I
+;; my variation:
+(defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
+  (replace-regexp-in-string
+   "nrepl"
+   "cider"
+  (replace-regexp-in-string
+   "-connection"
+   ""
+   (first nrepl-connection-list))))
+(defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
+  (let ((orig-buffer (current-buffer)))
+    (progn
+      (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
+      ;; TODO: How not to assume this specific name?
+      ;; nrepl-repl-buffer seems not to work.
+      (cider-repl--replace-input (concat prefix form suffix))
+      (cider-repl-return)
+      (switch-to-buffer orig-buffer))))
+(defun my-interactive-eval-to-repl (form)
+  (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
+(defun my-interactive-eval-def-to-repl (form)
+  (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
+;; same as original suggestion from here:
+(defun my-eval-last-expression-to-repl ()
+  (interactive)
+  (my-interactive-eval-to-repl
+   (if mark-active
+	(buffer-substring (region-beginning) (region-end))
+     (cider-last-expression))))
+(defun my-eval-def-last-expression-to-repl ()
+  (interactive)
+  (my-interactive-eval-def-to-repl
+   (if mark-active
+       (buffer-substring (region-beginning) (region-end))
+     (cider-last-expression))))
+(defun my-eval-combination0 ()
+  (interactive)
+  (mark-sexp)
+  (my-eval-last-expression-to-repl)
+  (next-line))
+(defun my-eval-combination1 ()
+  (interactive)
+  (mark-sexp 2)
+  (my-eval-def-last-expression-to-repl)
+  (next-line))
+;; keybindings:
+(add-hook 'clojure-mode-hook
+	  '(lambda()
+	     ;; (highline-mode)
+             (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+             (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+             (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
+             (local-set-key [(control meta return)] 'my-eval-combination0)
+             (local-set-key [(control meta shift return)] 'my-eval-combination1)))
 
 
 ;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
 ;; ;; (add-to-list 'load-path "/home/we/.emacs.d/manual-installations/nrepl-inspect/")
 ;; ;; (require 'nrepl-inspect)
-
 
 
 ;; ;;;;
@@ -734,7 +737,6 @@
 ;;   ;(other-window)
 ;;   )
 ;; (global-set-key (kbd "C-c n") 'nrepl-me)
-;; (global-set-key (kbd "C-c k") 'nrepl-clear-buffer) ;; TODO: make this
 ;; ;; local to nrepl
 
 
@@ -744,10 +746,6 @@
 ;;   (split-window)
 ;;   (switch-to-buffer "*nrepl-server*")
 ;;   (other-window))
-
-
-
-
 
 ;;;;
 
@@ -956,7 +954,7 @@
  '(ansi-color-names-vector
    (vector "#839496" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#002b36"))
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (sanityinc-solarized-light)))
+ ;'(custom-enabled-themes (quote (sanityinc-solarized-light)))
  '(custom-safe-themes
    (quote
     ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
