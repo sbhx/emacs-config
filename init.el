@@ -10,7 +10,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Add in your own as you wish:
 (defvar my-packages '(
                       ;; starter kit
                       starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
@@ -73,14 +72,17 @@
                                   r-autoyas
                                   ;; other
                                   ;;google-maps
+                                  google-translate
                                   mediawiki 
                                   pandoc-mode
                                   )
   "A list of packages to ensure are installed at launch.")
 
+;; Add in your own as you wish:
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
 
 
 ;;;;;;;; MANUAL INSTALLATION
@@ -573,10 +575,10 @@
 (set-fringe-style '(0 . 0))
 
 (color-theme-initialize)
-(color-theme-jb-simple)
-(color-theme-jedit-grey)
-(require 'calmer-forest-theme)
-
+;; (color-theme-jb-simple)
+;; (color-theme-jedit-grey)
+;; (require 'calmer-forest-theme)
+(color-theme-calm-forest)
 
 ;;;;;;;; MODE-LINE
 
@@ -944,46 +946,59 @@
 ;;;;;;;; GENERATED CODE
 
 
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(ansi-color-faces-vector
+;;    [default bold shadow italic underline bold bold-italic bold])
+;;  '(ansi-color-names-vector
+;;    (vector "#839496" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#002b36"))
+;;  '(blink-cursor-mode nil)
+;;  ;'(custom-enabled-themes (quote (sanityinc-solarized-light)))
+;;  '(custom-safe-themes
+;;    (quote
+;;     ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+;;  '(debug-on-error nil)
+;;  '(debug-on-quit nil)
+;;  '(fci-rule-color "#073642")
+;;  '(menu-bar-mode nil)
+;;  '(save-place t nil (saveplace))
+;;  '(vc-annotate-background nil)
+;;  '(vc-annotate-color-map
+;;    (quote
+;;     ((20 . "#dc322f")
+;;      (40 . "#cb4b16")
+;;      (60 . "#b58900")
+;;      (80 . "#859900")
+;;      (100 . "#2aa198")
+;;      (120 . "#268bd2")
+;;      (140 . "#d33682")
+;;      (160 . "#6c71c4")
+;;      (180 . "#dc322f")
+;;      (200 . "#cb4b16")
+;;      (220 . "#b58900")
+;;      (240 . "#859900")
+;;      (260 . "#2aa198")
+;;      (280 . "#268bd2")
+;;      (300 . "#d33682")
+;;      (320 . "#6c71c4")
+;;      (340 . "#dc322f")
+;;      (360 . "#cb4b16")))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#839496" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#002b36"))
- '(blink-cursor-mode nil)
- ;'(custom-enabled-themes (quote (sanityinc-solarized-light)))
- '(custom-safe-themes
-   (quote
-    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
- '(debug-on-error nil)
- '(debug-on-quit nil)
- '(fci-rule-color "#073642")
- '(menu-bar-mode nil)
- '(save-place t nil (saveplace))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#dc322f")
-     (40 . "#cb4b16")
-     (60 . "#b58900")
-     (80 . "#859900")
-     (100 . "#2aa198")
-     (120 . "#268bd2")
-     (140 . "#d33682")
-     (160 . "#6c71c4")
-     (180 . "#dc322f")
-     (200 . "#cb4b16")
-     (220 . "#b58900")
-     (240 . "#859900")
-     (260 . "#2aa198")
-     (280 . "#268bd2")
-     (300 . "#d33682")
-     (320 . "#6c71c4")
-     (340 . "#dc322f")
-     (360 . "#cb4b16")))))
+ '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+ '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
