@@ -842,6 +842,11 @@
 ;; (require 'bitlbee)
 
 
+;;;;;;;; GOOGLE-TRANSLATE
+
+(require 'google-translate)
+(setq google-translate-enable-ido-completion t)
+
 ;;;;;;;; MEDIAWIKI
 
 (require 'mediawiki)
