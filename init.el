@@ -30,6 +30,11 @@
                                   jtags
                                   ;; haskell
                                   haskell-mode
+                                  ;; web
+                                  multi-web-mode
+                                  skewer-mode
+                                  js2-mode
+                                  simple-httpd
                                   ;; display
                                   hideshowvis
                                   rainbow-delimiters
@@ -234,6 +239,24 @@
   (if (file-exists-p filename)
       (load-file filename)))
 
+;;;;;;;; WEB DEV
+(require 'multi-web-mode)
+(setq mweb-default-major-mode 'html-mode)
+(setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+                  (js-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+                  (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+(multi-web-global-mode 1)
+
+;; (require 'simple-httpd)
+;; (setq httpd-root "/var/www")
+;; (httpd-start)
+;; (require 'skewer-mode)
+;; (add-hook 'js2-mode-hook 'skewer-mode)
+;; (add-hook 'css-mode-hook 'skewer-css-mode)
+;; (add-hook 'html-mode-hook 'skewer-html-mode)
+
+
 ;;;;;;;; GIT-GUTTER
 
 
@@ -252,7 +275,6 @@
 
 ;; Revert current hunk
 (global-set-key (kbd "C-c u r") 'git-gutter:revert-hunk)
-
 
 
 ;;;;;;;; CSV
@@ -853,9 +875,6 @@
 (setq
  mediawiki-site-alist (quote (("Wikipedia" "http://en.wikipedia.org/w/" "username" "password" "Main Page") ("katros" "http://10.170.13.250/wiki/" "danny" "~~~~~~~~" "Main Page"))))
 
-;;;;;;;; EMACS SERVER
-(server-start)
-
 
 ;;;;;;;; WINDOW MANAGEMENT
 (winner-mode)
@@ -920,6 +939,15 @@
 	    ;; (local-unset-key '[right])
 	    (local-set-key (kbd "M-p") 'w3m-previous-buffer)
 	    (local-set-key (kbd "M-n") 'w3m-next-buffer)))
+
+
+(defun add-url-at-point-to-todo ()
+  "Add url at point to /home/we/todo.txt."
+  (interactive)
+  (let ((cmd (concat "echo \"" (thing-at-point 'url) "\" >> /home/we/todo.txt")))
+    (progn (shell-command cmd)
+           (message cmd))))
+(global-set-key (kbd "C-c C-d") 'add-url-at-point-to-todo)
 
 
 ;;;;;;;; SMART-SCAN
@@ -1010,3 +1038,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;;;;;;;; EMACS SERVER
+(server-start)
