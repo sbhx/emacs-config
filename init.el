@@ -36,6 +36,7 @@
                                   skewer-mode
                                   js2-mode
                                   simple-httpd
+                                  impatient-mode
                                   ;; display
                                   hideshowvis
                                   rainbow-delimiters
@@ -57,6 +58,11 @@
                                   tramp
                                   w3m
                                   org
+                                  epresent
+                                  org-present
+                                  org-presie
+                                  ox-html5slide
+                                  org-reveal
                                   ;;??? org-latex
                                   ;; file management
                                   openwith 
@@ -81,6 +87,7 @@
                                   google-translate
                                   mediawiki 
                                   pandoc-mode
+                                  howdoi
                                   )
   "A list of packages to ensure are installed at launch.")
 
@@ -162,6 +169,29 @@
 (global-set-key (kbd "<f6>") 'recover-this-file)
 
 ;;;;;;; DISPLAY MANAGEMENT KEYBINDINGS
+
+(defun set-dark () (interactive)
+  (if window-system
+      (progn (set-background-color "#333333")
+             (set-foreground-color "#cccccc")
+             (set-cursor-color "#99bbdd"))
+    (progn
+      (xterm-set-background-color "#cccccc")
+      (xterm-set-foreground-color "#333333")
+      (xterm-set-cursor-color "#99bbdd"))
+    ))
+(defun set-light () (interactive)
+  (if window-system
+      (progn
+        (set-background-color "#cccccc")
+        (set-foreground-color "#333333")
+        (set-cursor-color "#664422"))
+    (progn (xterm-set-background-color "#333333")
+           (xterm-set-foreground-color "#cccccc")
+           (xterm-set-cursor-color "#664422"))))
+(global-set-key (kbd "<f1>") 'set-dark)
+(global-set-key (kbd "<f2>") 'set-light)
+
 
 (global-set-key (kbd "<f7>") 'visual-line-mode)
 (global-set-key (kbd "<f8>") 'toggle-truncate-lines)
@@ -286,6 +316,8 @@
 
 ;;;;;;;; ORG-MODE (TODO: organize)
 
+(setq org-list-allow-alphabetical t)
+
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
 
@@ -399,6 +431,20 @@
 
 (setq org-export-with-toc nil)
 (setq org-export-author-info nil)
+
+
+(add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
+(autoload 'org-present "org-present" nil t)
+(add-hook 'org-present-mode-hook
+          (lambda ()
+            (org-present-big)
+            (org-display-inline-images)))
+
+(add-hook 'org-present-mode-quit-hook
+          (lambda ()
+            (org-present-small)
+            (org-remove-inline-images)))
+
 
 
 ;;(add-to-list 'load-path "/home/danny/.emacs.d/elpa/cdlatex-4.0/")
@@ -566,7 +612,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1200.0)))))
+                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 500.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
@@ -601,7 +647,7 @@
 ;; (color-theme-jb-simple)
 ;; (color-theme-jedit-grey)
 ;; (require 'calmer-forest-theme)
-(color-theme-calm-forest)
+;; (color-theme-calm-forest)
 
 ;;;;;;;; MODE-LINE
 
@@ -678,7 +724,7 @@
 (defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
   (replace-regexp-in-string
    "nrepl"
-   "cider"
+   "cider-repl"
   (replace-regexp-in-string
    "-connection"
    ""
@@ -978,9 +1024,75 @@
         (require 'smartscan)
         (global-smartscan-mode))))
 
+;;;;;;;; REMEMBER
+
+;; http://lists.gnu.org/archive/html/emacs-orgmode/2007-09/msg00172.html
+;; (defun my-remember nil
+;;   (interactive)
+;;   (progn (select-frame
+;;           (make-frame '((name . "*Remember*") )))
+;;          (raise-frame)
+;;          (remember)))
+;; (setq remember-all-handler-functions t)
+;; (setq remember-handler-functions
+;;       '(org-remember-handler
+;;       (lambda nil
+;;         (let* ((frame-names-alist (make-frame-names-alist))
+;;                (frame (cdr (assoc "*Remember*" frame-names-alist))))
+;;           (if frame
+;;               (delete-frame frame t))))))
+         
+
+;; http://lists.gnu.org/archive/html/emacs-orgmode/2007-09/msg00203.html
+(add-hook 'remember-mode-hook 'delete-other-windows)
+
+(defun remember-finalize-and-delete-frame ()
+  (interactive)
+  (progn
+    (remember-finalize)
+    (delete-frame)))
+
+(add-hook
+ 'remember-mode-hook
+ (lambda ()
+   (local-set-key (kbd "C-c C-d") 'remember-finalize-and-delete-frame)))
+
+(setq remember-data-file "~/.notes.org")
+
+;; ;; http://comments.gmane.org/gmane.emacs.orgmode/17612
+;; (setq sx-notes-file-name "~/.notes.org")
+
+
+;;;;;;;; ORG-CAPTURE
+
+;; http://permalink.gmane.org/gmane.emacs.orgmode/33743
+(defadvice org-capture-finalize (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame if it is the capture frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+      (delete-frame)))
+(defun make-capture-frame ()
+  "Create a new frame and run org-capture."
+  (interactive)
+  (make-frame '((name . "capture")))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (org-capture))
+
+(add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+
 ;;;;;;;; OTHER
 
 (setq ring-bell-function 'ignore)
+
+;; http://www.emacswiki.org/emacs/IncrementNumber    
+(defun increment-number-at-point ()
+  (interactive)
+  (skip-chars-backward "0123456789")
+  (or (looking-at "[0123456789]+")
+      (error "No number at point"))
+  (replace-match (number-to-string (1+ (string-to-number (match-string 0)))))
+  (cider-eval-buffer))
 
 
 
@@ -1049,8 +1161,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
- '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default))))
+ ;; '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+ ;; '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
