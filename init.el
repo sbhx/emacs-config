@@ -21,6 +21,7 @@
                                   ;; clojure
                                   clojure-mode
                                   clojure-cheatsheet
+                                  clj-refactor
                                   ;;nrepl
                                   ac-nrepl
                                   ;;nrepl-ritz
@@ -62,7 +63,7 @@
                                   org-present
                                   org-presie
                                   ox-html5slide
-                                  org-reveal
+                                  ;;org-reveal
                                   ;;??? org-latex
                                   ;; file management
                                   openwith 
@@ -75,7 +76,9 @@
                                   ;; vim
                                   evil
                                   evil-paredit
+                                  lispy
                                   ido-vertical-mode
+                                  key-chord
                                   ;; programming -- general
                                   flycheck
                                   ess
