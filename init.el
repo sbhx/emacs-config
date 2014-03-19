@@ -492,7 +492,7 @@
 
 (add-hook 'dired-mode-hook
                  '(lambda ()
-		    (highline-mode)
+		    ;;(highline-mode)
 		    (bidi)
 		    (bidi-fix-ltr)
 		    (define-key dired-mode-map "c"
