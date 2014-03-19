@@ -208,9 +208,10 @@
     (progn (xterm-set-background-color "#333333")
            (xterm-set-foreground-color "#cccccc")
            (xterm-set-cursor-color "#664422"))))
-(global-set-key (kbd "<f1>") 'set-dark)
-(global-set-key (kbd "<f2>") 'set-light)
+(global-set-key (kbd "<f1>") 'set-light)
+(global-set-key (kbd "<f2>") 'set-dark)
 
+(set-light)
 
 (global-set-key (kbd "<f7>") 'visual-line-mode)
 (global-set-key (kbd "<f8>") 'toggle-truncate-lines)
