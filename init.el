@@ -109,6 +109,15 @@
 
 (global-set-key (kbd "<C-tab>") 'other-window)
 
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(global-set-key (kbd "C-c s")
+                (lambda ()
+                  (interactive)
+                  (shell
+                   (generate-new-buffer
+                    (generate-new-buffer-name "*shell*")))))
+
 ;;;;;;;; EVIL-MODE
 ;; See emacs-wiki, http://stackoverflow.com/a/16226006
 
@@ -161,6 +170,13 @@
 ;; (setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
+(global-set-key (kbd "C-'")
+                (lambda ()
+                  (interactive)
+                  (if lispy-mode
+                      (setq lispy-mode nil)
+                    (progn (setq lispy-mode t)
+                           (paredit-backward-up)))))
 
 ;;(require 'evil-paredit)
 ;;(add-hook 'paredit-mode-hook 'evil-paredit-mode)
