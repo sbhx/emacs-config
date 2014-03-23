@@ -692,7 +692,7 @@
 
 (set-fringe-style '(0 . 0))
 
-(color-theme-initialize)
+;; (color-theme-initialize)
 ;; (color-theme-jb-simple)
 ;; (color-theme-jedit-grey)
 ;; (require 'calmer-forest-theme)
