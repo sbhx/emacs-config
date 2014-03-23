@@ -108,6 +108,7 @@
 ;;;;;;;; NAVIGATION KEYBINDINGS
 
 (global-set-key (kbd "<C-tab>") 'other-window)
+(global-set-key (kbd "M-0") 'other-window)
 
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
@@ -170,7 +171,7 @@
 ;; (setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
-(global-set-key (kbd "C-'")
+(global-set-key (kbd "C-c ;")
                 (lambda ()
                   (interactive)
                   (if lispy-mode
@@ -184,8 +185,8 @@
 
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
 
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f6>") 'recover-this-file)
+(global-set-key (kbd "M-5") 'revert-buffer)
+(global-set-key (kbd "M-6") 'recover-this-file)
 
 ;;;;;;; DISPLAY MANAGEMENT KEYBINDINGS
 
@@ -213,11 +214,39 @@
 
 (set-light)
 
-(global-set-key (kbd "<f7>") 'visual-line-mode)
-(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
-(global-set-key (kbd "<f9>") 'hl-line-mode)
-(global-set-key (kbd "<f11>") 'randomize-buffer-background)
-(global-set-key (kbd "<f12>") 'toggle-mode-line)
+(global-set-key (kbd "M-7") 'visual-line-mode)
+(global-set-key (kbd "M-8") 'toggle-truncate-lines)
+(global-set-key (kbd "M-9") 'hl-line-mode)
+(global-set-key (kbd "C-c M-1") 'randomize-buffer-background)
+(global-set-key (kbd "C-c M-2") 'toggle-mode-line)
+;(global-set-key (kbd "<f7>") 'visual-line-mode)
+;(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+;(global-set-key (kbd "<f9>") 'hl-line-mode)
+;(global-set-key (kbd "<f11>") 'randomize-buffer-background)
+;(global-set-key (kbd "<f12>") 'toggle-mode-line)
+
+;; (global-set-key (kbd "<f1>")
+;;                 (lambda () (interactive)
+;;                   (load-file "/home/danny/.emacs.d/elpa/anti-zenburn-theme-20131119.2333/anti-zenburn-theme.el")))
+;; (global-set-key (kbd "<f2>")
+;;                 (lambda () (interactive)
+;;                   (load-file "/home/danny/.emacs.d/elpa/zenburn-theme-20131123.1547/zenburn-theme.el")))
+
+
+(global-set-key (kbd "M-1")
+                (lambda () (interactive)
+                  (xterm-set-background-color "#333333")
+                  (xterm-set-foreground-color "#cccccc")
+                  (xterm-set-cursor-color "#664422")
+                  ))
+(global-set-key (kbd "M-2")
+                (lambda () (interactive)
+                  (xterm-set-background-color "#cccccc")
+                  (xterm-set-foreground-color "#333333")
+                  (xterm-set-cursor-color "#99bbdd")))
+
+(set-light)
+
 
 ;;;;;;;; EXTERNAL COMMANDS KEYBINDINGS
 (global-set-key (kbd "C-c d") (lambda() (interactive) (message (format-time-string "%c" (current-time)))))
@@ -793,7 +822,9 @@
              (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
              (local-set-key [(control meta return)] 'my-eval-combination0)
-             (local-set-key [(control meta shift return)] 'my-eval-combination1)))
+             (local-set-key [(control meta shift return)] 'my-eval-combination1)
+             (local-set-key (kbd "C-@") 'my-eval-combination0)
+             (local-set-key (kbd "C-q") 'my-eval-combination1)))
 
 
 ;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
@@ -1140,8 +1171,8 @@
   (cider-eval-defun-at-point))
 (global-set-key (kbd "M-[") 'decrement-number-at-point)
 (global-set-key (kbd "M-]") 'increment-number-at-point)
-(global-set-key (kbd "M-9") 'undouble-number-at-point)
-(global-set-key (kbd "M-0") 'double-number-at-point)
+;; (global-set-key (kbd "M-9") 'undouble-number-at-point)
+;; (global-set-key (kbd "M-0") 'double-number-at-point)
 
 ;; TODO: Avoid code duplication by integrating with this version.
 ;; ;; http://www.emacswiki.org/emacs/IncrementNumber
