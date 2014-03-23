@@ -643,6 +643,7 @@
 
 ;;;;;;;; DISPLAY
 
+(display-time-mode)
 
 ;; http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs
 ;; Use a specific font for Hebrew, since some of the mono fots are actually not mono in Hebrew.
