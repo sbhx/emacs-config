@@ -58,6 +58,7 @@
                                   ssh
                                   tramp
                                   w3m
+                                  markdown-mode
                                   org
                                   epresent
                                   org-present
@@ -972,6 +973,23 @@
   )
 (toggle-ess-eval-visibly-p)
 (define-key ess-mode-map (kbd "<C-return>") 'toggle-ess-eval-visibly-p)
+
+(define-key ess-mode-map (kbd "C-c k")
+  (lambda ()
+    (interactive)
+    (ess-send-string
+     (get-process ess-local-process-name)
+     (concat "library(knitr); knit2html(\"" buffer-file-name "\")"))))
+
+;; https://github.com/vitoshka/polymode
+(setq load-path
+      (append '("/home/we/.emacs.d/manual-installations/polymode"  "/home/we/.emacs.d/manual-installations/polymode/modes")
+              load-path))
+(require 'poly-R)
+(require 'poly-markdown)
+
+
+
 
 
 ;; ;;;;;;;; BITLBEE
