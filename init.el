@@ -821,11 +821,11 @@
 	  '(lambda()
 	     ;; (highline-mode)
              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
-             (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+             ;; (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
              (local-set-key [(control meta return)] 'my-eval-combination0)
              (local-set-key [(control meta shift return)] 'my-eval-combination1)
-             (local-set-key (kbd "C-@") 'my-eval-combination0)
+             (local-set-key (kbd "C-z") 'my-eval-combination0)
              (local-set-key (kbd "C-q") 'my-eval-combination1)))
 
 
@@ -1149,6 +1149,8 @@
   (org-capture))
 
 (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+(global-set-key (kbd "C-c c") 'org-capture)
 
 
 ;;;;;;;; OTHER
