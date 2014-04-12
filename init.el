@@ -72,6 +72,7 @@
                                   ;;;;??? dired-x
                                   dired-details+
                                   ;; emacs navigation and command-management
+                                  imenu-anywhere
                                   guru-mode
                                   ;;??? uniquify
                                   ;; vim
