@@ -109,6 +109,8 @@
 
 ;;;;;;;; NAVIGATION KEYBINDINGS
 
+(global-set-key (kbd "C-.") 'imenu-anywhere)
+
 (global-set-key (kbd "<C-tab>") 'other-window)
 (global-set-key (kbd "M-0") 'other-window)
 
