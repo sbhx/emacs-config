@@ -685,14 +685,6 @@
 ;;(add-hook 'buffer-list-changed-hook 'randomize-buffer-background)
 
 
-;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
-(defun toggle-mode-line () "toggles the modeline on and off"
-  (interactive) 
-  (setq mode-line-format
-	(if (equal mode-line-format nil)
-	    (default-value 'mode-line-format)
-	  nil))
-  (redraw-display))
 
 
 (set-fringe-style '(0 . 0))
@@ -705,6 +697,15 @@
 
 ;;;;;;;; MODE-LINE
 
+;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
+(defun toggle-mode-line () "toggles the modeline on and off"
+  (interactive) 
+  (setq mode-line-format
+	(if (equal mode-line-format nil)
+	    (default-value 'mode-line-format)
+	  nil))
+  (redraw-display))
+
 ;; http://rwiki.sciviews.org/doku.php?id=guides:ess-tips
 ; Enable which-func
 (which-func-mode)
@@ -715,6 +716,37 @@
    global-mode-string " (" mode-name minor-mode-alist "%n)"
    (which-func-mode (" " which-func-format ""))))
 
+
+;; https://gist.githubusercontent.com/anonymous/4434524/raw/dce9687dc23a008e082024632e688e3222b9d272/clean-mode-line.el
+
+(defvar mode-line-cleaner-alist
+  `((auto-complete-mode . " α")
+    (git-gutter-mode . " γ")
+    (paredit-mode . " π")
+    (eldoc-mode . " ε")
+    (nrepl-mode . " ν")
+    (nrepl-interaction-mode . " νι")
+    ;; Major modes
+    (clojure-mode . "λ")
+    (emacs-lisp-mode . "el"))
+  "Alist for `clean-mode-line'.
+When you add a new element to the alist, keep in mind that you
+must pass the correct minor/major mode symbol and a string you
+want to use in the modeline *in lieu of* the original.")
+
+(defun clean-mode-line ()
+  (interactive)
+  (loop for cleaner in mode-line-cleaner-alist
+        do (let* ((mode (car cleaner))
+                 (mode-str (cdr cleaner))
+                 (old-mode-str (cdr (assq mode minor-mode-alist))))
+             (when old-mode-str
+                 (setcar old-mode-str mode-str))
+               ;; major mode
+             (when (eq mode major-mode)
+               (setq mode-name mode-str)))))
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
 
 ;;;;;;;; ENSIME
