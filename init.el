@@ -93,7 +93,7 @@
                                   mediawiki 
                                   pandoc-mode
                                   howdoi
-                                  )
+                                  twittering-mode)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
