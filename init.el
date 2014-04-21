@@ -176,7 +176,7 @@
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
 
-(require 'lispy-mode)
+(require 'lispy)
 (global-set-key (kbd "C-c ;")
                 (lambda ()
                   (interactive)
