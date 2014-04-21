@@ -175,6 +175,8 @@
 ;; (setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
+
+(require 'lispy-mode)
 (global-set-key (kbd "C-c ;")
                 (lambda ()
                   (interactive)
