@@ -703,6 +703,20 @@
 ;; (require 'calmer-forest-theme)
 ;; (color-theme-calm-forest)
 
+;;;;;;;; IIMAGE
+(defun refresh-iimages ()
+  "Only way I've found to refresh iimages (without also recentering)"
+  (interactive)
+  (clear-image-cache nil)
+  (iimage-mode nil)
+  (iimage-mode t))
+
+(add-to-list 'compilation-finish-functions 
+             (lambda (buffer msg)
+               (save-excursion
+                 (set-buffer buffer)
+                 (refresh-iimages))))
+
 ;;;;;;;; MODE-LINE
 
 ;; http://rwiki.sciviews.org/doku.php?id=guides:ess-tips
