@@ -116,12 +116,14 @@
 
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
-(global-set-key (kbd "C-c s")
-                (lambda ()
-                  (interactive)
-                  (shell
-                   (generate-new-buffer
-                    (generate-new-buffer-name "*shell*")))))
+
+(defun new-shell ()
+  (interactive)
+  (shell
+   (generate-new-buffer
+    (generate-new-buffer-name "*shell*"))))
+
+(global-set-key (kbd "C-c s") 'new-shell)
 
 ;;;;;;;; EVIL-MODE
 ;; See emacs-wiki, http://stackoverflow.com/a/16226006
