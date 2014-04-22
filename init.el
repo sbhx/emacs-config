@@ -67,7 +67,7 @@
                                   ;;org-reveal
                                   ;;??? org-latex
                                   ;; file management
-                                  openwith 
+                                  ;;openwith 
                                   dired+ ;;???dired-external-apps
                                   ;;;;??? dired-x
                                   dired-details+
@@ -503,7 +503,7 @@
 ;;(add-to-list 'load-path "/home/danny/.emacs.d/elpa/cdlatex-4.0/")
 ;;(require 'cdlatex)
 
-(openwith-mode t)
+;;(openwith-mode t)
 
 (setq dired-dwin-target t)
 
