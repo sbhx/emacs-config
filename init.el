@@ -94,7 +94,8 @@
                                   pandoc-mode
                                   howdoi
                                   gnomenm
-                                  look-mode)
+                                  look-mode
+                                  twittering-mode)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
@@ -178,6 +179,8 @@
 ;; (setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
+
+(require 'lispy)
 (global-set-key (kbd "C-c ;")
                 (lambda ()
                   (interactive)
@@ -669,7 +672,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 500.0)))))
+                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1000.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
@@ -688,14 +691,6 @@
 ;;(add-hook 'buffer-list-changed-hook 'randomize-buffer-background)
 
 
-;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
-(defun toggle-mode-line () "toggles the modeline on and off"
-  (interactive) 
-  (setq mode-line-format
-	(if (equal mode-line-format nil)
-	    (default-value 'mode-line-format)
-	  nil))
-  (redraw-display))
 
 
 (set-fringe-style '(0 . 0))
@@ -722,6 +717,15 @@
 
 ;;;;;;;; MODE-LINE
 
+;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
+(defun toggle-mode-line () "toggles the modeline on and off"
+  (interactive) 
+  (setq mode-line-format
+	(if (equal mode-line-format nil)
+	    (default-value 'mode-line-format)
+	  nil))
+  (redraw-display))
+
 ;; http://rwiki.sciviews.org/doku.php?id=guides:ess-tips
 ; Enable which-func
 (which-func-mode)
@@ -732,6 +736,37 @@
    global-mode-string " (" mode-name minor-mode-alist "%n)"
    (which-func-mode (" " which-func-format ""))))
 
+
+;; https://gist.githubusercontent.com/anonymous/4434524/raw/dce9687dc23a008e082024632e688e3222b9d272/clean-mode-line.el
+
+(defvar mode-line-cleaner-alist
+  `((auto-complete-mode . " α")
+    (git-gutter-mode . " γ")
+    (paredit-mode . " π")
+    (eldoc-mode . " ε")
+    (nrepl-mode . " ν")
+    (nrepl-interaction-mode . " νι")
+    ;; Major modes
+    (clojure-mode . "λ")
+    (emacs-lisp-mode . "el"))
+  "Alist for `clean-mode-line'.
+When you add a new element to the alist, keep in mind that you
+must pass the correct minor/major mode symbol and a string you
+want to use in the modeline *in lieu of* the original.")
+
+(defun clean-mode-line ()
+  (interactive)
+  (loop for cleaner in mode-line-cleaner-alist
+        do (let* ((mode (car cleaner))
+                 (mode-str (cdr cleaner))
+                 (old-mode-str (cdr (assq mode minor-mode-alist))))
+             (when old-mode-str
+                 (setcar old-mode-str mode-str))
+               ;; major mode
+             (when (eq mode major-mode)
+               (setq mode-name mode-str)))))
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
 
 ;;;;;;;; ENSIME
@@ -1298,9 +1333,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
- ;; '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
- )
+ '(blink-cursor-mode nil)
+ '(default-input-method "greek")
+ '(display-time-mode t)
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
