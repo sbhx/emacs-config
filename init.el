@@ -1228,9 +1228,14 @@ want to use in the modeline *in lieu of* the original.")
   (delete-other-windows)
   (org-capture))
 
-(add-hook 'org-capture-mode-hook 'delete-other-windows)
+;; (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+(add-to-list 'org-capture-templates
+             '("f" "Features" entry (file+headline "~/org/features.org" "Features")
+               "* %?\n  %i\n  %a"))
 
 (global-set-key (kbd "C-c c") 'org-capture)
+
 
 
 ;;;;;;;; OTHER
