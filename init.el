@@ -1048,6 +1048,19 @@ want to use in the modeline *in lieu of* the original.")
      (get-process ess-local-process-name)
      (concat "library(knitr); knit2html(\"" buffer-file-name "\")"))))
 
+;; ;; http://stackoverflow.com/questions/22337038/emacs-using-mmm-mode-to-combine-markdown-mode-and-ess-for-editing-rmarkdown-fil
+;; (require 'mmm-mode)   ;;; possibly init with (require 'mmm-auto) instead
+;; (mmm-add-classes
+;;  '((rmarkdown
+;;     :submode r-mode
+;;     :face mmm-declaration-submode-face
+;;     :front "^```[{]r.*[}] *$"   
+;;     :back "^``` *$")))
+;; (setq mmm-global-mode 'maybe)
+;; (mmm-add-mode-ext-class 'markdown-mode "\\.Rmd\\'" 'rmarkdown)
+
+ 
+
 ;; https://github.com/vitoshka/polymode
 (setq load-path
       (append '("/home/we/.emacs.d/manual-installations/polymode"  "/home/we/.emacs.d/manual-installations/polymode/modes")
