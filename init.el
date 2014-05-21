@@ -108,7 +108,9 @@
 ;;;;;;;; MANUAL INSTALLATION
 
 (add-to-list 'load-path "~/.emacs.d/manual-installations/")
-
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred") 
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-epc") 
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/webkit")
 ;;;;;;;; NAVIGATION KEYBINDINGS
 
 (global-set-key (kbd "C-.") 'imenu-anywhere)
@@ -672,7 +674,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1000.0)))))
+                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 2000.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
@@ -1048,27 +1050,8 @@ want to use in the modeline *in lieu of* the original.")
      (get-process ess-local-process-name)
      (concat "library(knitr); knit2html(\"" buffer-file-name "\")"))))
 
-;; ;; http://stackoverflow.com/questions/22337038/emacs-using-mmm-mode-to-combine-markdown-mode-and-ess-for-editing-rmarkdown-fil
-;; (require 'mmm-mode)   ;;; possibly init with (require 'mmm-auto) instead
-;; (mmm-add-classes
-;;  '((rmarkdown
-;;     :submode r-mode
-;;     :face mmm-declaration-submode-face
-;;     :front "^```[{]r.*[}] *$"   
-;;     :back "^``` *$")))
-;; (setq mmm-global-mode 'maybe)
-;; (mmm-add-mode-ext-class 'markdown-mode "\\.Rmd\\'" 'rmarkdown)
 
- 
-
-;; https://github.com/vitoshka/polymode
-(setq load-path
-      (append '("/home/we/.emacs.d/manual-installations/polymode"  "/home/we/.emacs.d/manual-installations/polymode/modes")
-              load-path))
-(require 'poly-R)
-(require 'poly-markdown)
-
-
+(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . R-mode))
 
 
 
@@ -1236,6 +1219,14 @@ want to use in the modeline *in lieu of* the original.")
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;;;;;;;; QUICK REPL
+
+(defun quick-repl ()
+  (interactive)
+  (shell
+   (generate-new-buffer
+    (generate-new-buffer-name "*shell*")))
+  (insert "quick repl\n"))
 
 
 ;;;;;;;; OTHER
@@ -1358,17 +1349,68 @@ want to use in the modeline *in lieu of* the original.")
 ;;  ;; Your init file should contain only one such instance.
 ;;  ;; If there is more than one, they won't work right.
 ;;  )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(ansi-color-faces-vector
+;;    [default bold shadow italic underline bold bold-italic bold])
+;;  '(ansi-color-names-vector
+;;    (vector "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#fdf6e3"))
+;;  '(blink-cursor-mode nil)
+;;  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+;;  '(custom-safe-themes
+;;    (quote
+;;     ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
+;;  '(default-input-method "greek")
+;;  '(display-time-mode t)
+;;  '(fci-rule-color "#eee8d5")
+;;  '(menu-bar-mode nil)
+;;  '(show-paren-mode t)
+;;  '(tool-bar-mode nil)
+;;  '(vc-annotate-background nil)
+;;  '(vc-annotate-color-map
+;;    (quote
+;;     ((20 . "#dc322f")
+;;      (40 . "#cb4b16")
+;;      (60 . "#b58900")
+;;      (80 . "#859900")
+;;      (100 . "#2aa198")
+;;      (120 . "#268bd2")
+;;      (140 . "#d33682")
+;;      (160 . "#6c71c4")
+;;      (180 . "#dc322f")
+;;      (200 . "#cb4b16")
+;;      (220 . "#b58900")
+;;      (240 . "#859900")
+;;      (260 . "#2aa198")
+;;      (280 . "#268bd2")
+;;      (300 . "#d33682")
+;;      (320 . "#6c71c4")
+;;      (340 . "#dc322f")
+;;      (360 . "#cb4b16"))))
+;;  '(vc-annotate-very-old-color nil)
+ ;; )
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
+
+
+;;;;;;;; EMACS SERVER
+(server-start)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(default-input-method "greek")
- '(display-time-mode t)
- '(menu-bar-mode nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(custom-enabled-themes (quote (sanityinc-solarized-light)))
+ '(custom-safe-themes
+   (quote
+    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -1376,6 +1418,3 @@ want to use in the modeline *in lieu of* the original.")
  ;; If there is more than one, they won't work right.
  )
 
-
-;;;;;;;; EMACS SERVER
-(server-start)
