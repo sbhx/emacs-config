@@ -132,7 +132,7 @@
 ;;;;;;;; EVIL-MODE
 ;; See emacs-wiki, http://stackoverflow.com/a/16226006
 
-;; (require 'evil)
+(require 'evil)
 ;; (define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
 ;; (define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
 ;; (define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
@@ -170,15 +170,15 @@
 ;; (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
 ;; (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 
-;; (defun evil-undefine ()
-;;  (interactive)
-;;  (let (evil-mode-map-alist)
-;;    (call-interactively (key-binding (this-command-keys)))))
+(defun evil-undefine ()
+ (interactive)
+ (let (evil-mode-map-alist)
+   (call-interactively (key-binding (this-command-keys)))))
 
 
-;; (setq evil-want-fine-undo t)
+(setq evil-want-fine-undo t)
 
-;; (setq evil-default-cursor t)
+(setq evil-default-cursor t)
 
 (global-set-key (kbd "C-c i") 'iedit-mode)
 
@@ -191,9 +191,10 @@
                     (progn (setq lispy-mode t)
                            (paredit-backward-up)))))
 
-;;(require 'evil-paredit)
-;;(add-hook 'paredit-mode-hook 'evil-paredit-mode)
+(require 'evil-paredit)
+(add-hook 'paredit-mode-hook 'evil-paredit-mode)
 
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
 
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
 
@@ -674,7 +675,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 2000.0)))))
+                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1000.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
@@ -1214,6 +1215,8 @@ want to use in the modeline *in lieu of* the original.")
 ;; (add-hook 'org-capture-mode-hook 'delete-other-windows)
 
 (add-to-list 'org-capture-templates
+             '("m" "Madlan" entry (file+headline "~/org/madlan.org" "Madlan")
+               "* %?\n  %i\n  %a")
              '("f" "Features" entry (file+headline "~/org/features.org" "Features")
                "* %?\n  %i\n  %a"))
 
@@ -1407,10 +1410,37 @@ want to use in the modeline *in lieu of* the original.")
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-solarized-light)))
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   (vector "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#fdf6e3"))
+ '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))))
+    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
+ '(fci-rule-color "#eee8d5")
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#dc322f")
+     (40 . "#cb4b16")
+     (60 . "#b58900")
+     (80 . "#859900")
+     (100 . "#2aa198")
+     (120 . "#268bd2")
+     (140 . "#d33682")
+     (160 . "#6c71c4")
+     (180 . "#dc322f")
+     (200 . "#cb4b16")
+     (220 . "#b58900")
+     (240 . "#859900")
+     (260 . "#2aa198")
+     (280 . "#268bd2")
+     (300 . "#d33682")
+     (320 . "#6c71c4")
+     (340 . "#dc322f")
+     (360 . "#cb4b16"))))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
