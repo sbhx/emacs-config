@@ -194,7 +194,26 @@
 (require 'evil-paredit)
 (add-hook 'paredit-mode-hook 'evil-paredit-mode)
 
-(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)
+
+(define-key evil-normal-state-map (kbd "a") 'ace-jump-char-mode)
+(define-key evil-normal-state-map (kbd "SPC") 'evil-emacs-state)
+(define-key evil-emacs-state-map (kbd "C-[") 'evil-exit-emacs-state)
+
+;; https://github.com/antono/emacs.d/blob/master/local/my-evil.el
+(setq evil-emacs-state-cursor '("red" box))
+(setq evil-normal-state-cursor '("blue" box))
+(setq evil-visual-state-cursor '("blue" box))
+(setq evil-insert-state-cursor '("blue" bar))
+(setq evil-motion-state-cursor '("blue" box))
+ 
+;; from emacswiki
+(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
+(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
+(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
+(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
+(key-chord-mode 1)
+
 
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
 
