@@ -1322,7 +1322,7 @@ want to use in the modeline *in lieu of* the original.")
 
 
 
-
+(setenv "R_HOME" "/usr/local/lib/R")
 
 
 ;;;;;;;; GENERATED CODE
