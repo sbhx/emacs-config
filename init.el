@@ -80,7 +80,7 @@
                                   evil-paredit
                                   lispy
                                   ido-vertical-mode
-                                  key-chord
+                                  ;;key-chord
                                   ;; programming -- general
                                   flycheck
                                   ess
@@ -208,12 +208,12 @@
 (setq evil-motion-state-cursor '("blue" box))
 
 ;; from emacswiki
-(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
-(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
-(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
-(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
-(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
-(key-chord-mode 1)
+;;(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
+;;(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
+;;(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+;;(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
+;;(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
+;;(key-chord-mode 1)
 ;;(setq key-chord-two-keys-delay 0.1)
 ;;(setq key-chord-one-key-delay 0.2)
 
@@ -411,7 +411,8 @@
       '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
 	 "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
-	 "* %?\nEntered on %U\n  %i\n  %a")))
+	 "* %?\nEntered on %U\n  %i\n  %a")
+        ))
 
 
 ;;(setq org-default-notes-file (concat org-directory "~/myorg.org"))
@@ -814,7 +815,7 @@ want to use in the modeline *in lieu of* the original.")
 
 ;;;;;;;; CLOJURE
 
-
+(require 'cider)
 
 ;; ;;(setq nrepl-popup-stacktraces nil)
 ;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
@@ -825,6 +826,9 @@ want to use in the modeline *in lieu of* the original.")
 ;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 ;; (defun my-nrepl-mode-setup ()
 ;;   (require 'nrepl-ritz))
+
+;; make cider repl use clojure font lock:
+(setq cider-repl-use-clojure-font-lock t)
 
 ;; Limiting output size, combining
 ;; https://github.com/clojure-emacs/nrepl.el/issues/30
