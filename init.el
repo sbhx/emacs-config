@@ -698,7 +698,7 @@
     ;;(set-face-background face-symbol (color-darken-name "black" (- (random 20))))
     (setq rgb (mapcar 
 	       (function (lambda (x) (let 
-                                    ((y (* 1.1 (+ x (/ (- (random 100) 50) 1000.0)))))
+                                    ((y (* 1 (+ x (/ (- (random 100) 50) 1000.0)))))
                                   (if 
                                       (> y 1) 
                                       1 ;;(- 2 y)
