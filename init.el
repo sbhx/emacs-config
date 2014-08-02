@@ -61,10 +61,10 @@
                                   w3m
                                   markdown-mode
                                   org
-                                  epresent
-                                  org-present
-                                  org-presie
-                                  ox-html5slide
+                                  ;;epresent
+                                  ;; org-present
+                                  ;; org-presie
+                                  ;; ox-html5slide
                                   ;;org-reveal
                                   ;;??? org-latex
                                   ;; file management
@@ -519,17 +519,17 @@
 (setq org-export-author-info nil)
 
 
-(add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
-(autoload 'org-present "org-present" nil t)
-(add-hook 'org-present-mode-hook
-          (lambda ()
-            (org-present-big)
-            (org-display-inline-images)))
+;; (add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
+;; (autoload 'org-present "org-present" nil t)
+;; (add-hook 'org-present-mode-hook
+;;           (lambda ()
+;;             (org-present-big)
+;;             (org-display-inline-images)))
 
-(add-hook 'org-present-mode-quit-hook
-          (lambda ()
-            (org-present-small)
-            (org-remove-inline-images)))
+;; (add-hook 'org-present-mode-quit-hook
+;;           (lambda ()
+;;             (org-present-small)
+;;             (org-remove-inline-images)))
 
 
 
