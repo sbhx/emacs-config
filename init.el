@@ -26,6 +26,7 @@
                                   ac-nrepl
                                   ;;nrepl-ritz
                                   cider
+                                  cider-browse-ns
                                   ;; lisp
                                   slime
                                   ;; java
