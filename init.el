@@ -252,7 +252,15 @@
 (global-set-key (kbd "<f1>") 'set-light)
 (global-set-key (kbd "<f2>") 'set-dark)
 
-(set-light)
+(defun set-default-colors () (interactive)
+  (progn
+    (color-theme-initialize)
+    (color-theme-high-contrast)
+    (color-theme-jsc-light2)
+    (set-light)))
+(global-set-key (kbd "<f5>") 'set-default-colors)
+
+(set-default-colors)
 
 (global-set-key (kbd "M-7") 'visual-line-mode)
 (global-set-key (kbd "M-8") 'toggle-truncate-lines)
@@ -729,11 +737,6 @@
 
 
 (set-fringe-style '(0 . 0))
-
-(color-theme-initialize)
-(color-theme-high-contrast)
-(color-theme-jsc-light2)
-(set-light)
 
 ;; (color-theme-jb-simple)
 ;; (color-theme-jedit-grey)
