@@ -198,7 +198,7 @@
 
 
 (require 'evil-paredit)
-(add-hook 'paredit-mode-hook 'evil-paredit-mode)
+(add-hook 'evil-mode-hook 'evil-paredit-mode)
 
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
 (define-key evil-emacs-state-map (kbd "C-[") 'evil-normal-state)
