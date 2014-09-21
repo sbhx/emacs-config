@@ -730,7 +730,11 @@
 
 (set-fringe-style '(0 . 0))
 
-;; (color-theme-initialize)
+(color-theme-initialize)
+(color-theme-high-contrast)
+(color-theme-jsc-light2)
+(set-light)
+
 ;; (color-theme-jb-simple)
 ;; (color-theme-jedit-grey)
 ;; (require 'calmer-forest-theme)
