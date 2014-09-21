@@ -377,6 +377,10 @@
 ;; (add-hook 'html-mode-hook 'skewer-html-mode)
 
 
+;;;;;;;; SVN
+(require 'vc-svn)
+(require 'dsvn)
+
 ;;;;;;;; GIT-GUTTER
 
 
