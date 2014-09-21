@@ -1093,7 +1093,9 @@ want to use in the modeline *in lieu of* the original.")
 
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . R-mode))
 
-
+;;;;;;;; JULIA
+;; https://github.com/emacs-ess/ESS/wiki/Julia
+(setq inferior-julia-program-name "/path/to/julia/julia")
 
 ;; ;;;;;;;; BITLBEE
 
