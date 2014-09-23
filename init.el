@@ -10,7 +10,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(
+(defvar my-packages '( 
                       ;; starter kit
                       starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
                                   ;; other file types
@@ -100,7 +100,8 @@
                                   howdoi
                                   gnomenm
                                   look-mode
-                                  twittering-mode)
+                                  twittering-mode
+                                  elfeed)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
