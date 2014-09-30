@@ -64,6 +64,7 @@
                                   tramp
                                   w3m
                                   markdown-mode
+                                  adoc-mode
                                   org
                                   ;;epresent
                                   ;; org-present
@@ -830,7 +831,39 @@ want to use in the modeline *in lieu of* the original.")
 ;; (setq ensime-inf-default-cmd-line '("sbt" "console"))
 
 
+;;;;;;;; CLOJURE COOKBOOK
+
+(defun increment-clojure-cookbook ()
+  "When reading the Clojure cookbook, find the next section, and
+close the buffer. If the next section is a sub-directory or in
+the next chapter, open Dired so you can find it manually."
+  (interactive)
+  (let* ((cur (buffer-name))
+	 (split-cur (split-string cur "[-_]"))
+	 (chap (car split-cur))
+	 (rec (car (cdr split-cur)))
+	 (rec-num (string-to-number rec))
+	 (next-rec-num (1+ rec-num))
+	 (next-rec-s (number-to-string next-rec-num))
+	 (next-rec (if (< next-rec-num 10)
+		       (concat "0" next-rec-s)
+		     next-rec-s))
+	 (target (file-name-completion (concat chap "-" next-rec) "")))
+    (progn 
+      (if (equal target nil)
+	  (dired (file-name-directory (buffer-file-name)))
+	(find-file target))
+      (kill-buffer cur))))
+
+(add-hook 'adoc-mode-hook 'cider-mode)
+
 ;;;;;;;; CLOJURE
+
+
+(add-to-list 'load-path "~/.emacs.d/manual-installations/monroe/")
+(require 'monroe)
+(add-hook 'clojure-mode-hook 'clojure-enable-monroe)
+
 
 (require 'cider)
 
@@ -930,16 +963,16 @@ want to use in the modeline *in lieu of* the original.")
   (my-interactive-eval-to-repl "(use '[clojure pprint repl])"))
 ;(cider-repl-add-shortcut "add standard tools" 'cider-repl-add-standard-tools)
 ;; keybindings:
-(add-hook 'clojure-mode-hook
-	  '(lambda()
-	     ;; (highline-mode)
-             (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
-             ;; (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
-             (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
-             (local-set-key [(control meta return)] 'my-eval-combination0)
-             (local-set-key [(control meta shift return)] 'my-eval-combination1)
-             (local-set-key (kbd "C-z") 'my-eval-combination0)
-             (local-set-key (kbd "C-q") 'my-eval-combination1)))
+;; (add-hook 'clojure-mode-hook
+;; 	  '(lambda()
+;; 	     ;; (highline-mode)
+;;              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+;;              ;; (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+;;              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
+;;              (local-set-key [(control meta return)] 'my-eval-combination0)
+;;              (local-set-key [(control meta shift return)] 'my-eval-combination1)
+;;              (local-set-key (kbd "C-z") 'my-eval-combination0)
+;;              (local-set-key (kbd "C-q") 'my-eval-combination1)))
 
 
 ;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
@@ -1349,6 +1382,13 @@ want to use in the modeline *in lieu of* the original.")
 (setenv "R_HOME" "/usr/local/lib/R")
 
 
+;;;;;;;; NOTIFY-SEND
+;; http://emacs-fu.blogspot.co.il/2009/11/showing-pop-ups.html
+(defun notify (msg)
+  (shell-command (concat "notify-send "
+                         msg)))
+
+
 ;;;;;;;; GENERATED CODE
 
 
@@ -1465,6 +1505,7 @@ want to use in the modeline *in lieu of* the original.")
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(elfeed-feeds (quote ("http://www.reddit.com/r/machinelearning/.rss" "http://www.reddit.com/r/julia/.rss" "http://www.reddit.com/r/rprogramming/.rss" "http://www.reddit.com/r/xfce4/.rss" "http://www.reddit.com/r/openbox/.rss" "http://www.reddit.com/r/gnu/.rss" "http://www.reddit.com/r/linux/.rss" "http://www.reddit.com/r/statistics/.rss" "http://www.reddit.com/r/programming/.rss" "http://www.reddit.com/r/clojurescript/.rss" "http://www.reddit.com/r/guile/.rss" "http://planet.haskell.org/rss20.xml" "http://planet.lisp.org/rss20.xml" "http://www.scheme.dk/planet/atom.xml" "http://www.reddit.com/r/scheme/.rss" "http://www.reddit.com/r/haskell/.rss" "http://planet.clojure.in/atom.xml" "http://planet.emacsen.org/atom.xml" "http://www.reddit.com/r/lisp/.rss" "http://www.reddit.com/r/clojure/.rss" "http://www.reddit.com/r/emacs/.rss")))
  '(fci-rule-color "#eee8d5")
+ '(safe-local-variable-values (quote ((Base . 10) (Syntax . ANSI-Common-Lisp) (whitespace-line-column . 80) (lexical-binding . t))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map (quote ((20 . "#dc322f") (40 . "#cb4b16") (60 . "#b58900") (80 . "#859900") (100 . "#2aa198") (120 . "#268bd2") (140 . "#d33682") (160 . "#6c71c4") (180 . "#dc322f") (200 . "#cb4b16") (220 . "#b58900") (240 . "#859900") (260 . "#2aa198") (280 . "#268bd2") (300 . "#d33682") (320 . "#6c71c4") (340 . "#dc322f") (360 . "#cb4b16"))))
  '(vc-annotate-very-old-color nil))
