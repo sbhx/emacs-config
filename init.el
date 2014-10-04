@@ -66,6 +66,7 @@
                                   markdown-mode
                                   adoc-mode
                                   org
+                                  org-trello
                                   ;;epresent
                                   ;; org-present
                                   ;; org-presie
@@ -632,7 +633,8 @@
 
 
 
-
+;;;;;;;; ORG-TRELLO
+(require 'org-trello)
 
 
 ;;;;;;;; BABEL
@@ -861,8 +863,8 @@ the next chapter, open Dired so you can find it manually."
 
 
 (add-to-list 'load-path "~/.emacs.d/manual-installations/monroe/")
-(require 'monroe)
-(add-hook 'clojure-mode-hook 'clojure-enable-monroe)
+;; (require 'monroe)
+;; (add-hook 'clojure-mode-hook 'clojure-enable-monroe)
 
 
 (require 'cider)
@@ -1043,6 +1045,24 @@ the next chapter, open Dired so you can find it manually."
 ;;https://github.com/brentonashworth/one/wiki/Emacs
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
+;; http://martintrojer.github.io/clojure/2014/10/02/clojure-and-emacs-without-cider/
+;; https://github.com/martintrojer/dotfiles/blob/master/.emacs.d/full-init.el
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (define-key clojure-mode-map
+               "\C-c\C-k"
+               '(lambda ()
+                  (interactive)
+                  (let ((current-point (point)))
+                    (goto-char (point-min))
+                    (let ((ns-idx (re-search-forward clojure-namespace-name-regex nil t)))
+                      (when ns-idx
+                        (goto-char ns-idx)
+                        (let ((sym (symbol-at-point)))
+                          (message (format "Loading %s ..." sym))
+                          (lisp-eval-string (format "(require '%s :reload)" sym))
+                          (lisp-eval-string (format "(in-ns '%s)" sym)))))
+                    (goto-char current-point))))))
 
 ;;;;;;;; ESS
 
