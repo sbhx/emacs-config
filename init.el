@@ -747,6 +747,11 @@
 ;; (require 'calmer-forest-theme)
 ;; (color-theme-calm-forest)
 
+;;;;;;;; BACKUP
+;; http://stackoverflow.com/a/151946
+(setq backup-directory-alist `(("." . "~/.saves")))
+
+
 ;;;;;;;; IIMAGE
 (defun refresh-iimages ()
   "Only way I've found to refresh iimages (without also recentering)"
