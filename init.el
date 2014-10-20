@@ -868,8 +868,8 @@ the next chapter, open Dired so you can find it manually."
 
 
 (add-to-list 'load-path "~/.emacs.d/manual-installations/monroe/")
-;; (require 'monroe)
-;; (add-hook 'clojure-mode-hook 'clojure-enable-monroe)
+(require 'monroe)
+(add-hook 'clojure-mode-hook 'clojure-enable-monroe)
 
 
 (require 'cider)
