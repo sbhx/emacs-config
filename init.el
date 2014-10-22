@@ -4,8 +4,12 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+                         ))
 (package-initialize)
+
+;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -20,12 +24,12 @@
                                   scala-mode2
                                   ;; clojure
                                   clojure-mode
+                                  cider
                                   clojure-cheatsheet
                                   clj-refactor
                                   ;;nrepl
                                   ac-nrepl
                                   ;;nrepl-ritz
-                                  cider
                                   ;;cider-nrepl
                                   ;;cider-browse-ns
                                   ;; lisp
