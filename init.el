@@ -316,7 +316,7 @@
 ;;;;;;;; AUTO-COMPLETE
 
 (require 'auto-complete)
-(auto-complete-mode)
+;;(auto-complete-mode)
 
 ;;;;;;;; YASNIPPET
 
@@ -1007,7 +1007,7 @@ the next chapter, open Dired so you can find it manually."
 ;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
 ;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
-(add-hook 'cider-repl-mode-hook 'auto-complete-mode)
+;; (add-hook 'cider-repl-mode-hook 'auto-complete-mode)
 
 ;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 ;; (defun my-nrepl-mode-setup ()
@@ -1160,8 +1160,8 @@ the next chapter, open Dired so you can find it manually."
 (require 'ac-nrepl)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
+;; (eval-after-load "auto-complete"
+;;   '(add-to-list 'ac-modes 'cider-repl-mode))
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
