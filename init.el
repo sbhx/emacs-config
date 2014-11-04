@@ -107,7 +107,8 @@
                                   gnomenm
                                   look-mode
                                   twittering-mode
-                                  elfeed)
+                                  elfeed
+                                  aggressive-indent)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
