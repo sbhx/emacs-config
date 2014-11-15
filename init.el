@@ -49,6 +49,7 @@
                                   rainbow-delimiters
                                   xterm-frobs
                                   color-theme ;;color-theme-library
+                                  moe-theme
                                   ;;color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
                                   hexrgb
                                   highline
