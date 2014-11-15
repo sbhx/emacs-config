@@ -1202,6 +1202,13 @@ the next chapter, open Dired so you can find it manually."
                           (lisp-eval-string (format "(in-ns '%s)" sym)))))
                     (goto-char current-point))))))
 
+;;;;;;;; COMMON LISP
+;; http://www.mohiji.org/2011/01/31/modern-common-lisp-on-linux/
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
+
+
+
 ;;;;;;;; ESS
 
 
