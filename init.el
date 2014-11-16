@@ -111,7 +111,10 @@
                                   look-mode
                                   twittering-mode
                                   elfeed
-                                  aggressive-indent)
+                                  aggressive-indent
+                                  dash dash-at-poing dash-functional
+                                  s
+                                  origami)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
@@ -1553,6 +1556,13 @@ the next chapter, open Dired so you can find it manually."
   (shell-command (concat "notify-send "
                          msg)))
 
+
+;;;;;;;; FOLDING
+(require 'origami)
+
+(define-key origami-mode-map
+ (kbd "<tab>")
+  'origami-toggle-node)
 
 ;;;;;;;; GENERATED CODE
 
