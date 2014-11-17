@@ -112,7 +112,7 @@
                                   twittering-mode
                                   elfeed
                                   aggressive-indent
-                                  dash dash-at-poing dash-functional
+                                  dash dash-at-point dash-functional
                                   s
                                   origami)
   "A list of packages to ensure are installed at launch.")
