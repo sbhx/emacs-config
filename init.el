@@ -114,7 +114,8 @@
                                   aggressive-indent
                                   dash dash-at-point dash-functional
                                   s
-                                  origami)
+                                  origami
+                                  browse-kill-ring+)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
@@ -1565,6 +1566,9 @@ the next chapter, open Dired so you can find it manually."
 (define-key origami-mode-map
  (kbd "<tab>")
   'origami-toggle-node)
+
+;;;;;;;; KILL RING
+(require 'browse-kill-ring)
 
 ;;;;;;;; GENERATED CODE
 
