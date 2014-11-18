@@ -268,8 +268,10 @@
 
 (defun set-default-colors () (interactive)
   (progn
+    (require 'moe-theme)
     (color-theme-initialize)
     (color-theme-high-contrast)
+    ;; (moe-light)
     (color-theme-jsc-light2)
     (set-light)))
 (global-set-key (kbd "<f5>") 'set-default-colors)
