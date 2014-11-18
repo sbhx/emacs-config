@@ -1567,6 +1567,10 @@ the next chapter, open Dired so you can find it manually."
  (kbd "<tab>")
   'origami-toggle-node)
 
+(define-key origami-mode-map
+ (kbd "<backtab>")
+  'origami-toggle-all-nodes)
+
 ;;;;;;;; KILL RING
 (require 'browse-kill-ring)
 
