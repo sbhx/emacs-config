@@ -1025,6 +1025,22 @@ the next chapter, open Dired so you can find it manually."
 
 ;; make cider repl use clojure font lock:
 (setq cider-repl-use-clojure-font-lock t)
+;; (setq cider-repl-use-pretty-printing t)
+
+
+(defun cider-repl-prettify ()
+  (interactive)
+  (progn
+    (beginning-of-buffer)
+    (replace-regexp "\] " "]\n")
+    (replace-regexp "\} " "}\n")
+    (replace-regexp "\, " ",\n")
+    (indent-region (point-min) (point-max))
+    (end-of-buffer)))
+
+(global-set-key (kbd "C-c p") 'cider-repl-prettify)
+
+
 
 ;; Limiting output size, combining
 ;; https://github.com/clojure-emacs/nrepl.el/issues/30
