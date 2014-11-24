@@ -1033,8 +1033,10 @@ the next chapter, open Dired so you can find it manually."
   (progn
     (beginning-of-buffer)
     (replace-regexp "\] " "]\n")
+    (beginning-of-buffer)
     (replace-regexp "\} " "}\n")
-    (replace-regexp "\, " ",\n")
+    (beginning-of-buffer)
+    (replace-regexp ", " ",\n")
     (indent-region (point-min) (point-max))
     (end-of-buffer)))
 
