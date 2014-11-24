@@ -1028,7 +1028,7 @@ the next chapter, open Dired so you can find it manually."
 ;; (setq cider-repl-use-pretty-printing t)
 
 
-(defun cider-repl-prettify ()
+(defun cider-repl-pretify ()
   (interactive)
   (progn
     (beginning-of-buffer)
@@ -1038,7 +1038,7 @@ the next chapter, open Dired so you can find it manually."
     (indent-region (point-min) (point-max))
     (end-of-buffer)))
 
-(global-set-key (kbd "C-c p") 'cider-repl-prettify)
+(global-set-key (kbd "C-c p") 'cider-repl-pretify)
 
 
 
