@@ -1032,7 +1032,9 @@ the next chapter, open Dired so you can find it manually."
   (interactive)
   (progn
     (beginning-of-buffer)
-    (replace-regexp "\] " "]\n")
+    (replace-regexp "\] " "]\n") 
+    (beginning-of-buffer)
+    (replace-regexp "\> #" ">\n#")
     (beginning-of-buffer)
     (replace-regexp "\} " "}\n")
     (beginning-of-buffer)
