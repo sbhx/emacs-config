@@ -1721,3 +1721,6 @@ the next chapter, open Dired so you can find it manually."
  ;; If there is more than one, they won't work right.
  )
 
+(defun m ()
+  (interactive)
+  (find-file "/192.168.10.156:/home/we/enc/projects/mad-lan/clj/m.clj"))
