@@ -115,7 +115,8 @@
                                   dash dash-at-point dash-functional
                                   s
                                   origami
-                                  browse-kill-ring+)
+                                  browse-kill-ring+
+                                  multiple-cursors)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
@@ -237,6 +238,10 @@
 ;;(setq key-chord-two-keys-delay 0.1)
 ;;(setq key-chord-one-key-delay 0.2)
 
+
+;;;;;;; MULTIPLE CURSORS
+
+(global-set-key (kbd "C-c m") 'mc/mark-all-like-this-dwim)
 
 ;;;;;;; NARROW, WIDEN
 
