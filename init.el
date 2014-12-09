@@ -238,6 +238,27 @@
 ;;(setq key-chord-one-key-delay 0.2)
 
 
+;;;;;;; NARROW, WIDEN
+
+;; http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
+(defun narrow-or-widen-dwim (p)
+  "If the buffer is narrowed, it widens. Otherwise, it narrows intelligently.
+Intelligently means: region, subtree, or defun, whichever applies
+first.
+
+With prefix P, don't widen, just narrow even if buffer is already
+narrowed."
+  (interactive "P")
+  (declare (interactive-only))
+  (cond ((and (buffer-narrowed-p) (not p)) (widen))
+        ((region-active-p)
+         (narrow-to-region (region-beginning) (region-end)))
+        ((derived-mode-p 'org-mode) (org-narrow-to-subtree))
+        (t (narrow-to-defun))))
+
+(global-set-key (kbd "C-x n n") 'narrow-or-widen-dwim)
+
+
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
 
 (global-set-key (kbd "M-5") 'revert-buffer)
