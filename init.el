@@ -23,6 +23,7 @@
                                   ;; scala
                                   scala-mode2
                                   ;; clojure
+                                  clojure-quick-repls
                                   clojure-mode
                                   cider
                                   clojure-cheatsheet
