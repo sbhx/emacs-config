@@ -1423,6 +1423,9 @@ the next chapter, open Dired so you can find it manually."
 
 (ido-vertical-mode)
 
+;;;;;;;; EWW
+(setq shr-inhibit-images t)
+
 ;;;;;;;; W3M
 
 (setq w3m-use-cookies t)
