@@ -118,7 +118,8 @@
                                   origami
                                   browse-kill-ring+
                                   multiple-cursors
-                                  ace-link)
+                                  ace-link
+                                  ewmctrl)
   "A list of packages to ensure are installed at launch.")
 
 ;; Add in your own as you wish:
