@@ -142,6 +142,7 @@
 (global-set-key (kbd "<C-tab>") 'other-window)
 (global-set-key (kbd "M-0") 'other-window)
 
+
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 
@@ -1575,6 +1576,60 @@ the next chapter, open Dired so you can find it manually."
    (generate-new-buffer
     (generate-new-buffer-name "*shell*")))
   (insert "quick repl\n"))
+
+
+;;;;;;;; MU4E
+;;https://gist.github.com/areina/3879626
+
+(add-to-list 'load-path "~/installations/mu/mu4e")
+(require 'mu4e)
+
+;; default
+(setq mu4e-maildir (expand-file-name "~/.Mail/daniel@madlan.co.il"))
+
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Trash")
+
+;; ;; don't save message to Sent Messages, GMail/IMAP will take care of this
+;; (setq mu4e-sent-messages-behavior 'delete)
+
+;; setup some handy shortcuts
+(setq mu4e-maildir-shortcuts
+      '(("/INBOX"             . ?i)
+        ("/[Gmail].Sent Mail" . ?s)
+        ("/[Gmail].Trash"     . ?t)))
+
+;; ;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+
+;; something about ourselves
+;; I don't use a signature...
+(setq
+ user-mail-address "daniel.slutsky@gmail.com"
+ user-full-name  "Daniel Slutsky"
+ ;; message-signature
+ ;;  (concat
+ ;;    "Foo X. Bar\n"
+ ;;    "http://www.example.com\n")
+)
+
+;; sending mail -- replace USERNAME with your gmail username
+;; also, make sure the gnutls command line utils are installed
+;; package 'gnutls-bin' in Debian/Ubuntu, 'gnutls' in Archlinux.
+
+(require 'smtpmail)
+
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials
+      '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-auth-credentials
+      (expand-file-name "~/.authinfo.gpg")
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      smtpmail-debug-info t)
 
 
 ;;;;;;;; OTHER
