@@ -1158,7 +1158,7 @@ the next chapter, open Dired so you can find it manually."
 (defun cider-repl-add-standard-tools ()
   (interactive)
   (my-interactive-eval-to-repl "(use '[clojure pprint repl])"))
-;(cider-repl-add-shortcut "add standard tools" 'cider-repl-add-standard-tools)
+;(cider-repl-add-shortcut "add stgmandard tools" 'cider-repl-add-standard-tools)
 ;; keybindings:
 ;; (add-hook 'clojure-mode-hook
 ;; 	  '(lambda()
