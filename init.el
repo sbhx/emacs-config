@@ -130,7 +130,6 @@
 
 
 ;;;;;;;; MANUAL INSTALLATION
-
 (add-to-list 'load-path "~/.emacs.d/manual-installations/")
 (add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred") 
 (add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-epc") 
@@ -1666,6 +1665,16 @@ the next chapter, open Dired so you can find it manually."
 (define-key origami-mode-map
  (kbd "<backtab>")
   'origami-toggle-all-nodes)
+
+;;;;;;;; SUNSHINE
+(let ((path "~/.emacs.d/manual-installations/sunshine.el/"))
+  (if (file-exists-p path)
+      (progn (add-to-list 'load-path path)
+             (require 'sunshine)
+             (setq sunshine-location "Tel Aviv"))))
+
+
+
 
 ;;;;;;;; KILL RING
 (require 'browse-kill-ring)
