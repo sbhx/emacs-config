@@ -1,110 +1,113 @@
-;; Emacs Starter Kit 2
-;; https://github.com/technomancy/emacs-starter-kit
+Content-Type: text/enriched
+Text-Width: 70
 
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-                         ))
-(package-initialize)
+;; <x-color><param>Red3</param>Emacs Starter Kit 2
+</x-color>;; <x-color><param>Red3</param>https://github.com/technomancy/emacs-starter-kit
+</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>package</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>Green4</param>"gnu"</x-color> . <x-color><param>Green4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"marmalade"</x-color> . <x-color><param>Green4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"melpa"</x-color> . <x-color><param>Green4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         ;; <x-color><param>Red3</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+</x-color>                         <x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>package-initialize<x-color><param>grey55</param>)</x-color>
 
-;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+;; <x-color><param>Red3</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not package-archive-contents<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>package-refresh-contents<x-color><param>grey55</param>))</x-color>
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(defvar my-packages '( 
-                      ;; starter kit
-                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
-                                  ;; other file types
-                                  csv-mode
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>Tan4</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
+                      ;; <x-color><param>Red3</param>starter kit
+</x-color>                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
+                                  ;; <x-color><param>Red3</param>other file types
+</x-color>                                  csv-mode
                                   log4j-mode
-                                  ;; scala
-                                  scala-mode2
-                                  ;; clojure
-                                  clojure-quick-repls
+                                  ;; <x-color><param>Red3</param>scala
+</x-color>                                  scala-mode2
+                                  ;; <x-color><param>Red3</param>clojure
+</x-color>                                  clojure-quick-repls
                                   clojure-mode
                                   cider
                                   clojure-cheatsheet
                                   clj-refactor
-                                  ;;nrepl
-                                  ac-nrepl
-                                  ;;nrepl-ritz
-                                  ;;cider-nrepl
-                                  ;;cider-browse-ns
-                                  ;; lisp
-                                  slime
-                                  ;; java
-                                  jtags
-                                  ;; haskell
-                                  haskell-mode
-                                  ;; web
-                                  multi-web-mode
+                                  ;;<x-color><param>Red3</param>nrepl
+</x-color>                                  ac-nrepl
+                                  ;;<x-color><param>Red3</param>nrepl-ritz
+</x-color>                                  ;;<x-color><param>Red3</param>cider-nrepl
+</x-color>                                  ;;<x-color><param>Red3</param>cider-browse-ns
+</x-color>                                  ;; <x-color><param>Red3</param>lisp
+</x-color>                                  slime
+                                  ;; <x-color><param>Red3</param>java
+</x-color>                                  jtags
+                                  ;; <x-color><param>Red3</param>haskell
+</x-color>                                  haskell-mode
+                                  ;; <x-color><param>Red3</param>web
+</x-color>                                  multi-web-mode
                                   skewer-mode
                                   js2-mode
                                   simple-httpd
                                   impatient-mode
-                                  ;; display
-                                  hideshowvis
+                                  ;; <x-color><param>Red3</param>display
+</x-color>                                  hideshowvis
                                   rainbow-delimiters
                                   xterm-frobs
-                                  color-theme ;;color-theme-library
-                                  moe-theme
-                                  ;;color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
-                                  hexrgb
+                                  color-theme ;;<x-color><param>Red3</param>color-theme-library
+</x-color>                                  moe-theme
+                                  ;;<x-color><param>Red3</param>color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
+</x-color>                                  hexrgb
                                   highline
                                   highlight-symbol
                                   auto-highlight-symbol
-                                  ;; git
-                                  magit git-gutter gitconfig-mode
-                                  ;; svn
-                                  dsvn
-                                  ;; editing
-                                  all
+                                  ;; <x-color><param>Red3</param>git
+</x-color>                                  magit git-gutter gitconfig-mode
+                                  ;; <x-color><param>Red3</param>svn
+</x-color>                                  dsvn
+                                  ;; <x-color><param>Red3</param>editing
+</x-color>                                  all
                                   auto-complete
                                   cdlatex
                                   drag-stuff
                                   iedit
                                   yasnippet
-                                  ;; communication
-                                  ssh
+                                  ;; <x-color><param>Red3</param>communication
+</x-color>                                  ssh
                                   tramp
                                   w3m
                                   markdown-mode
                                   adoc-mode
                                   org
                                   org-trello
-                                  ;;epresent
-                                  ;; org-present
-                                  ;; org-presie
-                                  ;; ox-html5slide
-                                  ;;org-reveal
-                                  ;;??? org-latex
-                                  ;; file management
-                                  ;;openwith 
-                                  dired+ ;;???dired-external-apps
-                                  ;;;;??? dired-x
-                                  dired-details+
-                                  ;; emacs navigation and command-management
-                                  imenu-anywhere
+                                  ;;<x-color><param>Red3</param>epresent
+</x-color>                                  ;; <x-color><param>Red3</param>org-present
+</x-color>                                  ;; <x-color><param>Red3</param>org-presie
+</x-color>                                  ;; <x-color><param>Red3</param>ox-html5slide
+</x-color>                                  ;;<x-color><param>Red3</param>org-reveal
+</x-color>                                  ;;<x-color><param>Red3</param>??? org-latex
+</x-color>                                  ;; <x-color><param>Red3</param>file management
+</x-color>                                  ;;<x-color><param>Red3</param>openwith 
+</x-color>                                  dired+ ;;<x-color><param>Red3</param>???dired-external-apps
+</x-color>                                  ;;;;<x-color><param>Red3</param>??? dired-x
+</x-color>                                  dired-details+
+                                  ;; <x-color><param>Red3</param>emacs navigation and command-management
+</x-color>                                  imenu-anywhere
                                   guru-mode
-                                  ;;??? uniquify
-                                  ;; vim
-                                  evil
+                                  ;;<x-color><param>Red3</param>??? uniquify
+</x-color>                                  ;; <x-color><param>Red3</param>vim
+</x-color>                                  evil
                                   evil-paredit
                                   lispy
                                   ido-vertical-mode
-                                  ;;key-chord
-                                  ;; programming -- general
-                                  flycheck
+                                  ;;<x-color><param>Red3</param>key-chord
+</x-color>                                  ;; <x-color><param>Red3</param>programming -- general
+</x-color>                                  flycheck
                                   ess
                                   ess-R-data-view
                                   ess-R-object-popup
                                   r-autoyas
-                                  ;; other
-                                  ;;google-maps
-                                  google-translate
+                                  ;; <x-color><param>Red3</param>other
+</x-color>                                  ;;<x-color><param>Red3</param>google-maps
+</x-color>                                  google-translate
                                   mediawiki 
                                   pandoc-mode
                                   howdoi
@@ -119,171 +122,183 @@
                                   browse-kill-ring+
                                   multiple-cursors
                                   ace-link
-                                  ewmctrl)
-  "A list of packages to ensure are installed at launch.")
+                                  ewmctrl
 
-;; Add in your own as you wish:
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+                                  ;;<x-color><param>Red3</param>expand-region
 
+</x-color>                                  ace-isearch
 
+                                  history
 
-;;;;;;;; MANUAL INSTALLATION
-(add-to-list 'load-path "~/.emacs.d/manual-installations/")
-(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred") 
-(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-epc") 
-(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/webkit")
-;;;;;;;; NAVIGATION KEYBINDINGS
+                                  elmacro<x-color><param>grey55</param>)</x-color>
+  "A list of packages to ensure are installed at launch."<x-color><param>grey55</param>)</x-color>
 
-(global-set-key (kbd "C-.") 'imenu-anywhere)
-
-(global-set-key (kbd "<C-tab>") 'other-window)
-(global-set-key (kbd "M-0") 'other-window)
-
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+;; <x-color><param>Red3</param>Add in your own as you wish:
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>dolist</x-color> <x-color><param>grey55</param>(</x-color>p my-packages<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not <x-color><param>grey55</param>(</x-color>package-installed-p p<x-color><param>grey55</param>))</x-color>
+    <x-color><param>grey55</param>(</x-color>package-install p<x-color><param>grey55</param>)))</x-color>
 
 
-(defun new-shell ()
-  (interactive)
-  (shell
-   (generate-new-buffer
-    (generate-new-buffer-name "*shell*"))))
 
-(global-set-key (kbd "C-c s") 'new-shell)
+;;;;;;;; <x-color><param>Red3</param>MANUAL INSTALLATION
+</x-color>
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/.emacs.d/manual-installations/"</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred"</x-color><x-color><param>grey55</param>)</x-color> 
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-epc"</x-color><x-color><param>grey55</param>)</x-color> 
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/webkit"</x-color><x-color><param>grey55</param>)</x-color>
+;;;;;;;; <x-color><param>Red3</param>NAVIGATION KEYBINDINGS
+</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-."</x-color><x-color><param>grey55</param>)</x-color> 'imenu-anywhere<x-color><param>grey55</param>)</x-color>
 
-;;;;;;;; EVIL-MODE
-;; See emacs-wiki, http://stackoverflow.com/a/16226006
-
-(require 'evil)
-;; (define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
-;; (define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
-;; (define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
-;; (define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
-;; (define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
-;; (define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
-;; (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
-;; (define-key evil-insert-state-map "\C-e" 'end-of-line)
-;; (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
-;; (define-key evil-normal-state-map "\C-f" 'evil-forward-char)
-;; (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-;; (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-;; (define-key evil-normal-state-map "\C-b" 'evil-backward-char)
-;; (define-key evil-insert-state-map "\C-b" 'evil-backward-char)
-;; (define-key evil-visual-state-map "\C-b" 'evil-backward-char)
-;; (define-key evil-normal-state-map "\C-d" 'evil-delete-char)
-;; (define-key evil-insert-state-map "\C-d" 'evil-delete-char)
-;; (define-key evil-visual-state-map "\C-d" 'evil-delete-char)
-;; (define-key evil-normal-state-map "\C-n" 'evil-next-line)
-;; (define-key evil-insert-state-map "\C-n" 'evil-next-line)
-;; (define-key evil-visual-state-map "\C-n" 'evil-next-line)
-;; (define-key evil-normal-state-map "\C-p" 'evil-previous-line)
-;; (define-key evil-insert-state-map "\C-p" 'evil-previous-line)
-;; (define-key evil-visual-state-map "\C-p" 'evil-previous-line)
-;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
-;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
-;; (define-key evil-visual-state-map "\C-w" 'evil-delete)
-;; (define-key evil-normal-state-map "\C-y" 'yank)
-;; (define-key evil-insert-state-map "\C-y" 'yank)
-;; (define-key evil-visual-state-map "\C-y" 'yank)
-;; (define-key evil-normal-state-map "\C-k" 'kill-line)
-;; (define-key evil-insert-state-map "\C-k" 'kill-line)
-;; (define-key evil-visual-state-map "\C-k" 'kill-line)
-;; (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
-;; (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
-;; (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
-
-(defun evil-undefine ()
- (interactive)
- (let (evil-mode-map-alist)
-   (call-interactively (key-binding (this-command-keys)))))
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"<<C-tab>"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-0"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
 
 
-(setq evil-want-fine-undo t)
-
-(setq evil-default-cursor t)
-
-(global-set-key (kbd "C-c i") 'iedit-mode)
-
-(require 'lispy)
-(global-set-key (kbd "C-c ;")
-                (lambda ()
-                  (interactive)
-                  (if lispy-mode
-                      (setq lispy-mode nil)
-                    (progn (setq lispy-mode t)
-                           (paredit-backward-up)))))
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-mode<x-color><param>grey55</param>)</x-color>
 
 
-(require 'evil-paredit)
-(add-hook 'evil-mode-hook 'evil-paredit-mode)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>new-shell</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>shell
+   <x-color><param>grey55</param>(</x-color>generate-new-buffer
+    <x-color><param>grey55</param>(</x-color>generate-new-buffer-name <x-color><param>Green4</param>"*shell*"</x-color><x-color><param>grey55</param>))))</x-color>
 
-(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
-(define-key evil-emacs-state-map (kbd "C-[") 'evil-normal-state)
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c s"</x-color><x-color><param>grey55</param>)</x-color> 'new-shell<x-color><param>grey55</param>)</x-color>
 
-(add-hook 'evil-insert-state-entry-hook 'evil-emacs-state)
+;;;;;;;; <x-color><param>Red3</param>EVIL-MODE
+</x-color>;; <x-color><param>Red3</param>See emacs-wiki, http://stackoverflow.com/a/16226006
+</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>evil</x-color><x-color><param>grey55</param>)</x-color>
+;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-e" 'end-of-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-n" 'evil-next-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-n" 'evil-next-line)
+</x-color>>>>>>>> 36ae93eb49736640209f6d7193b577860e5bae39
+;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-n" 'evil-next-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
+</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 
-;; https://github.com/antono/emacs.d/blob/master/local/my-evil.el
-(setq evil-emacs-state-cursor '("red" box))
-(setq evil-normal-state-cursor '("blue" box))
-(setq evil-visual-state-cursor '("blue" box))
-(setq evil-insert-state-cursor '("blue" bar))
-(setq evil-motion-state-cursor '("blue" box))
-
-;; from emacswiki
-;;(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
-;;(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
-;;(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
-;;(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
-;;(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
-;;(key-chord-mode 1)
-;;(setq key-chord-two-keys-delay 0.1)
-;;(setq key-chord-one-key-delay 0.2)
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>evil-undefine</x-color> <x-color><param>grey55</param>()</x-color>
+ <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+ <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let</x-color> <x-color><param>grey55</param>(</x-color>evil-mode-map-alist<x-color><param>grey55</param>)</x-color>
+   <x-color><param>grey55</param>(</x-color>call-interactively <x-color><param>grey55</param>(</x-color>key-binding <x-color><param>grey55</param>(</x-color>this-command-keys<x-color><param>grey55</param>)))))</x-color>
 
 
-;;;;;;; MULTIPLE CURSORS
+<x-color><param>grey55</param>(</x-color>setq evil-want-fine-undo t<x-color><param>grey55</param>)</x-color>
 
-(global-set-key (kbd "C-c m") 'mc/mark-all-like-this-dwim)
+<x-color><param>grey55</param>(</x-color>setq evil-default-cursor t<x-color><param>grey55</param>)</x-color>
 
-;;;;;;; NARROW, WIDEN
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c i"</x-color><x-color><param>grey55</param>)</x-color> 'iedit-mode<x-color><param>grey55</param>)</x-color>
 
-;; http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
-(defun narrow-or-widen-dwim (p)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>lispy</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c ;"</x-color><x-color><param>grey55</param>)</x-color>
+                <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color>
+                  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> lispy-mode
+                      <x-color><param>grey55</param>(</x-color>setq lispy-mode nil<x-color><param>grey55</param>)</x-color>
+                    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color> <x-color><param>grey55</param>(</x-color>setq lispy-mode t<x-color><param>grey55</param>)</x-color>
+                           <x-color><param>grey55</param>(</x-color>paredit-backward-up<x-color><param>grey55</param>)))))</x-color>
+
+
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>evil-paredit</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>add-hook 'evil-mode-hook 'evil-paredit-mode<x-color><param>grey55</param>)</x-color>
+
+<x-color><param>grey55</param>(</x-color>define-key evil-normal-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-char-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>define-key evil-emacs-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-["</x-color><x-color><param>grey55</param>)</x-color> 'evil-normal-state<x-color><param>grey55</param>)</x-color>
+
+<x-color><param>grey55</param>(</x-color>add-hook 'evil-insert-state-entry-hook 'evil-emacs-state<x-color><param>grey55</param>)</x-color>
+
+;; <x-color><param>Red3</param>https://github.com/antono/emacs.d/blob/master/local/my-evil.el
+</x-color><x-color><param>grey55</param>(</x-color>setq evil-emacs-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"red"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-normal-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-visual-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-insert-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> bar<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-motion-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+
+;; <x-color><param>Red3</param>from emacswiki
+</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
+</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
+</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Red3</param>(key-chord-mode 1)
+</x-color>;;<x-color><param>Red3</param>(setq key-chord-two-keys-delay 0.1)
+</x-color>;;<x-color><param>Red3</param>(setq key-chord-one-key-delay 0.2)
+
+</x-color>
+
+;;;;;;; <x-color><param>Red3</param>MULTIPLE CURSORS
+
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c m"</x-color><x-color><param>grey55</param>)</x-color> 'mc/mark-all-like-this-dwim<x-color><param>grey55</param>)</x-color>
+
+;;;;;;; <x-color><param>Red3</param>NARROW, WIDEN
+
+</x-color>;; <x-color><param>Red3</param>http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>narrow-or-widen-dwim</x-color> <x-color><param>grey55</param>(</x-color>p<x-color><param>grey55</param>)</x-color>
   "If the buffer is narrowed, it widens. Otherwise, it narrows intelligently.
 Intelligently means: region, subtree, or defun, whichever applies
 first.
 
 With prefix P, don't widen, just narrow even if buffer is already
 narrowed."
-  (interactive "P")
-  (declare (interactive-only))
-  (cond ((and (buffer-narrowed-p) (not p)) (widen))
-        ((region-active-p)
-         (narrow-to-region (region-beginning) (region-end)))
-        ((derived-mode-p 'org-mode) (org-narrow-to-subtree))
-        (t (narrow-to-defun))))
+  <x-color><param>grey55</param>(</x-color>interactive <x-color><param>Green4</param>"P"</x-color><x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>declare</x-color> <x-color><param>grey55</param>(</x-color>interactive-only<x-color><param>grey55</param>))</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>cond</x-color> <x-color><param>grey55</param>((</x-color>and <x-color><param>grey55</param>(</x-color>buffer-narrowed-p<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>not p<x-color><param>grey55</param>))</x-color> <x-color><param>grey55</param>(</x-color>widen<x-color><param>grey55</param>))</x-color>
+        <x-color><param>grey55</param>((</x-color>region-active-p<x-color><param>grey55</param>)</x-color>
+         <x-color><param>grey55</param>(</x-color>narrow-to-region <x-color><param>grey55</param>(</x-color>region-beginning<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>region-end<x-color><param>grey55</param>)))</x-color>
+        <x-color><param>grey55</param>((</x-color>derived-mode-p 'org-mode<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>org-narrow-to-subtree<x-color><param>grey55</param>))</x-color>
+        <x-color><param>grey55</param>(</x-color>t <x-color><param>grey55</param>(</x-color>narrow-to-defun<x-color><param>grey55</param>))))</x-color>
 
-(global-set-key (kbd "C-x n n") 'narrow-or-widen-dwim)
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-x n n"</x-color><x-color><param>grey55</param>)</x-color> 'narrow-or-widen-dwim<x-color><param>grey55</param>)</x-color>
 
 
-;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
+;;;;;;; <x-color><param>Red3</param>BUFFER MANAGEMENT KEYBINDINGS
 
-(global-set-key (kbd "M-5") 'revert-buffer)
-(global-set-key (kbd "M-6") 'recover-this-file)
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-5"</x-color><x-color><param>grey55</param>)</x-color> 'revert-buffer<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-6"</x-color><x-color><param>grey55</param>)</x-color> 'recover-this-file<x-color><param>grey55</param>)</x-color>
 
-;;;;;;; DISPLAY MANAGEMENT KEYBINDINGS
+;;;;;;; <x-color><param>Red3</param>DISPLAY MANAGEMENT KEYBINDINGS
 
-(defun set-dark () (interactive)
-  (if window-system
-      (progn (set-background-color "#333333")
-             (set-foreground-color "#cccccc")
-             (set-cursor-color "#99bbdd"))
-    (progn
-      (xterm-set-background-color "#cccccc")
-      (xterm-set-foreground-color "#333333")
-      (xterm-set-cursor-color "#99bbdd"))
-    ))
-(defun set-light () (interactive)
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>set-dark</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> window-system
+      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color> <x-color><param>grey55</param>(</x-color>set-background-color <x-color><param>Green4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+             <x-color><param>grey55</param>(</x-color>set-foreground-color <x-color><param>Green4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+             <x-color><param>grey55</param>(</x-color>set-cursor-color <x-color><param>Green4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
+    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>Green4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>Green4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>Green4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
+    <x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>set-light</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
   (if window-system
       (progn
         (set-background-color "#cccccc")
@@ -292,8 +307,8 @@ narrowed."
     (progn (xterm-set-background-color "#333333")
            (xterm-set-foreground-color "#cccccc")
            (xterm-set-cursor-color "#664422"))))
-(global-set-key (kbd "<f1>") 'set-light)
-(global-set-key (kbd "<f2>") 'set-dark)
+(global-set-key (kbd "<<f1>") 'set-light)
+(global-set-key (kbd "<<f2>") 'set-dark)
 
 (defun set-default-colors () (interactive)
   (progn
@@ -303,7 +318,7 @@ narrowed."
     ;; (moe-light)
     (color-theme-jsc-light2)
     (set-light)))
-(global-set-key (kbd "<f5>") 'set-default-colors)
+(global-set-key (kbd "<<f5>") 'set-default-colors)
 
 (set-default-colors)
 
@@ -312,16 +327,16 @@ narrowed."
 (global-set-key (kbd "M-9") 'hl-line-mode)
 (global-set-key (kbd "C-c M-1") 'randomize-buffer-background)
 (global-set-key (kbd "C-c M-2") 'toggle-mode-line)
-;(global-set-key (kbd "<f7>") 'visual-line-mode)
-;(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
-;(global-set-key (kbd "<f9>") 'hl-line-mode)
-;(global-set-key (kbd "<f11>") 'randomize-buffer-background)
-;(global-set-key (kbd "<f12>") 'toggle-mode-line)
+;(global-set-key (kbd "<<f7>") 'visual-line-mode)
+;(global-set-key (kbd "<<f8>") 'toggle-truncate-lines)
+;(global-set-key (kbd "<<f9>") 'hl-line-mode)
+;(global-set-key (kbd "<<f11>") 'randomize-buffer-background)
+;(global-set-key (kbd "<<f12>") 'toggle-mode-line)
 
-;; (global-set-key (kbd "<f1>")
+;; (global-set-key (kbd "<<f1>")
 ;;                 (lambda () (interactive)
 ;;                   (load-file "/home/danny/.emacs.d/elpa/anti-zenburn-theme-20131119.2333/anti-zenburn-theme.el")))
-;; (global-set-key (kbd "<f2>")
+;; (global-set-key (kbd "<<f2>")
 ;;                 (lambda () (interactive)
 ;;                   (load-file "/home/danny/.emacs.d/elpa/zenburn-theme-20131123.1547/zenburn-theme.el")))
 
@@ -415,9 +430,9 @@ narrowed."
 ;;;;;;;; WEB DEV
 (require 'multi-web-mode)
 (setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
-                  (js-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
-                  (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+(setq mweb-tags '((php-mode "<<\\?php\\|<<\\? \\|<<\\?=" "\\?>")
+                  (js-mode "<<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "<</script>")
+                  (css-mode "<<style +type=\"text/css\"[^>]*>" "<</style>")))
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
 
@@ -490,7 +505,7 @@ narrowed."
    ;; (buffer-face-mode t)
    ;; (buffer-face-set 'org-base-face)
    (bidi)
-   (local-set-key (kbd "<C-tab>") 'other-window)  ; Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
+   (local-set-key (kbd "<<C-tab>") 'other-window)  ; Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
    (bidi-unfix)
    )
  )
@@ -689,7 +704,7 @@ narrowed."
     (save-excursion
       (narrow-to-region (car symbol-pos) (cdr symbol-pos))
       (setq cstyle (string-match-p "-" (buffer-string))
-            regexp (if cstyle "\\(?:\\-<\\|-\\)\\(\\w\\)" "\\([A-Z]\\)")
+            regexp (if cstyle "\\(?:\\-<<\\|-\\)\\(\\w\\)" "\\([A-Z]\\)")
             func (if cstyle
                      'capitalize
                    (lambda (s)
@@ -797,7 +812,7 @@ narrowed."
                                       (> y 1) 
                                       1 ;;(- 2 y)
                                     (if 
-                                        (< y 0)
+                                        (<< y 0)
                                         0 ;;(- y)
                                       y)))))
 	       (color-name-to-rgb (face-background 'default))))
@@ -1019,7 +1034,7 @@ the next chapter, open Dired so you can find it manually."
 	 (rec-num (string-to-number rec))
 	 (next-rec-num (1+ rec-num))
 	 (next-rec-s (number-to-string next-rec-num))
-	 (next-rec (if (< next-rec-num 10)
+	 (next-rec (if (<< next-rec-num 10)
 		       (concat "0" next-rec-s)
 		     next-rec-s))
 	 (target (file-name-completion (concat chap "-" next-rec) "")))
@@ -1302,24 +1317,24 @@ the next chapter, open Dired so you can find it manually."
     (my-ess-start-R)
     (if (and transient-mark-mode mark-active)
 	(call-interactively 'ess-eval-region)
-      (call-interactively 'ess-eval-line-and-step)))
+      <x-color><param>grey55</param>(</x-color>call-interactively 'ess-eval-line-and-step<x-color><param>grey55</param>)))</x-color>
 
-(add-hook 'ess-mode-hook
-          '(lambda()
-             (local-set-key [(shift return)] 'my-ess-eval)))
+<x-color><param>grey55</param>(</x-color>add-hook 'ess-mode-hook
+          '<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color><x-color><param>grey55</param>()</x-color>
+             <x-color><param>grey55</param>(</x-color>local-set-key [<x-color><param>grey55</param>(</x-color>shift return<x-color><param>grey55</param>)</x-color>] 'my-ess-eval<x-color><param>grey55</param>)))</x-color>
 
-(add-hook 'inferior-ess-mode-hook
-          '(lambda()
-             (local-set-key [C-up] 'comint-previous-input)
-             (local-set-key [C-down] 'comint-next-input)))
+<x-color><param>grey55</param>(</x-color>add-hook 'inferior-ess-mode-hook
+          '<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color><x-color><param>grey55</param>()</x-color>
+             <x-color><param>grey55</param>(</x-color>local-set-key [C-up] 'comint-previous-input<x-color><param>grey55</param>)</x-color>
+             <x-color><param>grey55</param>(</x-color>local-set-key [C-down] 'comint-next-input<x-color><param>grey55</param>)))</x-color>
 
-(require 'ess-site)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>ess-site</x-color><x-color><param>grey55</param>)</x-color>
 
-;; hooks
+;; <x-color><param>Red3</param>hooks
 
-(add-hook 'ess-mode-hook 'r-autoyas-ess-activate)
-(add-hook 'ess-mode-hook 'auto-complete-mode)
-(add-hook 'inferior-ess-mode-hook 'r-autoyas-ess-activate)
+</x-color><x-color><param>grey55</param>(</x-color>add-hook 'ess-mode-hook 'r-autoyas-ess-activate<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>add-hook 'ess-mode-hook 'auto-complete-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>add-hook 'inferior-ess-mode-hook 'r-autoyas-ess-activate<x-color><param>grey55</param>)</x-color>
 (add-hook 'inferior-ess-mode-hook 'auto-complete-mode)
 
 ;; http://stackoverflow.com/questions/3447531/emacs-ess-version-of-clear-console
@@ -1339,7 +1354,7 @@ the next chapter, open Dired so you can find it manually."
   (setq ess-eval-visibly-p (not ess-eval-visibly-p)) ;; With nil ess-eval-visibly-p it is supposed to make things faster according to https://stat.ethz.ch/pipermail/ess-help/2011-March/006736.html .
   )
 (toggle-ess-eval-visibly-p)
-(define-key ess-mode-map (kbd "<C-return>") 'toggle-ess-eval-visibly-p)
+(define-key ess-mode-map (kbd "<<C-return>") 'toggle-ess-eval-visibly-p)
 
 (define-key ess-mode-map (kbd "C-c k")
   (lambda ()
@@ -1414,8 +1429,8 @@ the next chapter, open Dired so you can find it manually."
 ;;       (progn (scroll-down 1)
 ;;              (previous-line 1))
 ;;     (previous-line 1)))
-;; (global-set-key (kbd "<down>") 'next-one-line)
-;; (global-set-key (kbd "<up>") 'previous-one-line)
+;; (global-set-key (kbd "<<down>") 'next-one-line)
+;; (global-set-key (kbd "<<up>") 'previous-one-line)
 (put 'scroll-left 'disabled nil)
 
 
@@ -1576,6 +1591,60 @@ the next chapter, open Dired so you can find it manually."
   (insert "quick repl\n"))
 
 
+;;;;;;;; MU4E
+;;https://gist.github.com/areina/3879626
+
+(add-to-list 'load-path "~/installations/mu/mu4e")
+(require 'mu4e)
+
+;; default
+(setq mu4e-maildir (expand-file-name "~/.Mail/daniel@madlan.co.il"))
+
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Trash")
+
+;; ;; don't save message to Sent Messages, GMail/IMAP will take care of this
+;; (setq mu4e-sent-messages-behavior 'delete)
+
+;; setup some handy shortcuts
+(setq mu4e-maildir-shortcuts
+      '(("/INBOX"             . ?i)
+        ("/[Gmail].Sent Mail" . ?s)
+        ("/[Gmail].Trash"     . ?t)))
+
+;; ;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+
+;; something about ourselves
+;; I don't use a signature...
+(setq
+ user-mail-address "daniel.slutsky@gmail.com"
+ user-full-name  "Daniel Slutsky"
+ ;; message-signature
+ ;;  (concat
+ ;;    "Foo X. Bar\n"
+ ;;    "http://www.example.com\n")
+)
+
+;; sending mail -- replace USERNAME with your gmail username
+;; also, make sure the gnutls command line utils are installed
+;; package 'gnutls-bin' in Debian/Ubuntu, 'gnutls' in Archlinux.
+
+(require 'smtpmail)
+
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials
+      '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-auth-credentials
+      (expand-file-name "~/.authinfo.gpg")
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      smtpmail-debug-info t)
+
+
 ;;;;;;;; OTHER
 
 ;; (setq ring-bell-function 'ignore)
@@ -1659,11 +1728,11 @@ the next chapter, open Dired so you can find it manually."
 (require 'origami)
 
 (define-key origami-mode-map
- (kbd "<tab>")
+ (kbd "<<tab>")
   'origami-toggle-node)
 
 (define-key origami-mode-map
- (kbd "<backtab>")
+ (kbd "<<backtab>")
   'origami-toggle-all-nodes)
 
 ;;;;;;;; SUNSHINE
