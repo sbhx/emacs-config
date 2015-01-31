@@ -1,76 +1,76 @@
 Content-Type: text/enriched
 Text-Width: 70
 
-;; <x-color><param>Red3</param>Emacs Starter Kit 2
-</x-color>;; <x-color><param>Red3</param>https://github.com/technomancy/emacs-starter-kit
+;; <x-color><param>Firebrick</param>Emacs Starter Kit 2
+</x-color>;; <x-color><param>Firebrick</param>https://github.com/technomancy/emacs-starter-kit
 </x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>package</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>Green4</param>"gnu"</x-color> . <x-color><param>Green4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"marmalade"</x-color> . <x-color><param>Green4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"melpa"</x-color> . <x-color><param>Green4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         ;; <x-color><param>Red3</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>package</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>VioletRed4</param>"gnu"</x-color> . <x-color><param>VioletRed4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"marmalade"</x-color> . <x-color><param>VioletRed4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"melpa"</x-color> . <x-color><param>VioletRed4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         ;; <x-color><param>Firebrick</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
 </x-color>                         <x-color><param>grey55</param>))</x-color>
 <x-color><param>grey55</param>(</x-color>package-initialize<x-color><param>grey55</param>)</x-color>
 
-;; <x-color><param>Red3</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+;; <x-color><param>Firebrick</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 </x-color>
 <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not package-archive-contents<x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color>package-refresh-contents<x-color><param>grey55</param>))</x-color>
 
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>Tan4</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
-                      ;; <x-color><param>Red3</param>starter kit
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>sienna</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
+                      ;; <x-color><param>Firebrick</param>starter kit
 </x-color>                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
-                                  ;; <x-color><param>Red3</param>other file types
+                                  ;; <x-color><param>Firebrick</param>other file types
 </x-color>                                  csv-mode
                                   log4j-mode
-                                  ;; <x-color><param>Red3</param>scala
+                                  ;; <x-color><param>Firebrick</param>scala
 </x-color>                                  scala-mode2
-                                  ;; <x-color><param>Red3</param>clojure
+                                  ;; <x-color><param>Firebrick</param>clojure
 </x-color>                                  clojure-quick-repls
                                   clojure-mode
                                   cider
                                   clojure-cheatsheet
                                   clj-refactor
-                                  ;;<x-color><param>Red3</param>nrepl
+                                  ;;<x-color><param>Firebrick</param>nrepl
 </x-color>                                  ac-nrepl
-                                  ;;<x-color><param>Red3</param>nrepl-ritz
-</x-color>                                  ;;<x-color><param>Red3</param>cider-nrepl
-</x-color>                                  ;;<x-color><param>Red3</param>cider-browse-ns
-</x-color>                                  ;; <x-color><param>Red3</param>lisp
+                                  ;;<x-color><param>Firebrick</param>nrepl-ritz
+</x-color>                                  ;;<x-color><param>Firebrick</param>cider-nrepl
+</x-color>                                  ;;<x-color><param>Firebrick</param>cider-browse-ns
+</x-color>                                  ;; <x-color><param>Firebrick</param>lisp
 </x-color>                                  slime
-                                  ;; <x-color><param>Red3</param>java
+                                  ;; <x-color><param>Firebrick</param>java
 </x-color>                                  jtags
-                                  ;; <x-color><param>Red3</param>haskell
+                                  ;; <x-color><param>Firebrick</param>haskell
 </x-color>                                  haskell-mode
-                                  ;; <x-color><param>Red3</param>web
+                                  ;; <x-color><param>Firebrick</param>web
 </x-color>                                  multi-web-mode
                                   skewer-mode
                                   js2-mode
                                   simple-httpd
                                   impatient-mode
-                                  ;; <x-color><param>Red3</param>display
+                                  ;; <x-color><param>Firebrick</param>display
 </x-color>                                  hideshowvis
                                   rainbow-delimiters
                                   xterm-frobs
-                                  color-theme ;;<x-color><param>Red3</param>color-theme-library
+                                  color-theme ;;<x-color><param>Firebrick</param>color-theme-library
 </x-color>                                  moe-theme
-                                  ;;<x-color><param>Red3</param>color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
+                                  ;;<x-color><param>Firebrick</param>color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
 </x-color>                                  hexrgb
                                   highline
                                   highlight-symbol
                                   auto-highlight-symbol
-                                  ;; <x-color><param>Red3</param>git
+                                  ;; <x-color><param>Firebrick</param>git
 </x-color>                                  magit git-gutter gitconfig-mode
-                                  ;; <x-color><param>Red3</param>svn
+                                  ;; <x-color><param>Firebrick</param>svn
 </x-color>                                  dsvn
-                                  ;; <x-color><param>Red3</param>editing
+                                  ;; <x-color><param>Firebrick</param>editing
 </x-color>                                  all
                                   auto-complete
                                   cdlatex
                                   drag-stuff
                                   iedit
                                   yasnippet
-                                  ;; <x-color><param>Red3</param>communication
+                                  ;; <x-color><param>Firebrick</param>communication
 </x-color>                                  ssh
                                   tramp
                                   w3m
@@ -78,35 +78,35 @@ Text-Width: 70
                                   adoc-mode
                                   org
                                   org-trello
-                                  ;;<x-color><param>Red3</param>epresent
-</x-color>                                  ;; <x-color><param>Red3</param>org-present
-</x-color>                                  ;; <x-color><param>Red3</param>org-presie
-</x-color>                                  ;; <x-color><param>Red3</param>ox-html5slide
-</x-color>                                  ;;<x-color><param>Red3</param>org-reveal
-</x-color>                                  ;;<x-color><param>Red3</param>??? org-latex
-</x-color>                                  ;; <x-color><param>Red3</param>file management
-</x-color>                                  ;;<x-color><param>Red3</param>openwith 
-</x-color>                                  dired+ ;;<x-color><param>Red3</param>???dired-external-apps
-</x-color>                                  ;;;;<x-color><param>Red3</param>??? dired-x
+                                  ;;<x-color><param>Firebrick</param>epresent
+</x-color>                                  ;; <x-color><param>Firebrick</param>org-present
+</x-color>                                  ;; <x-color><param>Firebrick</param>org-presie
+</x-color>                                  ;; <x-color><param>Firebrick</param>ox-html5slide
+</x-color>                                  ;;<x-color><param>Firebrick</param>org-reveal
+</x-color>                                  ;;<x-color><param>Firebrick</param>??? org-latex
+</x-color>                                  ;; <x-color><param>Firebrick</param>file management
+</x-color>                                  ;;<x-color><param>Firebrick</param>openwith 
+</x-color>                                  dired+ ;;<x-color><param>Firebrick</param>???dired-external-apps
+</x-color>                                  ;;;;<x-color><param>Firebrick</param>??? dired-x
 </x-color>                                  dired-details+
-                                  ;; <x-color><param>Red3</param>emacs navigation and command-management
+                                  ;; <x-color><param>Firebrick</param>emacs navigation and command-management
 </x-color>                                  imenu-anywhere
                                   guru-mode
-                                  ;;<x-color><param>Red3</param>??? uniquify
-</x-color>                                  ;; <x-color><param>Red3</param>vim
+                                  ;;<x-color><param>Firebrick</param>??? uniquify
+</x-color>                                  ;; <x-color><param>Firebrick</param>vim
 </x-color>                                  evil
                                   evil-paredit
                                   lispy
                                   ido-vertical-mode
-                                  ;;<x-color><param>Red3</param>key-chord
-</x-color>                                  ;; <x-color><param>Red3</param>programming -- general
+                                  ;;<x-color><param>Firebrick</param>key-chord
+</x-color>                                  ;; <x-color><param>Firebrick</param>programming -- general
 </x-color>                                  flycheck
                                   ess
                                   ess-R-data-view
                                   ess-R-object-popup
                                   r-autoyas
-                                  ;; <x-color><param>Red3</param>other
-</x-color>                                  ;;<x-color><param>Red3</param>google-maps
+                                  ;; <x-color><param>Firebrick</param>other
+</x-color>                                  ;;<x-color><param>Firebrick</param>google-maps
 </x-color>                                  google-translate
                                   mediawiki 
                                   pandoc-mode
@@ -124,7 +124,7 @@ Text-Width: 70
                                   ace-link
                                   ewmctrl
 
-                                  ;;<x-color><param>Red3</param>expand-region
+                                  ;;<x-color><param>Firebrick</param>expand-region
 
 </x-color>                                  ace-isearch
 
@@ -133,81 +133,80 @@ Text-Width: 70
                                   elmacro<x-color><param>grey55</param>)</x-color>
   "A list of packages to ensure are installed at launch."<x-color><param>grey55</param>)</x-color>
 
-;; <x-color><param>Red3</param>Add in your own as you wish:
+;; <x-color><param>Firebrick</param>Add in your own as you wish:
 </x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>dolist</x-color> <x-color><param>grey55</param>(</x-color>p my-packages<x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not <x-color><param>grey55</param>(</x-color>package-installed-p p<x-color><param>grey55</param>))</x-color>
     <x-color><param>grey55</param>(</x-color>package-install p<x-color><param>grey55</param>)))</x-color>
 
 
 
-;;;;;;;; <x-color><param>Red3</param>MANUAL INSTALLATION
+;;;;;;;; <x-color><param>Firebrick</param>MANUAL INSTALLATION
 </x-color>
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/.emacs.d/manual-installations/"</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred"</x-color><x-color><param>grey55</param>)</x-color> 
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-epc"</x-color><x-color><param>grey55</param>)</x-color> 
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/deepin-emacs/site-lisp/extensions/webkit"</x-color><x-color><param>grey55</param>)</x-color>
-;;;;;;;; <x-color><param>Red3</param>NAVIGATION KEYBINDINGS
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/.emacs.d/manual-installations/"</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred"</x-color><x-color><param>grey55</param>)</x-color> 
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-epc"</x-color><x-color><param>grey55</param>)</x-color> 
+<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/webkit"</x-color><x-color><param>grey55</param>)</x-color>
+;;;;;;;; <x-color><param>Firebrick</param>NAVIGATION KEYBINDINGS
 </x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-."</x-color><x-color><param>grey55</param>)</x-color> 'imenu-anywhere<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-."</x-color><x-color><param>grey55</param>)</x-color> 'imenu-anywhere<x-color><param>grey55</param>)</x-color>
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"<<C-tab>"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-0"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
-
-
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<C-tab>"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-0"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
 
 
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>new-shell</x-color> <x-color><param>grey55</param>()</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-mode<x-color><param>grey55</param>)</x-color>
+
+
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>new-shell</x-color> <x-color><param>grey55</param>()</x-color>
   <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color>shell
    <x-color><param>grey55</param>(</x-color>generate-new-buffer
-    <x-color><param>grey55</param>(</x-color>generate-new-buffer-name <x-color><param>Green4</param>"*shell*"</x-color><x-color><param>grey55</param>))))</x-color>
+    <x-color><param>grey55</param>(</x-color>generate-new-buffer-name <x-color><param>VioletRed4</param>"*shell*"</x-color><x-color><param>grey55</param>))))</x-color>
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c s"</x-color><x-color><param>grey55</param>)</x-color> 'new-shell<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c s"</x-color><x-color><param>grey55</param>)</x-color> 'new-shell<x-color><param>grey55</param>)</x-color>
 
-;;;;;;;; <x-color><param>Red3</param>EVIL-MODE
-</x-color>;; <x-color><param>Red3</param>See emacs-wiki, http://stackoverflow.com/a/16226006
+;;;;;;;; <x-color><param>Firebrick</param>EVIL-MODE
+</x-color>;; <x-color><param>Firebrick</param>See emacs-wiki, http://stackoverflow.com/a/16226006
 </x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>evil</x-color><x-color><param>grey55</param>)</x-color>
-;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-e" 'end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-n" 'evil-next-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-n" 'evil-next-line)
-</x-color>>>>>>>> 36ae93eb49736640209f6d7193b577860e5bae39
-;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-n" 'evil-next-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-p" 'evil-previous-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-p" 'evil-previous-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-p" 'evil-previous-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-w" 'evil-delete)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-w" 'evil-delete)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-w" 'evil-delete)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-y" 'yank)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-y" 'yank)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-y" 'yank)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-k" 'kill-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-k" 'kill-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-k" 'kill-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>evil</x-color><x-color><param>grey55</param>)</x-color>
+;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-e" 'end-of-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-b" 'evil-backward-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-n" 'evil-next-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-n" 'evil-next-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-n" 'evil-next-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-p" 'evil-previous-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-w" 'evil-delete)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-y" 'yank)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-k" 'kill-line)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
+</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 
-</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>evil-undefine</x-color> <x-color><param>grey55</param>()</x-color>
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>evil-undefine</x-color> <x-color><param>grey55</param>()</x-color>
  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let</x-color> <x-color><param>grey55</param>(</x-color>evil-mode-map-alist<x-color><param>grey55</param>)</x-color>
    <x-color><param>grey55</param>(</x-color>call-interactively <x-color><param>grey55</param>(</x-color>key-binding <x-color><param>grey55</param>(</x-color>this-command-keys<x-color><param>grey55</param>)))))</x-color>
@@ -217,10 +216,10 @@ Text-Width: 70
 
 <x-color><param>grey55</param>(</x-color>setq evil-default-cursor t<x-color><param>grey55</param>)</x-color>
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c i"</x-color><x-color><param>grey55</param>)</x-color> 'iedit-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c i"</x-color><x-color><param>grey55</param>)</x-color> 'iedit-mode<x-color><param>grey55</param>)</x-color>
 
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>lispy</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c ;"</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>lispy</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c ;"</x-color><x-color><param>grey55</param>)</x-color>
                 <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color>
                   <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
                   <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> lispy-mode
@@ -229,48 +228,48 @@ Text-Width: 70
                            <x-color><param>grey55</param>(</x-color>paredit-backward-up<x-color><param>grey55</param>)))))</x-color>
 
 
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>evil-paredit</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>evil-paredit</x-color><x-color><param>grey55</param>)</x-color>
 <x-color><param>grey55</param>(</x-color>add-hook 'evil-mode-hook 'evil-paredit-mode<x-color><param>grey55</param>)</x-color>
 
-<x-color><param>grey55</param>(</x-color>define-key evil-normal-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-char-mode<x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>define-key evil-emacs-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-["</x-color><x-color><param>grey55</param>)</x-color> 'evil-normal-state<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>define-key evil-normal-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-char-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>define-key evil-emacs-state-map <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-["</x-color><x-color><param>grey55</param>)</x-color> 'evil-normal-state<x-color><param>grey55</param>)</x-color>
 
 <x-color><param>grey55</param>(</x-color>add-hook 'evil-insert-state-entry-hook 'evil-emacs-state<x-color><param>grey55</param>)</x-color>
 
-;; <x-color><param>Red3</param>https://github.com/antono/emacs.d/blob/master/local/my-evil.el
-</x-color><x-color><param>grey55</param>(</x-color>setq evil-emacs-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"red"</x-color> box<x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color>setq evil-normal-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color>setq evil-visual-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color>setq evil-insert-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> bar<x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color>setq evil-motion-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+;; <x-color><param>Firebrick</param>https://github.com/antono/emacs.d/blob/master/local/my-evil.el
+</x-color><x-color><param>grey55</param>(</x-color>setq evil-emacs-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"red"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-normal-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-visual-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-insert-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"blue"</x-color> bar<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq evil-motion-state-cursor '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"blue"</x-color> box<x-color><param>grey55</param>))</x-color>
 
-;; <x-color><param>Red3</param>from emacswiki
-</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
-</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
-</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
-</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
-</x-color>;;<x-color><param>Red3</param>(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
-</x-color>;;<x-color><param>Red3</param>(key-chord-mode 1)
-</x-color>;;<x-color><param>Red3</param>(setq key-chord-two-keys-delay 0.1)
-</x-color>;;<x-color><param>Red3</param>(setq key-chord-one-key-delay 0.2)
+;; <x-color><param>Firebrick</param>from emacswiki
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-define evil-emacs-state-map ",," 'evil-normal-state)
+</x-color>;;<x-color><param>Firebrick</param>(key-chord-mode 1)
+</x-color>;;<x-color><param>Firebrick</param>(setq key-chord-two-keys-delay 0.1)
+</x-color>;;<x-color><param>Firebrick</param>(setq key-chord-one-key-delay 0.2)
 
 </x-color>
 
-;;;;;;; <x-color><param>Red3</param>MULTIPLE CURSORS
+;;;;;;; <x-color><param>Firebrick</param>MULTIPLE CURSORS
 
-</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c m"</x-color><x-color><param>grey55</param>)</x-color> 'mc/mark-all-like-this-dwim<x-color><param>grey55</param>)</x-color>
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c m"</x-color><x-color><param>grey55</param>)</x-color> 'mc/mark-all-like-this-dwim<x-color><param>grey55</param>)</x-color>
 
-;;;;;;; <x-color><param>Red3</param>NARROW, WIDEN
+;;;;;;; <x-color><param>Firebrick</param>NARROW, WIDEN
 
-</x-color>;; <x-color><param>Red3</param>http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
-</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>narrow-or-widen-dwim</x-color> <x-color><param>grey55</param>(</x-color>p<x-color><param>grey55</param>)</x-color>
+</x-color>;; <x-color><param>Firebrick</param>http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>narrow-or-widen-dwim</x-color> <x-color><param>grey55</param>(</x-color>p<x-color><param>grey55</param>)</x-color>
   "If the buffer is narrowed, it widens. Otherwise, it narrows intelligently.
 Intelligently means: region, subtree, or defun, whichever applies
 first.
 
 With prefix P, don't widen, just narrow even if buffer is already
 narrowed."
-  <x-color><param>grey55</param>(</x-color>interactive <x-color><param>Green4</param>"P"</x-color><x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive <x-color><param>VioletRed4</param>"P"</x-color><x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>declare</x-color> <x-color><param>grey55</param>(</x-color>interactive-only<x-color><param>grey55</param>))</x-color>
   <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>cond</x-color> <x-color><param>grey55</param>((</x-color>and <x-color><param>grey55</param>(</x-color>buffer-narrowed-p<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>not p<x-color><param>grey55</param>))</x-color> <x-color><param>grey55</param>(</x-color>widen<x-color><param>grey55</param>))</x-color>
         <x-color><param>grey55</param>((</x-color>region-active-p<x-color><param>grey55</param>)</x-color>
@@ -278,427 +277,433 @@ narrowed."
         <x-color><param>grey55</param>((</x-color>derived-mode-p 'org-mode<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>org-narrow-to-subtree<x-color><param>grey55</param>))</x-color>
         <x-color><param>grey55</param>(</x-color>t <x-color><param>grey55</param>(</x-color>narrow-to-defun<x-color><param>grey55</param>))))</x-color>
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-x n n"</x-color><x-color><param>grey55</param>)</x-color> 'narrow-or-widen-dwim<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-x n n"</x-color><x-color><param>grey55</param>)</x-color> 'narrow-or-widen-dwim<x-color><param>grey55</param>)</x-color>
 
 
-;;;;;;; <x-color><param>Red3</param>BUFFER MANAGEMENT KEYBINDINGS
+;;;;;;; <x-color><param>Firebrick</param>BUFFER MANAGEMENT KEYBINDINGS
 
-</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-5"</x-color><x-color><param>grey55</param>)</x-color> 'revert-buffer<x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"M-6"</x-color><x-color><param>grey55</param>)</x-color> 'recover-this-file<x-color><param>grey55</param>)</x-color>
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-5"</x-color><x-color><param>grey55</param>)</x-color> 'revert-buffer<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-6"</x-color><x-color><param>grey55</param>)</x-color> 'recover-this-file<x-color><param>grey55</param>)</x-color>
 
-;;;;;;; <x-color><param>Red3</param>DISPLAY MANAGEMENT KEYBINDINGS
+;;;;;;; <x-color><param>Firebrick</param>DISPLAY MANAGEMENT KEYBINDINGS
 
-</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>set-dark</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>set-dark</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> window-system
-      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color> <x-color><param>grey55</param>(</x-color>set-background-color <x-color><param>Green4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
-             <x-color><param>grey55</param>(</x-color>set-foreground-color <x-color><param>Green4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
-             <x-color><param>grey55</param>(</x-color>set-cursor-color <x-color><param>Green4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
+      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color> <x-color><param>grey55</param>(</x-color>set-background-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+             <x-color><param>grey55</param>(</x-color>set-foreground-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+             <x-color><param>grey55</param>(</x-color>set-cursor-color <x-color><param>VioletRed4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
     <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
-      <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>Green4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
-      <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>Green4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
-      <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>Green4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>VioletRed4</param>"#99bbdd"</x-color><x-color><param>grey55</param>))</x-color>
     <x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue</param>set-light</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
-  (if window-system
-      (progn
-        (set-background-color "#cccccc")
-        (set-foreground-color "#333333")
-        (set-cursor-color "#664422"))
-    (progn (xterm-set-background-color "#333333")
-           (xterm-set-foreground-color "#cccccc")
-           (xterm-set-cursor-color "#664422"))))
-(global-set-key (kbd "<<f1>") 'set-light)
-(global-set-key (kbd "<<f2>") 'set-dark)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>set-light</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> window-system
+      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+        <x-color><param>grey55</param>(</x-color>set-background-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+        <x-color><param>grey55</param>(</x-color>set-foreground-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+        <x-color><param>grey55</param>(</x-color>set-cursor-color <x-color><param>VioletRed4</param>"#664422"</x-color><x-color><param>grey55</param>))</x-color>
+    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color> <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+           <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+           <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>VioletRed4</param>"#664422"</x-color><x-color><param>grey55</param>))))</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<f1>"</x-color><x-color><param>grey55</param>)</x-color> 'set-light<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<f2>"</x-color><x-color><param>grey55</param>)</x-color> 'set-dark<x-color><param>grey55</param>)</x-color>
 
-(defun set-default-colors () (interactive)
-  (progn
-    (require 'moe-theme)
-    (color-theme-initialize)
-    (color-theme-high-contrast)
-    ;; (moe-light)
-    (color-theme-jsc-light2)
-    (set-light)))
-(global-set-key (kbd "<<f5>") 'set-default-colors)
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>set-default-colors</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>moe-theme</x-color><x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>color-theme-initialize<x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>color-theme-high-contrast<x-color><param>grey55</param>)</x-color>
+    ;; <x-color><param>Firebrick</param>(moe-light)
+</x-color>    <x-color><param>grey55</param>(</x-color>color-theme-jsc-light2<x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>set-light<x-color><param>grey55</param>)))</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<f5>"</x-color><x-color><param>grey55</param>)</x-color> 'set-default-colors<x-color><param>grey55</param>)</x-color>
 
-(set-default-colors)
+<x-color><param>grey55</param>(</x-color>set-default-colors<x-color><param>grey55</param>)</x-color>
 
-(global-set-key (kbd "M-7") 'visual-line-mode)
-(global-set-key (kbd "M-8") 'toggle-truncate-lines)
-(global-set-key (kbd "M-9") 'hl-line-mode)
-(global-set-key (kbd "C-c M-1") 'randomize-buffer-background)
-(global-set-key (kbd "C-c M-2") 'toggle-mode-line)
-;(global-set-key (kbd "<<f7>") 'visual-line-mode)
-;(global-set-key (kbd "<<f8>") 'toggle-truncate-lines)
-;(global-set-key (kbd "<<f9>") 'hl-line-mode)
-;(global-set-key (kbd "<<f11>") 'randomize-buffer-background)
-;(global-set-key (kbd "<<f12>") 'toggle-mode-line)
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-7"</x-color><x-color><param>grey55</param>)</x-color> 'visual-line-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-8"</x-color><x-color><param>grey55</param>)</x-color> 'toggle-truncate-lines<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-9"</x-color><x-color><param>grey55</param>)</x-color> 'hl-line-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c M-1"</x-color><x-color><param>grey55</param>)</x-color> 'randomize-buffer-background<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c M-2"</x-color><x-color><param>grey55</param>)</x-color> 'toggle-mode-line<x-color><param>grey55</param>)</x-color>
+;<x-color><param>Firebrick</param>(global-set-key (kbd "<<f7>") 'visual-line-mode)
+</x-color>;<x-color><param>Firebrick</param>(global-set-key (kbd "<<f8>") 'toggle-truncate-lines)
+</x-color>;<x-color><param>Firebrick</param>(global-set-key (kbd "<<f9>") 'hl-line-mode)
+</x-color>;<x-color><param>Firebrick</param>(global-set-key (kbd "<<f11>") 'randomize-buffer-background)
+</x-color>;<x-color><param>Firebrick</param>(global-set-key (kbd "<<f12>") 'toggle-mode-line)
 
-;; (global-set-key (kbd "<<f1>")
-;;                 (lambda () (interactive)
-;;                   (load-file "/home/danny/.emacs.d/elpa/anti-zenburn-theme-20131119.2333/anti-zenburn-theme.el")))
-;; (global-set-key (kbd "<<f2>")
-;;                 (lambda () (interactive)
-;;                   (load-file "/home/danny/.emacs.d/elpa/zenburn-theme-20131123.1547/zenburn-theme.el")))
+</x-color>;; <x-color><param>Firebrick</param>(global-set-key (kbd "<<f1>")
+</x-color>;;                 <x-color><param>Firebrick</param>(lambda () (interactive)
+</x-color>;;                   <x-color><param>Firebrick</param>(load-file "/home/danny/.emacs.d/elpa/anti-zenburn-theme-20131119.2333/anti-zenburn-theme.el")))
+</x-color>;; <x-color><param>Firebrick</param>(global-set-key (kbd "<<f2>")
+</x-color>;;                 <x-color><param>Firebrick</param>(lambda () (interactive)
+</x-color>;;                   <x-color><param>Firebrick</param>(load-file "/home/danny/.emacs.d/elpa/zenburn-theme-20131123.1547/zenburn-theme.el")))
+
+</x-color>
+
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-1"</x-color><x-color><param>grey55</param>)</x-color>
+                <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>VioletRed4</param>"#664422"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-2"</x-color><x-color><param>grey55</param>)</x-color>
+                <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-background-color <x-color><param>VioletRed4</param>"#cccccc"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-foreground-color <x-color><param>VioletRed4</param>"#333333"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>xterm-set-cursor-color <x-color><param>VioletRed4</param>"#99bbdd"</x-color><x-color><param>grey55</param>)))</x-color>
+
+<x-color><param>grey55</param>(</x-color>set-light<x-color><param>grey55</param>)</x-color>
 
 
-(global-set-key (kbd "M-1")
-                (lambda () (interactive)
-                  (xterm-set-background-color "#333333")
-                  (xterm-set-foreground-color "#cccccc")
-                  (xterm-set-cursor-color "#664422")
-                  ))
-(global-set-key (kbd "M-2")
-                (lambda () (interactive)
-                  (xterm-set-background-color "#cccccc")
-                  (xterm-set-foreground-color "#333333")
-                  (xterm-set-cursor-color "#99bbdd")))
+;;;;;;;; <x-color><param>Firebrick</param>EXTERNAL COMMANDS KEYBINDINGS
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c d"</x-color><x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color><x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>message <x-color><param>grey55</param>(</x-color>format-time-string <x-color><param>VioletRed4</param>"%c"</x-color> <x-color><param>grey55</param>(</x-color>current-time<x-color><param>grey55</param>)))))</x-color>
 
-(set-light)
+;;;;;;;; <x-color><param>Firebrick</param>FRAME RELATED KEYBINDINGS
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c z"</x-color><x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>delete-frame<x-color><param>grey55</param>)))</x-color>
 
+;;;;;;;; <x-color><param>Firebrick</param>ELECTRIC PAIRS
 
-;;;;;;;; EXTERNAL COMMANDS KEYBINDINGS
-(global-set-key (kbd "C-c d") (lambda() (interactive) (message (format-time-string "%c" (current-time)))))
+</x-color><x-color><param>grey55</param>(</x-color>electric-pair-mode<x-color><param>grey55</param>)</x-color>
 
-;;;;;;;; FRAME RELATED KEYBINDINGS
-(global-set-key (kbd "C-c z") (lambda () (interactive) (delete-frame)))
+;;;;;;;; <x-color><param>Firebrick</param>AUTO-COMPLETE
 
-;;;;;;;; ELECTRIC PAIRS
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>auto-complete</x-color><x-color><param>grey55</param>)</x-color>
+;;<x-color><param>Firebrick</param>(auto-complete-mode)
 
-(electric-pair-mode)
+</x-color>;;;;;;;; <x-color><param>Firebrick</param>YASNIPPET
 
-;;;;;;;; AUTO-COMPLETE
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>yasnippet</x-color><x-color><param>grey55</param>)</x-color>
 
-(require 'auto-complete)
-;;(auto-complete-mode)
+;;;;;;;; <x-color><param>Firebrick</param>FLYCHECK
 
-;;;;;;;; YASNIPPET
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>flycheck</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>flycheck-mode<x-color><param>grey55</param>)</x-color>
 
-(require 'yasnippet)
-
-;;;;;;;; FLYCHECK
-
-(require 'flycheck)
-(flycheck-mode)
-
-;;;;;;;; EDIFF
-;; http://stackoverflow.com/a/1680994
-;; ("Is there any way to get Ediff to not open its navigation interface in an external window?")
-(if (locate-library "ediff")
-    (progn
-      (autoload 'ediff-files "ediff")
-      (autoload 'ediff-buffers "ediff")
-       (eval-after-load "ediff" '(progn
-  			  (message "doing ediff customisation")
-			  (setq diff-switches               "-u"
-				ediff-custom-diff-options   "-U3"
+;;;;;;;; <x-color><param>Firebrick</param>EDIFF
+</x-color>;; <x-color><param>Firebrick</param>http://stackoverflow.com/a/1680994
+</x-color>;; <x-color><param>Firebrick</param>("Is there any way to get Ediff to not open its navigation interface in an external window?")
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> <x-color><param>grey55</param>(</x-color>locate-library <x-color><param>VioletRed4</param>"ediff"</x-color><x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+      <x-color><param>grey55</param>(</x-color>autoload 'ediff-files <x-color><param>VioletRed4</param>"ediff"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>autoload 'ediff-buffers <x-color><param>VioletRed4</param>"ediff"</x-color><x-color><param>grey55</param>)</x-color>
+       <x-color><param>grey55</param>(</x-color>eval-after-load <x-color><param>VioletRed4</param>"ediff"</x-color> '<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+  			  <x-color><param>grey55</param>(</x-color>message <x-color><param>VioletRed4</param>"doing ediff customisation"</x-color><x-color><param>grey55</param>)</x-color>
+			  <x-color><param>grey55</param>(</x-color>setq diff-switches               <x-color><param>VioletRed4</param>"-u"</x-color>
+				ediff-custom-diff-options   <x-color><param>VioletRed4</param>"-U3"</x-color>
 				ediff-split-window-function 'split-window-horizontally
-				ediff-window-setup-function 'ediff-setup-windows-plain)
-			  (add-hook 'ediff-startup-hook 'ediff-toggle-wide-display)
-			  (add-hook 'ediff-cleanup-hook 'ediff-toggle-wide-display)
-			  (add-hook 'ediff-suspend-hook 'ediff-toggle-wide-display)))))
+				ediff-window-setup-function 'ediff-setup-windows-plain<x-color><param>grey55</param>)</x-color>
+			  <x-color><param>grey55</param>(</x-color>add-hook 'ediff-startup-hook 'ediff-toggle-wide-display<x-color><param>grey55</param>)</x-color>
+			  <x-color><param>grey55</param>(</x-color>add-hook 'ediff-cleanup-hook 'ediff-toggle-wide-display<x-color><param>grey55</param>)</x-color>
+			  <x-color><param>grey55</param>(</x-color>add-hook 'ediff-suspend-hook 'ediff-toggle-wide-display<x-color><param>grey55</param>)))))</x-color>
 
 
-;;;;;;;; BIDI
+;;;;;;;; <x-color><param>Firebrick</param>BIDI
 
-(defun bidi ()
-  (interactive)
-  (setq bidi-display-reordering t)
-)
-(defun unbidi ()
-  (interactive)
-  (setq bidi-display-reordering nil)
-)
-(defun bidi-fix-ltr ()
-  (interactive)
-  (setq bidi-paragraph-direction 'left-to-right)
-)
-(defun bidi-fix-rtl ()
-  (interactive)
-  (setq bidi-paragraph-direction 'right-to-left)
-)
-(defun bidi-unfix ()
-  (interactive)
-  (setq bidi-paragraph-direction nil)
-)
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>bidi</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>setq bidi-display-reordering t<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>unbidi</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>setq bidi-display-reordering nil<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>bidi-fix-ltr</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>setq bidi-paragraph-direction 'left-to-right<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>bidi-fix-rtl</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>setq bidi-paragraph-direction 'right-to-left<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>bidi-unfix</x-color> <x-color><param>grey55</param>()</x-color>
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>setq bidi-paragraph-direction nil<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
 
-;;;;;;;; JAVA-SETUP
+;;;;;;;; <x-color><param>Firebrick</param>JAVA-SETUP
 
-(let ((filename "~/.emacs.d/java-setup.el"))
-  (if (file-exists-p filename)
-      (load-file filename)))
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let</x-color> <x-color><param>grey55</param>((</x-color>filename <x-color><param>VioletRed4</param>"~/.emacs.d/java-setup.el"</x-color><x-color><param>grey55</param>))</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> <x-color><param>grey55</param>(</x-color>file-exists-p filename<x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color>load-file filename<x-color><param>grey55</param>)))</x-color>
 
-;;;;;;;; WEB DEV
-(require 'multi-web-mode)
-(setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags '((php-mode "<<\\?php\\|<<\\? \\|<<\\?=" "\\?>")
-                  (js-mode "<<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "<</script>")
-                  (css-mode "<<style +type=\"text/css\"[^>]*>" "<</style>")))
-(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
-(multi-web-global-mode 1)
+;;;;;;;; <x-color><param>Firebrick</param>WEB DEV
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>multi-web-mode</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq mweb-default-major-mode 'html-mode<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq mweb-tags '<x-color><param>grey55</param>((</x-color>php-mode <x-color><param>VioletRed4</param>"<<\\?php</x-color><x-color><param>VioletRed4</param>\\|</x-color><x-color><param>VioletRed4</param><<\\? </x-color><x-color><param>VioletRed4</param>\\|</x-color><x-color><param>VioletRed4</param><<\\?="</x-color> <x-color><param>VioletRed4</param>"\\?>"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>js-mode <x-color><param>VioletRed4</param>"<<script +</x-color><x-color><param>VioletRed4</param>\\(</x-color><x-color><param>VioletRed4</param>type=\"text/javascript\"</x-color><x-color><param>VioletRed4</param>\\|</x-color><x-color><param>VioletRed4</param>language=\"javascript\"</x-color><x-color><param>VioletRed4</param>\\)</x-color><x-color><param>VioletRed4</param>[</x-color><x-color><param>VioletRed4</param>^</x-color><x-color><param>VioletRed4</param>>]*>"</x-color> <x-color><param>VioletRed4</param>"<</script>"</x-color><x-color><param>grey55</param>)</x-color>
+                  <x-color><param>grey55</param>(</x-color>css-mode <x-color><param>VioletRed4</param>"<<style +type=\"text/css\"[</x-color><x-color><param>VioletRed4</param>^</x-color><x-color><param>VioletRed4</param>>]*>"</x-color> <x-color><param>VioletRed4</param>"<</style>"</x-color><x-color><param>grey55</param>)))</x-color>
+<x-color><param>grey55</param>(</x-color>setq mweb-filename-extensions '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"php"</x-color> <x-color><param>VioletRed4</param>"htm"</x-color> <x-color><param>VioletRed4</param>"html"</x-color> <x-color><param>VioletRed4</param>"ctp"</x-color> <x-color><param>VioletRed4</param>"phtml"</x-color> <x-color><param>VioletRed4</param>"php4"</x-color> <x-color><param>VioletRed4</param>"php5"</x-color><x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>multi-web-global-mode 1<x-color><param>grey55</param>)</x-color>
 
-;; (require 'simple-httpd)
-;; (setq httpd-root "/var/www")
-;; (httpd-start)
-;; (require 'skewer-mode)
-;; (add-hook 'js2-mode-hook 'skewer-mode)
-;; (add-hook 'css-mode-hook 'skewer-css-mode)
-;; (add-hook 'html-mode-hook 'skewer-html-mode)
+;; <x-color><param>Firebrick</param>(</x-color><x-color><param>Firebrick</param>require</x-color><x-color><param>Firebrick</param> 'simple-httpd)
+</x-color>;; <x-color><param>Firebrick</param>(setq httpd-root "/var/www")
+</x-color>;; <x-color><param>Firebrick</param>(httpd-start)
+</x-color>;; <x-color><param>Firebrick</param>(</x-color><x-color><param>Firebrick</param>require</x-color><x-color><param>Firebrick</param> 'skewer-mode)
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'js2-mode-hook 'skewer-mode)
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'css-mode-hook 'skewer-css-mode)
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'html-mode-hook 'skewer-html-mode)
 
+</x-color>
 
-;;;;;;;; SVN
-(require 'vc-svn)
-(require 'dsvn)
+;;;;;;;; <x-color><param>Firebrick</param>SVN
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>vc-svn</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>dsvn</x-color><x-color><param>grey55</param>)</x-color>
 
-;;;;;;;; GIT-GUTTER
+;;;;;;;; <x-color><param>Firebrick</param>GIT-GUTTER
 
+</x-color>
 
-;; If you enable global minor mode
-(global-git-gutter-mode t)
+;; <x-color><param>Firebrick</param>If you enable global minor mode
+</x-color><x-color><param>grey55</param>(</x-color>global-git-gutter-mode t<x-color><param>grey55</param>)</x-color>
 
-;; If you enable git-gutter-mode for some modes
-;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
+;; <x-color><param>Firebrick</param>If you enable git-gutter-mode for some modes
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'ruby-mode-hook 'git-gutter-mode)
 
-(global-set-key (kbd "C-c u t") 'git-gutter:toggle)
-(global-set-key (kbd "C-c u =") 'git-gutter:popup-diff)
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c u t"</x-color><x-color><param>grey55</param>)</x-color> 'git-gutter:toggle<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c u ="</x-color><x-color><param>grey55</param>)</x-color> 'git-gutter:popup-diff<x-color><param>grey55</param>)</x-color>
 
-;; Jump to next/previous hunk
-(global-set-key (kbd "C-c u p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-c u n") 'git-gutter:next-hunk)
+;; <x-color><param>Firebrick</param>Jump to next/previous hunk
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c u p"</x-color><x-color><param>grey55</param>)</x-color> 'git-gutter:previous-hunk<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c u n"</x-color><x-color><param>grey55</param>)</x-color> 'git-gutter:next-hunk<x-color><param>grey55</param>)</x-color>
 
-;; Revert current hunk
-(global-set-key (kbd "C-c u r") 'git-gutter:revert-hunk)
-
-
-;;;;;;;; CSV
-(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
-(autoload 'csv-mode "csv-mode"
-  "Major mode for editing comma-separated value files." t)
+;; <x-color><param>Firebrick</param>Revert current hunk
+</x-color><x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c u r"</x-color><x-color><param>grey55</param>)</x-color> 'git-gutter:revert-hunk<x-color><param>grey55</param>)</x-color>
 
 
-;;;;;;;; ORG-MODE (TODO: organize)
-
-(setq org-list-allow-alphabetical t)
-
-(setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
-
-;; (load-file "~/.emacs.d/plugins/latex-live-preview.el") 
-
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
-	 "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-	 "* %?\nEntered on %U\n  %i\n  %a")
-        ))
+;;;;;;;; <x-color><param>Firebrick</param>CSV
+</x-color><x-color><param>grey55</param>(</x-color>add-to-list 'auto-mode-alist '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"\\.[Cc][Ss][Vv]\\'"</x-color> . csv-mode<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>autoload 'csv-mode <x-color><param>VioletRed4</param>"csv-mode"</x-color>
+  "Major mode for editing comma-separated value files." t<x-color><param>grey55</param>)</x-color>
 
 
-;;(setq org-default-notes-file (concat org-directory "~/myorg.org"))
+;;;;;;;; <x-color><param>Firebrick</param>ORG-MODE (</x-color>TODO<x-color><param>Firebrick</param>: organize)
+
+</x-color><x-color><param>grey55</param>(</x-color>setq org-list-allow-alphabetical t<x-color><param>grey55</param>)</x-color>
+
+<x-color><param>grey55</param>(</x-color>setq org-src-fontify-natively t<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-src-tab-acts-natively t<x-color><param>grey55</param>)</x-color>
+
+;; <x-color><param>Firebrick</param>(load-file "~/.emacs.d/plugins/latex-live-preview.el") 
+
+</x-color><x-color><param>grey55</param>(</x-color>setq org-capture-templates
+      '<x-color><param>grey55</param>((</x-color><x-color><param>VioletRed4</param>"t"</x-color> <x-color><param>VioletRed4</param>"Todo"</x-color> entry <x-color><param>grey55</param>(</x-color>file+headline <x-color><param>VioletRed4</param>"~/org/tasks.org"</x-color> <x-color><param>VioletRed4</param>"Tasks"</x-color><x-color><param>grey55</param>)</x-color>
+	 <x-color><param>VioletRed4</param>"* </x-color>TODO<x-color><param>VioletRed4</param> %?\n  %i\n  %a"</x-color><x-color><param>grey55</param>)</x-color>
+        <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"j"</x-color> <x-color><param>VioletRed4</param>"Journal"</x-color> entry <x-color><param>grey55</param>(</x-color>file+datetree <x-color><param>VioletRed4</param>"~/org/journal.org"</x-color><x-color><param>grey55</param>)</x-color>
+	 <x-color><param>VioletRed4</param>"* %?\nEntered on %U\n  %i\n  %a"</x-color><x-color><param>grey55</param>)</x-color>
+        <x-color><param>grey55</param>))</x-color>
 
 
-;; (make-face 'org-base-face)
-;;(set-face-background 'org-base-face "navy")
+;;<x-color><param>Firebrick</param>(setq org-default-notes-file (concat org-directory "~/myorg.org"))
 
-(add-hook
+</x-color>
+
+;; <x-color><param>Firebrick</param>(make-face 'org-base-face)
+</x-color>;;<x-color><param>Firebrick</param>(set-face-background 'org-base-face "navy")
+
+</x-color><x-color><param>grey55</param>(</x-color>add-hook
  'org-mode-hook
- (lambda ()
-;;   (highline-mode)
-   ;; (buffer-face-mode t)
-   ;; (buffer-face-set 'org-base-face)
-   (bidi)
-   (local-set-key (kbd "<<C-tab>") 'other-window)  ; Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
-   (bidi-unfix)
-   )
- )
+ <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color>
+;;   <x-color><param>Firebrick</param>(highline-mode)
+</x-color>   ;; <x-color><param>Firebrick</param>(buffer-face-mode t)
+</x-color>   ;; <x-color><param>Firebrick</param>(buffer-face-set 'org-base-face)
+</x-color>   <x-color><param>grey55</param>(</x-color>bidi<x-color><param>grey55</param>)</x-color>
+   <x-color><param>grey55</param>(</x-color>local-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<C-tab>"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>  ; <x-color><param>Firebrick</param>Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
+</x-color>   <x-color><param>grey55</param>(</x-color>bidi-unfix<x-color><param>grey55</param>)</x-color>
+   <x-color><param>grey55</param>)</x-color>
+ <x-color><param>grey55</param>)</x-color>
 
-(make-face 'agenda-base-face)
-;;(set-face-background 'agenda-base-face "orchid4")
+<x-color><param>grey55</param>(</x-color>make-face 'agenda-base-face<x-color><param>grey55</param>)</x-color>
+;;<x-color><param>Firebrick</param>(set-face-background 'agenda-base-face "orchid4")
 
-(add-hook 
+</x-color><x-color><param>grey55</param>(</x-color>add-hook 
  'org-finalize-agenda-hook 
- (lambda () 
-   ;; (highline-mode)
-;;   (buffer-face-mode t)
-;;   (buffer-face-set 'agenda-base-face)
-   (bidi)
-   (bidi-unfix)
-   )
- )
+ <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> 
+   ;; <x-color><param>Firebrick</param>(highline-mode)
+</x-color>;;   <x-color><param>Firebrick</param>(buffer-face-mode t)
+</x-color>;;   <x-color><param>Firebrick</param>(buffer-face-set 'agenda-base-face)
+</x-color>   <x-color><param>grey55</param>(</x-color>bidi<x-color><param>grey55</param>)</x-color>
+   <x-color><param>grey55</param>(</x-color>bidi-unfix<x-color><param>grey55</param>)</x-color>
+   <x-color><param>grey55</param>)</x-color>
+ <x-color><param>grey55</param>)</x-color>
 
 
-;; http://members.optusnet.com.au/~charles57/GTD/mydotemacs.txt
-;; .emacs file     Selected entries from ~/.emacs.el
-;; file of Charles Cave to run org-mode
-(setq org-agenda-files (quote (
-			       ;;"~/org/myorg.org" 
-			       "~/org/tasks.org"
-			       )))
-;;(setq org-agenda-ndays 7)
-(setq org-agenda-repeating-timestamp-show-all nil)
-(setq org-agenda-restore-windows-after-quit t)
-(setq org-agenda-show-all-dates t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-skip-scheduled-if-done t)
-;;(setq org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
-(setq org-agenda-start-on-weekday nil)
-;;(setq org-agenda-todo-ignore-deadlines t)
-;;(setq org-agenda-todo-ignore-scheduled t)
-;;(setq org-agenda-todo-ignore-with-date t)
-;;(setq org-agenda-window-setup (quote other-window))
-;;(setq org-deadline-warning-days 7)
-;;(setq org-log-done (quote (done)))
-;;(setq org-refile-targets (quote (("newgtd.org" :maxlevel . 1) ("someday.org" :level . 2))))
-;;(setq org-reverse-note-order nil)
-;;(setq org-tags-column -78)
-;;(setq org-time-stamp-rounding-minutes 1)
-;;(setq org-use-fast-todo-selection t)
+;; <x-color><param>Firebrick</param>http://members.optusnet.com.au/~charles57/GTD/mydotemacs.txt
+</x-color>;; <x-color><param>Firebrick</param>.emacs file     Selected entries from ~/.emacs.el
+</x-color>;; <x-color><param>Firebrick</param>file of Charles Cave to run org-mode
+</x-color><x-color><param>grey55</param>(</x-color>setq org-agenda-files <x-color><param>grey55</param>(</x-color>quote <x-color><param>grey55</param>(</x-color>
+			       ;;<x-color><param>Firebrick</param>"~/org/myorg.org" 
+</x-color>			       <x-color><param>VioletRed4</param>"~/org/tasks.org"</x-color>
+			       <x-color><param>grey55</param>)))</x-color>
+;;<x-color><param>Firebrick</param>(setq org-agenda-ndays 7)
+</x-color><x-color><param>grey55</param>(</x-color>setq org-agenda-repeating-timestamp-show-all nil<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-agenda-restore-windows-after-quit t<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-agenda-show-all-dates t<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-agenda-skip-deadline-if-done t<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-agenda-skip-scheduled-if-done t<x-color><param>grey55</param>)</x-color>
+;;<x-color><param>Firebrick</param>(setq org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
+</x-color><x-color><param>grey55</param>(</x-color>setq org-agenda-start-on-weekday nil<x-color><param>grey55</param>)</x-color>
+;;<x-color><param>Firebrick</param>(setq org-agenda-todo-ignore-deadlines t)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-agenda-todo-ignore-scheduled t)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-agenda-todo-ignore-with-date t)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-agenda-window-setup (quote other-window))
+</x-color>;;<x-color><param>Firebrick</param>(setq org-deadline-warning-days 7)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-log-done (quote (done)))
+</x-color>;;<x-color><param>Firebrick</param>(setq org-refile-targets (quote (("newgtd.org" :maxlevel . 1) ("someday.org" :level . 2))))
+</x-color>;;<x-color><param>Firebrick</param>(setq org-reverse-note-order nil)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-tags-column -78)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-time-stamp-rounding-minutes 1)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-use-fast-todo-selection t)
 
-;;(setq org-tags-match-list-sublevels 'indented)
-;;(setq org-use-tag-inheritance nil)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-tags-match-list-sublevels 'indented)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-use-tag-inheritance nil)
 
+</x-color>
 
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
+<x-color><param>grey55</param>(</x-color>add-to-list 'auto-mode-alist '<x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"\\.org$"</x-color> . org-mode<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>define-key global-map <x-color><param>VioletRed4</param>"\C-cl"</x-color> 'org-store-link<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>define-key global-map <x-color><param>VioletRed4</param>"\C-ca"</x-color> 'org-agenda<x-color><param>grey55</param>)</x-color>
 
-;;(setq org-agenda-include-diary nil)
-;;(setq org-timeline-show-empty-dates t)
-;;(setq org-insert-mode-line-in-empty-file t)
+;;<x-color><param>Firebrick</param>(setq org-agenda-include-diary nil)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-timeline-show-empty-dates t)
+</x-color>;;<x-color><param>Firebrick</param>(setq org-insert-mode-line-in-empty-file t)
 
-(setq org-directory "~/org/")
-(setq org-default-notes-file "~/.notes")
+</x-color><x-color><param>grey55</param>(</x-color>setq org-directory <x-color><param>VioletRed4</param>"~/org/"</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-default-notes-file <x-color><param>VioletRed4</param>"~/.notes"</x-color><x-color><param>grey55</param>)</x-color>
 
-(setq org-agenda-custom-commands
-'(
-  ("P" "Projects"   
-   ((tags "PROJECT")))
-  ("H" "Office and Home Lists"
-   ((agenda)
-    (tags-todo "@OFFICE")
-    (tags-todo "@HOME")
-    (tags-todo "@COMPUTER")
-    ))
-  ("D" "Daily Action List"
-   (
-    (agenda "" ((org-agenda-ndays 1)
-		(org-agenda-sorting-strategy
-		 (quote ((agenda time-up priority-down tag-up) )))
-		(org-deadline-warning-days 0)
-		))))
-  )
-)
-
-
-
-(setq org-return-follows-link t)
-
-(setq org-export-with-toc nil)
-(setq org-export-author-info nil)
-
-
-;; (add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
-;; (autoload 'org-present "org-present" nil t)
-;; (add-hook 'org-present-mode-hook
-;;           (lambda ()
-;;             (org-present-big)
-;;             (org-display-inline-images)))
-
-;; (add-hook 'org-present-mode-quit-hook
-;;           (lambda ()
-;;             (org-present-small)
-;;             (org-remove-inline-images)))
+<x-color><param>grey55</param>(</x-color>setq org-agenda-custom-commands
+'<x-color><param>grey55</param>(</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"P"</x-color> <x-color><param>VioletRed4</param>"Projects"</x-color>   
+   <x-color><param>grey55</param>((</x-color>tags <x-color><param>VioletRed4</param>"PROJECT"</x-color><x-color><param>grey55</param>)))</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"H"</x-color> <x-color><param>VioletRed4</param>"Office and Home Lists"</x-color>
+   <x-color><param>grey55</param>((</x-color>agenda<x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>tags-todo <x-color><param>VioletRed4</param>"@OFFICE"</x-color><x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>tags-todo <x-color><param>VioletRed4</param>"@HOME"</x-color><x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>(</x-color>tags-todo <x-color><param>VioletRed4</param>"@COMPUTER"</x-color><x-color><param>grey55</param>)</x-color>
+    <x-color><param>grey55</param>))</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"D"</x-color> <x-color><param>VioletRed4</param>"Daily Action List"</x-color>
+   <x-color><param>grey55</param>(</x-color>
+    <x-color><param>grey55</param>(</x-color>agenda <x-color><param>VioletRed4</param>""</x-color> <x-color><param>grey55</param>((</x-color>org-agenda-ndays 1<x-color><param>grey55</param>)</x-color>
+		<x-color><param>grey55</param>(</x-color>org-agenda-sorting-strategy
+		 <x-color><param>grey55</param>(</x-color>quote <x-color><param>grey55</param>((</x-color>agenda time-up priority-down tag-up<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>)))</x-color>
+		<x-color><param>grey55</param>(</x-color>org-deadline-warning-days 0<x-color><param>grey55</param>)</x-color>
+		<x-color><param>grey55</param>))))</x-color>
+  <x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>)</x-color>
 
 
 
-;;(add-to-list 'load-path "/home/danny/.emacs.d/elpa/cdlatex-4.0/")
-;;(require 'cdlatex)
+<x-color><param>grey55</param>(</x-color>setq org-return-follows-link t<x-color><param>grey55</param>)</x-color>
 
-;;(openwith-mode t)
+<x-color><param>grey55</param>(</x-color>setq org-export-with-toc nil<x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq org-export-author-info nil<x-color><param>grey55</param>)</x-color>
 
-(setq dired-dwin-target t)
 
-(setq dired-recursive-copies (quote always))
-(setq dired-recursive-deletes (quote top))
+;; <x-color><param>Firebrick</param>(add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
+</x-color>;; <x-color><param>Firebrick</param>(autoload 'org-present "org-present" nil t)
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'org-present-mode-hook
+</x-color>;;           <x-color><param>Firebrick</param>(lambda ()
+</x-color>;;             <x-color><param>Firebrick</param>(org-present-big)
+</x-color>;;             <x-color><param>Firebrick</param>(org-display-inline-images)))
 
-(setq dired-dwim-target t)
+</x-color>;; <x-color><param>Firebrick</param>(add-hook 'org-present-mode-quit-hook
+</x-color>;;           <x-color><param>Firebrick</param>(lambda ()
+</x-color>;;             <x-color><param>Firebrick</param>(org-present-small)
+</x-color>;;             <x-color><param>Firebrick</param>(org-remove-inline-images)))
 
-;; (setq dired-external-apps-list 
-;;       (append (list "libreoffice" "xpdf" "evince" "vlc" "eog" "gimp") dired-external-apps-list))
-;; (dired-external-apps-generate-wrapper-functions-for-apps) ;; reinitialize after changes
-(setq dired-external-apps-save-to-registers-flag t)
+</x-color>
 
-;; ;; http://lists.gnu.org/archive/html/help-gnu-emacs/2002-10/msg00556.html
-(defun dired-copy-filename ()
+
+;;<x-color><param>Firebrick</param>(add-to-list 'load-path "/home/danny/.emacs.d/elpa/cdlatex-4.0/")
+</x-color>;;<x-color><param>Firebrick</param>(</x-color><x-color><param>Firebrick</param>require</x-color><x-color><param>Firebrick</param> 'cdlatex)
+
+</x-color>;;<x-color><param>Firebrick</param>(openwith-mode t)
+
+</x-color><x-color><param>grey55</param>(</x-color>setq dired-dwin-target t<x-color><param>grey55</param>)</x-color>
+
+<x-color><param>grey55</param>(</x-color>setq dired-recursive-copies <x-color><param>grey55</param>(</x-color>quote always<x-color><param>grey55</param>))</x-color>
+<x-color><param>grey55</param>(</x-color>setq dired-recursive-deletes <x-color><param>grey55</param>(</x-color>quote top<x-color><param>grey55</param>))</x-color>
+
+<x-color><param>grey55</param>(</x-color>setq dired-dwim-target t<x-color><param>grey55</param>)</x-color>
+
+;; <x-color><param>Firebrick</param>(setq dired-external-apps-list 
+</x-color>;;       <x-color><param>Firebrick</param>(append (list "libreoffice" "xpdf" "evince" "vlc" "eog" "gimp") dired-external-apps-list))
+</x-color>;; <x-color><param>Firebrick</param>(dired-external-apps-generate-wrapper-functions-for-apps) ;; reinitialize after changes
+</x-color><x-color><param>grey55</param>(</x-color>setq dired-external-apps-save-to-registers-flag t<x-color><param>grey55</param>)</x-color>
+
+;; <x-color><param>Firebrick</param>;; http://lists.gnu.org/archive/html/help-gnu-emacs/2002-10/msg00556.html
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>dired-copy-filename</x-color> <x-color><param>grey55</param>()</x-color>
   "push the path and filename of the file under the point to the kill ring"
-  (interactive)
-  (message "added %s to kill ring" (kill-new (dired-get-filename))))
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color>message <x-color><param>VioletRed4</param>"added %s to kill ring"</x-color> <x-color><param>grey55</param>(</x-color>kill-new <x-color><param>grey55</param>(</x-color>dired-get-filename<x-color><param>grey55</param>))))</x-color>
 
-(add-hook 'dired-mode-hook
-                 '(lambda ()
-		    ;;(highline-mode)
-		    (bidi)
-		    (bidi-fix-ltr)
-		    (define-key dired-mode-map "c"
+<x-color><param>grey55</param>(</x-color>add-hook 'dired-mode-hook
+                 '<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color>
+		    ;;<x-color><param>Firebrick</param>(highline-mode)
+</x-color>		    <x-color><param>grey55</param>(</x-color>bidi<x-color><param>grey55</param>)</x-color>
+		    <x-color><param>grey55</param>(</x-color>bidi-fix-ltr<x-color><param>grey55</param>)</x-color>
+		    <x-color><param>grey55</param>(</x-color>define-key dired-mode-map <x-color><param>VioletRed4</param>"c"</x-color>
 		      'dired-copy-filename
-		    )
-		    ;; (define-key dired-mode-map "L"
-		    ;;   'dired-external-apps-open-with-libreoffice
-		    ;;   )
-		    ;; (define-key dired-mode-map "P"
-		    ;;   'dired-external-apps-open-with-xpdf
-		    ;;   )
-		    ;; (define-key dired-mode-map "E"
-		    ;;   'dired-external-apps-open-with-evince
-		    ;;   )
-		    ;; )
-		 ))
+		    <x-color><param>grey55</param>)</x-color>
+		    ;; <x-color><param>Firebrick</param>(define-key dired-mode-map "L"
+</x-color>		    ;;   <x-color><param>Firebrick</param>'dired-external-apps-open-with-libreoffice
+</x-color>		    ;;   <x-color><param>Firebrick</param>)
+</x-color>		    ;; <x-color><param>Firebrick</param>(define-key dired-mode-map "P"
+</x-color>		    ;;   <x-color><param>Firebrick</param>'dired-external-apps-open-with-xpdf
+</x-color>		    ;;   <x-color><param>Firebrick</param>)
+</x-color>		    ;; <x-color><param>Firebrick</param>(define-key dired-mode-map "E"
+</x-color>		    ;;   <x-color><param>Firebrick</param>'dired-external-apps-open-with-evince
+</x-color>		    ;;   <x-color><param>Firebrick</param>)
+</x-color>		    ;; <x-color><param>Firebrick</param>)
+</x-color>		 <x-color><param>grey55</param>))</x-color>
 
 
-;; http://www.emacswiki.org/emacs/DiredDoShellAsynchronous
-(defun dired-shell-stuff-it (command file-list on-each &optional raw-arg)
-  ;; "Make up a shell command line from COMMAND and FILE-LIST.
-  ;; If ON-EACH is t, COMMAND should be applied to each file, else
-  ;; simply concat all files and apply COMMAND to this.
-  ;; FILE-LIST's elements will be quoted for the shell."
-  ;; Might be redefined for smarter things and could then use RAW-ARG
-  ;; (coming from interactive P and currently ignored) to decide what to do.
-  ;; Smart would be a way to access basename or extension of file names.
-  (let* ((async "")
-  	 (stuff-it
-  	  (progn
-  	    (when (string-match "[ \t]*&[ \t]*\\'" command)
-  	      (setq async "&")
-  	      (setq command (substring command 0 (match-beginning 0))))
-  	    (if (or (string-match dired-star-subst-regexp command)
-  		    (string-match dired-quark-subst-regexp command))
-  		(lambda (x)
-  		  (let ((retval command))
-  		    (while (string-match
-  			    "\\(^\\|[ \t]\\)\\([*?]\\)\\([ \t]\\|$\\)" retval)
-  		      (setq retval (replace-match x t t retval 2)))
-  		    retval))
-  	      (lambda (x) (concat command dired-mark-separator x async))))))
-    (if on-each
-  	(mapconcat stuff-it (mapcar 'shell-quote-argument file-list) ";")
-      (let ((files (mapconcat 'shell-quote-argument
-  			      file-list dired-mark-separator)))
-  	(if (> (length file-list) 1)
-  	    (setq files (concat dired-mark-prefix files dired-mark-postfix)))
-  	(funcall stuff-it files)))))
+;; <x-color><param>Firebrick</param>http://www.emacswiki.org/emacs/DiredDoShellAsynchronous
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>dired-shell-stuff-it</x-color> <x-color><param>grey55</param>(</x-color>command file-list on-each <x-color><param>ForestGreen</param>&optional</x-color> raw-arg<x-color><param>grey55</param>)</x-color>
+  ;; <x-color><param>Firebrick</param>"Make up a shell command line from COMMAND and FILE-LIST.
+</x-color>  ;; <x-color><param>Firebrick</param>If ON-EACH is t, COMMAND should be applied to each file, else
+</x-color>  ;; <x-color><param>Firebrick</param>simply concat all files and apply COMMAND to this.
+</x-color>  ;; <x-color><param>Firebrick</param>FILE-LIST's elements will be quoted for the shell."
+</x-color>  ;; <x-color><param>Firebrick</param>Might be redefined for smarter things and could then use RAW-ARG
+</x-color>  ;; <x-color><param>Firebrick</param>(coming from interactive P and currently ignored) to decide what to do.
+</x-color>  ;; <x-color><param>Firebrick</param>Smart would be a way to access basename or extension of file names.
+</x-color>  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let*</x-color> <x-color><param>grey55</param>((</x-color>async <x-color><param>VioletRed4</param>""</x-color><x-color><param>grey55</param>)</x-color>
+  	 <x-color><param>grey55</param>(</x-color>stuff-it
+  	  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>progn</x-color>
+  	    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>string-match <x-color><param>VioletRed4</param>"[ \t]*&[ \t]*\\'"</x-color> command<x-color><param>grey55</param>)</x-color>
+  	      <x-color><param>grey55</param>(</x-color>setq async <x-color><param>VioletRed4</param>"&"</x-color><x-color><param>grey55</param>)</x-color>
+  	      <x-color><param>grey55</param>(</x-color>setq command <x-color><param>grey55</param>(</x-color>substring command 0 <x-color><param>grey55</param>(</x-color>match-beginning 0<x-color><param>grey55</param>))))</x-color>
+  	    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> <x-color><param>grey55</param>(</x-color>or <x-color><param>grey55</param>(</x-color>string-match dired-star-subst-regexp command<x-color><param>grey55</param>)</x-color>
+  		    <x-color><param>grey55</param>(</x-color>string-match dired-quark-subst-regexp command<x-color><param>grey55</param>))</x-color>
+  		<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>(</x-color>x<x-color><param>grey55</param>)</x-color>
+  		  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let</x-color> <x-color><param>grey55</param>((</x-color>retval command<x-color><param>grey55</param>))</x-color>
+  		    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>while</x-color> <x-color><param>grey55</param>(</x-color>string-match
+  			    <x-color><param>VioletRed4</param>"</x-color><x-color><param>VioletRed4</param>\\(</x-color><x-color><param>VioletRed4</param>^</x-color><x-color><param>VioletRed4</param>\\|</x-color><x-color><param>VioletRed4</param>[ \t]</x-color><x-color><param>VioletRed4</param>\\)\\(</x-color><x-color><param>VioletRed4</param>[*?]</x-color><x-color><param>VioletRed4</param>\\)\\(</x-color><x-color><param>VioletRed4</param>[ \t]</x-color><x-color><param>VioletRed4</param>\\|</x-color><x-color><param>VioletRed4</param>$</x-color><x-color><param>VioletRed4</param>\\)</x-color><x-color><param>VioletRed4</param>"</x-color> retval<x-color><param>grey55</param>)</x-color>
+  		      <x-color><param>grey55</param>(</x-color>setq retval <x-color><param>grey55</param>(</x-color>replace-match x t t retval 2<x-color><param>grey55</param>)))</x-color>
+  		    retval<x-color><param>grey55</param>))</x-color>
+  	      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>(</x-color>x<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>concat command dired-mark-separator x async<x-color><param>grey55</param>))))))</x-color>
+    <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> on-each
+  	<x-color><param>grey55</param>(</x-color>mapconcat stuff-it <x-color><param>grey55</param>(</x-color>mapcar 'shell-quote-argument file-list<x-color><param>grey55</param>)</x-color> <x-color><param>VioletRed4</param>";"</x-color><x-color><param>grey55</param>)</x-color>
+      <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let</x-color> <x-color><param>grey55</param>((</x-color>files <x-color><param>grey55</param>(</x-color>mapconcat 'shell-quote-argument
+  			      file-list dired-mark-separator<x-color><param>grey55</param>)))</x-color>
+  	<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>if</x-color> <x-color><param>grey55</param>(</x-color>> <x-color><param>grey55</param>(</x-color>length file-list<x-color><param>grey55</param>)</x-color> 1<x-color><param>grey55</param>)</x-color>
+  	    <x-color><param>grey55</param>(</x-color>setq files <x-color><param>grey55</param>(</x-color>concat dired-mark-prefix files dired-mark-postfix<x-color><param>grey55</param>)))</x-color>
+  	<x-color><param>grey55</param>(</x-color>funcall stuff-it files<x-color><param>grey55</param>)))))</x-color>
 
 
-(setq wdired-allow-to-change-permissions t)
+<x-color><param>grey55</param>(</x-color>setq wdired-allow-to-change-permissions t<x-color><param>grey55</param>)</x-color>
 
 
-;;;;;;;; CODING CONVENTIONS
+;;;;;;;; <x-color><param>Firebrick</param>CODING CONVENTIONS
 
-;; https://www.bunkus.org/blog/2009/12/switching-identifier-naming-style-between-camel-case-and-c-style-in-emacs/
-(defun mo-toggle-identifier-naming-style ()
+</x-color>;; <x-color><param>Firebrick</param>https://www.bunkus.org/blog/2009/12/switching-identifier-naming-style-between-camel-case-and-c-style-in-emacs/
+</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>mo-toggle-identifier-naming-style</x-color> <x-color><param>grey55</param>()</x-color>
   "Toggles the symbol at point between lisp-style naming,
-    e.g. `hello-world-string', and camel case,
-    e.g. `HelloWorldString'."
-  (interactive)
-  (let* ((symbol-pos (bounds-of-thing-at-point 'symbol))
-         case-fold-search symbol-at-point cstyle regexp func)
+    e.g. `<x-color><param>dark cyan</param>hello-world-string</x-color>', and camel case,
+    e.g. `<x-color><param>dark cyan</param>HelloWorldString</x-color>'."
+  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
+  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>let*</x-color> <x-color><param>grey55</param>((</x-color>symbol-pos <x-color><param>grey55</param>(</x-color>bounds-of-thing-at-point 'symbol<x-color><param>grey55</param>))</x-color>
+         case-fold-search symbol-at-point cstyle regexp func<x-color><param>grey55</param>)</x-color>
     (unless symbol-pos
       (error "No symbol at point"))
     (save-excursion
