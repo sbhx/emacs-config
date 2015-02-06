@@ -1,31 +1,35 @@
 Content-Type: text/enriched
 Text-Width: 70
 
-;; <x-color><param>Firebrick</param>Emacs Starter Kit 2
-</x-color>;; <x-color><param>Firebrick</param>https://github.com/technomancy/emacs-starter-kit
+;; <x-color><param>Red3</param>Emacs Starter Kit 2
+</x-color>;; <x-color><param>Red3</param>https://github.com/technomancy/emacs-starter-kit
 </x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>package</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>VioletRed4</param>"gnu"</x-color> . <x-color><param>VioletRed4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"marmalade"</x-color> . <x-color><param>VioletRed4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>VioletRed4</param>"melpa"</x-color> . <x-color><param>VioletRed4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         ;; <x-color><param>Firebrick</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+
+<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c 0"</x-color><x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>load-file <x-color><param>Green4</param>"~/.emacs.d/init.el"</x-color><x-color><param>grey55</param>)))</x-color>
+
+
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>package</x-color><x-color><param>grey55</param>)</x-color>
+<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>Green4</param>"gnu"</x-color> . <x-color><param>Green4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"marmalade"</x-color> . <x-color><param>Green4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"melpa"</x-color> . <x-color><param>Green4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
+                         ;; <x-color><param>Red3</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
 </x-color>                         <x-color><param>grey55</param>))</x-color>
 <x-color><param>grey55</param>(</x-color>package-initialize<x-color><param>grey55</param>)</x-color>
 
-;; <x-color><param>Firebrick</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+;; <x-color><param>Red3</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 </x-color>
 <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not package-archive-contents<x-color><param>grey55</param>)</x-color>
   <x-color><param>grey55</param>(</x-color>package-refresh-contents<x-color><param>grey55</param>))</x-color>
 
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>sienna</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
-                      ;; <x-color><param>Firebrick</param>starter kit
+<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>Tan4</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
+                      ;; <x-color><param>Red3</param>starter kit
 </x-color>                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
-                                  ;; <x-color><param>Firebrick</param>other file types
+                                  ;; <x-color><param>Red3</param>other file types
 </x-color>                                  csv-mode
                                   log4j-mode
-                                  ;; <x-color><param>Firebrick</param>scala
+                                  ;; <x-color><param>Red3</param>scala
 </x-color>                                  scala-mode2
-                                  ;; <x-color><param>Firebrick</param>clojure
+                                  ;; <x-color><param>Red3</param>clojure
 </x-color>                                  clojure-quick-repls
                                   clojure-mode
                                   cider
