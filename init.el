@@ -735,6 +735,8 @@ narrowed."
                (save-excursion
                  (set-buffer buffer)
                  (refresh-iimages))))
+(global-set-key (kbd "C-'") 'turn-on-iimage-mode)
+
 ;;;;;;;; MODE-LINE
 ;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
 (defun toggle-mode-line () "toggles the modeline on and off"
