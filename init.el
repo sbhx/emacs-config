@@ -1632,7 +1632,72 @@ the next chapter, open Dired so you can find it manually."
   (interactive)
   (find-file "/192.168.10.156:/home/we/enc/projects/mad-lan/clj/m.clj"))
 
+(defun connect-11111 ()
+  (interactive)
+  (cider-connect "localhost" 11111))
 
-;;;;;;;; SVN
+
+(defun wget-localhost-9000 ()
+  (interactive)
+  (shell-command "xfce4-terminal -e 'wget localhost:9000' &"))
+
+
+(defun tr1 ()
+  (interactive)
+  (search-backward ">")
+  (forward-char)
+  (insert "${'")
+  (search-forward "<")
+  (backward-char)
+  (insert "'.tr()}"))
+;; (defun tr2 ()
+;;   (interactive)
+;;   (search-forward ">")
+;;   (forward-char)
+;;   (insert "${'")
+;;   (search-forward "<")
+;;   (backward-char)
+;;   (insert "'.tr()}"))
+;; (global-set-key (kbd "C-c t") 'tr1)
+(global-set-key (kbd "C-,") 'tr1)
+
+
+(defun tr-region (beg end)
+  "message region or \"empty string\" if none highlighted"
+  (interactive (if (use-region-p)
+                   (list (region-beginning) (region-end))
+                 (list nil nil)))
+  (let ((new (concat "${'"
+                      (if (and beg end)
+                          (buffer-substring-no-properties beg end)
+                        "")
+                      "'.tr()}")))
+    (delete-region beg end)
+    (insert new)
+    (goto-char beg)))
+(global-set-key (kbd "C-<") 'tr-region)
+
+
+
+(defun load-utils ()
+  (interactive)
+  (insert "(load-file \"/home/we/enc/projects/mad-lan/clj/utils.clj\")")
+  (cider-repl-return)
+  (insert "(in-ns 'utils)")
+  (cider-repl-return))
+
+
+
+
+;;;;;;;; ;; SVN
 (require 'vc-svn)
 (require 'dsvn)
+
+
+
+
+
+
+
+
+
