@@ -284,7 +284,7 @@ narrowed."
     (color-theme-jsc-light2)
     (set-light)))
 (global-set-key (kbd "<f5>") 'set-default-colors)
-(set-default-colors)
+;; (set-default-colors)
 (global-set-key (kbd "M-7") 'visual-line-mode)
 (global-set-key (kbd "M-8") 'toggle-truncate-lines)
 (global-set-key (kbd "M-9") 'hl-line-mode)
