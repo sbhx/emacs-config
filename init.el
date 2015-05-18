@@ -3,6 +3,8 @@
 
 (global-set-key (kbd "C-c 0") (lambda () (interactive) (load-file "~/.emacs.d/init.el")))
 
+(server-start)
+;;; 
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -1599,8 +1601,7 @@ the next chapter, open Dired so you can find it manually."
 ;;  ;; If there is more than one, they won't work right.
 ;;  )
 
-;;;;;;;; EMACS SERVER
-(server-start)
+
 ;;;;;;;; CUSTOM
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
