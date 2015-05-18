@@ -1,117 +1,109 @@
-Content-Type: text/enriched
-Text-Width: 70
+;; Emacs Starter Kit 2
+;; https://github.com/technomancy/emacs-starter-kit
 
-;; <x-color><param>Red3</param>Emacs Starter Kit 2
-</x-color>;; <x-color><param>Red3</param>https://github.com/technomancy/emacs-starter-kit
-</x-color>
+(global-set-key (kbd "C-c 0") (lambda () (interactive) (load-file "~/.emacs.d/init.el")))
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>Green4</param>"C-c 0"</x-color><x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>lambda</x-color> <x-color><param>grey55</param>()</x-color> <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color> <x-color><param>grey55</param>(</x-color>load-file <x-color><param>Green4</param>"~/.emacs.d/init.el"</x-color><x-color><param>grey55</param>)))</x-color>
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+                         ))
+(package-initialize)
+;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
-
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>package</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>setq package-archives '<x-color><param>grey55</param>((</x-color><x-color><param>Green4</param>"gnu"</x-color> . <x-color><param>Green4</param>"http://elpa.gnu.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"marmalade"</x-color> . <x-color><param>Green4</param>"http://marmalade-repo.org/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"melpa"</x-color> . <x-color><param>Green4</param>"http://melpa.milkbox.net/packages/"</x-color><x-color><param>grey55</param>)</x-color>
-                         ;; <x-color><param>Red3</param>("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-</x-color>                         <x-color><param>grey55</param>))</x-color>
-<x-color><param>grey55</param>(</x-color>package-initialize<x-color><param>grey55</param>)</x-color>
-
-;; <x-color><param>Red3</param>(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-</x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not package-archive-contents<x-color><param>grey55</param>)</x-color>
-  <x-color><param>grey55</param>(</x-color>package-refresh-contents<x-color><param>grey55</param>))</x-color>
-
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defvar</x-color> <x-color><param>Tan4</param>my-packages</x-color> '<x-color><param>grey55</param>(</x-color> 
-                      ;; <x-color><param>Red3</param>starter kit
-</x-color>                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
-                                  ;; <x-color><param>Red3</param>other file types
-</x-color>                                  csv-mode
+(when (not package-archive-contents)
+  (package-refresh-contents))
+(defvar my-packages '( 
+                      ;; starter kit
+                      starter-kit starter-kit-lisp starter-kit-eshell starter-kit-bindings
+                                  ;; other file types
+                                  csv-mode
                                   log4j-mode
-                                  ;; <x-color><param>Red3</param>scala
-</x-color>                                  scala-mode2
-                                  ;; <x-color><param>Red3</param>clojure
-</x-color>                                  clojure-quick-repls
+                                  ;; scala
+                                  scala-mode2
+                                  ;; clojure
+                                  clojure-quick-repls
                                   clojure-mode
                                   cider
                                   clojure-cheatsheet
                                   clj-refactor
-                                  ;;<x-color><param>Red3</param>nrepl
-</x-color>                                  ac-nrepl
-                                  ;;<x-color><param>Red3</param>nrepl-ritz
-</x-color>                                  ;;<x-color><param>Red3</param>cider-nrepl
-</x-color>                                  ;;<x-color><param>Red3</param>cider-browse-ns
-</x-color>                                  ;; <x-color><param>Red3</param>lisp
-</x-color>                                  slime
-                                  ;; <x-color><param>Red3</param>java
-</x-color>                                  jtags
-                                  ;; <x-color><param>Red3</param>haskell
-</x-color>                                  haskell-mode
-                                  ;; <x-color><param>Red3</param>web
-</x-color>                                  multi-web-mode
+                                  ;;nrepl
+                                  ac-nrepl
+                                  ;;nrepl-ritz
+                                  ;;cider-nrepl
+                                  ;;cider-browse-ns
+                                  ;; lisp
+                                  slime
+                                  ;; java
+                                  jtags
+                                  ;; haskell
+                                  haskell-mode
+                                  ;; web
+                                  multi-web-mode
                                   skewer-mode
                                   js2-mode
                                   simple-httpd
                                   impatient-mode
-                                  ;; <x-color><param>Red3</param>display
-</x-color>                                  hideshowvis
+                                  ;; display
+                                  hideshowvis
                                   rainbow-delimiters
                                   xterm-frobs
-                                  color-theme ;;<x-color><param>Red3</param>color-theme-library
-</x-color>                                  moe-theme
-                                  ;;<x-color><param>Red3</param>color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
-</x-color>                                  hexrgb
+                                  color-theme ;;color-theme-library
+                                  moe-theme
+                                  ;;color-theme-sanityinc-solarized calmer-forest-theme zenburn-theme anti-zenburn-theme underwater-theme base16-theme tron-theme tango-2-theme tangotango-theme color-theme-sanityinc-tomorrow color-theme-wombat
+                                  hexrgb
                                   highline
                                   highlight-symbol
                                   auto-highlight-symbol
-                                  ;; <x-color><param>Red3</param>git
-</x-color>                                  magit git-gutter gitconfig-mode
-                                  ;; <x-color><param>Red3</param>svn
-</x-color>                                  dsvn
-                                  ;; <x-color><param>Red3</param>editing
-</x-color>                                  all
+                                  ;; git
+                                  magit git-gutter gitconfig-mode
+                                  ;; svn
+                                  dsvn
+                                  ;; editing
+                                  all
                                   auto-complete
                                   cdlatex
                                   drag-stuff
                                   iedit
                                   yasnippet
-                                  ;; <x-color><param>Red3</param>communication
-</x-color>                                  ssh
+                                  ;; communication
+                                  ssh
                                   tramp
                                   w3m
                                   markdown-mode
                                   adoc-mode
-                                  org
-                                  org-trello
-                                  ;;<x-color><param>Red3</param>epresent
-</x-color>                                  ;; <x-color><param>Red3</param>org-present
-</x-color>                                  ;; <x-color><param>Red3</param>org-presie
-</x-color>                                  ;; <x-color><param>Red3</param>ox-html5slide
-</x-color>                                  ;;<x-color><param>Red3</param>org-reveal
-</x-color>                                  ;;<x-color><param>Red3</param>??? org-latex
-</x-color>                                  ;; <x-color><param>Red3</param>file management
-</x-color>                                  ;;<x-color><param>Red3</param>openwith 
-</x-color>                                  dired+ ;;<x-color><param>Red3</param>???dired-external-apps
-</x-color>                                  ;;;;<x-color><param>Red3</param>??? dired-x
-</x-color>                                  dired-details+
-                                  ;; <x-color><param>Red3</param>emacs navigation and command-management
-</x-color>                                  imenu-anywhere
+q                                  org                                  org-trello
+                                  ;;epresent
+                                  ;; org-present
+                                  ;; org-presie
+                                  ;; ox-html5slide
+                                  ;;org-reveal
+                                  ;;??? org-latex
+                                  ;; file management
+                                  ;;openwith 
+                                  dired+ ;;???dired-external-apps
+                                  ;;;;??? dired-x
+                                  dired-details+
+                                  ;; emacs navigation and command-management
+                                  imenu-anywhere
                                   guru-mode
-                                  ;;<x-color><param>Red3</param>??? uniquify
-</x-color>                                  ;; <x-color><param>Red3</param>vim
-</x-color>                                  evil
+                                  ;;??? uniquify
+                                  ;; vim
+                                  evil
                                   evil-paredit
                                   lispy
                                   ido-vertical-mode
-                                  ;;<x-color><param>Red3</param>key-chord
-</x-color>                                  ;; <x-color><param>Red3</param>programming -- general
-</x-color>                                  flycheck
+                                  ;;key-chord
+                                  ;; programming -- general
+                                  flycheck
                                   ess
                                   ess-R-data-view
                                   ess-R-object-popup
                                   r-autoyas
-                                  ;; <x-color><param>Red3</param>other
-</x-color>                                  ;;<x-color><param>Red3</param>google-maps
-</x-color>                                  google-translate
+                                  ;; other
+                                  ;;google-maps
+                                  google-translate
                                   mediawiki 
                                   pandoc-mode
                                   howdoi
@@ -127,72 +119,61 @@ Text-Width: 70
                                   multiple-cursors
                                   ace-link
                                   ewmctrl
-
-                                  ;;<x-color><param>Firebrick</param>expand-region
-
-</x-color>                                  ace-isearch
-
+                                  ;;expand-region
+                                  ace-isearch
                                   history
-
-                                  elmacro<x-color><param>grey55</param>)</x-color>
-  "A list of packages to ensure are installed at launch."<x-color><param>grey55</param>)</x-color>
-
-;; <x-color><param>Firebrick</param>Add in your own as you wish:
-</x-color><x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>dolist</x-color> <x-color><param>grey55</param>(</x-color>p my-packages<x-color><param>grey55</param>)</x-color>
-  <x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>when</x-color> <x-color><param>grey55</param>(</x-color>not <x-color><param>grey55</param>(</x-color>package-installed-p p<x-color><param>grey55</param>))</x-color>
-    <x-color><param>grey55</param>(</x-color>package-install p<x-color><param>grey55</param>)))</x-color>
+                                  elmacro)
+  "A list of packages to ensure are installed at launch.")
+;; Add in your own as you wish:
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 
+;;;;;;;; MANUAL INSTALLATION
 
-;;;;;;;; <x-color><param>Firebrick</param>MANUAL INSTALLATION
-</x-color>
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/.emacs.d/manual-installations/"</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred"</x-color><x-color><param>grey55</param>)</x-color> 
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/emacs-epc"</x-color><x-color><param>grey55</param>)</x-color> 
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>VioletRed4</param>"~/installations/deepin-emacs/site-lisp/extensions/webkit"</x-color><x-color><param>grey55</param>)</x-color>
-;;;;;;;; <x-color><param>Firebrick</param>NAVIGATION KEYBINDINGS
-</x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-."</x-color><x-color><param>grey55</param>)</x-color> 'imenu-anywhere<x-color><param>grey55</param>)</x-color>
+(add-to-list 'load-path "~/.emacs.d/manual-installations/")
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-deferred") 
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/emacs-epc") 
+(add-to-list 'load-path "~/installations/deepin-emacs/site-lisp/extensions/webkit")
+;;;;;;;; NAVIGATION KEYBINDINGS
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"<<C-tab>"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"M-0"</x-color><x-color><param>grey55</param>)</x-color> 'other-window<x-color><param>grey55</param>)</x-color>
+(global-set-key (kbd "C-.") 'imenu-anywhere)
+(global-set-key (kbd "<C-tab>") 'other-window)
+(global-set-key (kbd "M-0") 'other-window)
 
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c SPC"</x-color><x-color><param>grey55</param>)</x-color> 'ace-jump-mode<x-color><param>grey55</param>)</x-color>
+(defun new-shell ()
+  (interactive)
+  (shell
+   (generate-new-buffer
+    (generate-new-buffer-name "*shell*"))))
+(global-set-key (kbd "C-c s") 'new-shell)
+;;;;;;;; EVIL-MODE
+;; See emacs-wiki, http://stackoverflow.com/a/16226006
 
-
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>new-shell</x-color> <x-color><param>grey55</param>()</x-color>
-  <x-color><param>grey55</param>(</x-color>interactive<x-color><param>grey55</param>)</x-color>
-  <x-color><param>grey55</param>(</x-color>shell
-   <x-color><param>grey55</param>(</x-color>generate-new-buffer
-    <x-color><param>grey55</param>(</x-color>generate-new-buffer-name <x-color><param>VioletRed4</param>"*shell*"</x-color><x-color><param>grey55</param>))))</x-color>
-
-<x-color><param>grey55</param>(</x-color>global-set-key <x-color><param>grey55</param>(</x-color>kbd <x-color><param>VioletRed4</param>"C-c s"</x-color><x-color><param>grey55</param>)</x-color> 'new-shell<x-color><param>grey55</param>)</x-color>
-
-;;;;;;;; <x-color><param>Firebrick</param>EVIL-MODE
-</x-color>;; <x-color><param>Firebrick</param>See emacs-wiki, http://stackoverflow.com/a/16226006
-</x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>dark cyan</param>evil</x-color><x-color><param>grey55</param>)</x-color>
-;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Firebrick</param>(define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Firebrick</param>(define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
-</x-color>;; <x-color><param>Firebrick</param>(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-e" 'end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-b" 'evil-backward-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
-</x-color>;; <x-color><param>Red3</param>(define-key evil-normal-state-map "\C-n" 'evil-next-line)
-</x-color>;; (define-key evil-insert-state-map "\C-n" 'evil-next-line)
+(require 'evil)
+;; (define-key evil-normal-state-map "\C-s" 'isearch-forward-regexp)
+;; (define-key evil-insert-state-map "\C-s" 'isearch-forward-regexp)
+;; (define-key evil-visual-state-map "\C-s" 'isearch-forward-regexp)
+;; (define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
+;; (define-key evil-insert-state-map "\C-r" 'isearch-backward-regexp)
+;; (define-key evil-visual-state-map "\C-r" 'isearch-backward-regexp)
+;; (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+;; (define-key evil-insert-state-map "\C-e" 'end-of-line)
+;; (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
+;; (define-key evil-normal-state-map "\C-f" 'evil-forward-char)
+;; (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+;; (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+;; (define-key evil-normal-state-map "\C-b" 'evil-backward-char)
+;; (define-key evil-insert-state-map "\C-b" 'evil-backward-char)
+;; (define-key evil-visual-state-map "\C-b" 'evil-backward-char)
+;; (define-key evil-normal-state-map "\C-d" 'evil-delete-char)
+;; (define-key evil-insert-state-map "\C-d" 'evil-delete-char)
+;; (define-key evil-visual-state-map "\C-d" 'evil-delete-char)
+;; (define-key evil-normal-state-map "\C-n" 'evil-next-line)
+;; (define-key evil-insert-state-map "\C-n" 'evil-next-line)
 ;; (define-key evil-visual-state-map "\C-n" 'evil-next-line)
 ;; (define-key evil-normal-state-map "\C-p" 'evil-previous-line)
 ;; (define-key evil-insert-state-map "\C-p" 'evil-previous-line)
@@ -209,19 +190,14 @@ Text-Width: 70
 ;; (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
 ;; (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
 ;; (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
-
 (defun evil-undefine ()
  (interactive)
  (let (evil-mode-map-alist)
    (call-interactively (key-binding (this-command-keys)))))
 
-
 (setq evil-want-fine-undo t)
-
 (setq evil-default-cursor t)
-
 (global-set-key (kbd "C-c i") 'iedit-mode)
-
 (require 'lispy)
 (global-set-key (kbd "C-c ;")
                 (lambda ()
@@ -231,22 +207,17 @@ Text-Width: 70
                     (progn (setq lispy-mode t)
                            (paredit-backward-up)))))
 
-
 (require 'evil-paredit)
 (add-hook 'evil-mode-hook 'evil-paredit-mode)
-
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
 (define-key evil-emacs-state-map (kbd "C-[") 'evil-normal-state)
-
 (add-hook 'evil-insert-state-entry-hook 'evil-emacs-state)
-
 ;; https://github.com/antono/emacs.d/blob/master/local/my-evil.el
 (setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("blue" box))
 (setq evil-visual-state-cursor '("blue" box))
 (setq evil-insert-state-cursor '("blue" bar))
 (setq evil-motion-state-cursor '("blue" box))
-
 ;; from emacswiki
 ;;(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
 ;;(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
@@ -257,19 +228,14 @@ Text-Width: 70
 ;;(setq key-chord-two-keys-delay 0.1)
 ;;(setq key-chord-one-key-delay 0.2)
 
-
 ;;;;;;; MULTIPLE CURSORS
-
 (global-set-key (kbd "C-c m") 'mc/mark-all-like-this-dwim)
-
 ;;;;;;; NARROW, WIDEN
-
 ;; http://www.bytopia.org/2014/11/26/rename-clojure-symbol-in/
 (defun narrow-or-widen-dwim (p)
   "If the buffer is narrowed, it widens. Otherwise, it narrows intelligently.
 Intelligently means: region, subtree, or defun, whichever applies
 first.
-
 With prefix P, don't widen, just narrow even if buffer is already
 narrowed."
   (interactive "P")
@@ -279,17 +245,12 @@ narrowed."
          (narrow-to-region (region-beginning) (region-end)))
         ((derived-mode-p 'org-mode) (org-narrow-to-subtree))
         (t (narrow-to-defun))))
-
 (global-set-key (kbd "C-x n n") 'narrow-or-widen-dwim)
 
-
 ;;;;;;; BUFFER MANAGEMENT KEYBINDINGS
-
 (global-set-key (kbd "M-5") 'revert-buffer)
 (global-set-key (kbd "M-6") 'recover-this-file)
-
 ;;;;;;; DISPLAY MANAGEMENT KEYBINDINGS
-
 (defun set-dark () (interactive)
   (if window-system
       (progn (set-background-color "#333333")
@@ -309,9 +270,8 @@ narrowed."
     (progn (xterm-set-background-color "#333333")
            (xterm-set-foreground-color "#cccccc")
            (xterm-set-cursor-color "#664422"))))
-(global-set-key (kbd "<<f1>") 'set-light)
-(global-set-key (kbd "<<f2>") 'set-dark)
-
+(global-set-key (kbd "<f1>") 'set-light)
+(global-set-key (kbd "<f2>") 'set-dark)
 (defun set-default-colors () (interactive)
   (progn
     (require 'moe-theme)
@@ -320,28 +280,24 @@ narrowed."
     ;; (moe-light)
     (color-theme-jsc-light2)
     (set-light)))
-(global-set-key (kbd "<<f5>") 'set-default-colors)
-
+(global-set-key (kbd "<f5>") 'set-default-colors)
 (set-default-colors)
-
 (global-set-key (kbd "M-7") 'visual-line-mode)
 (global-set-key (kbd "M-8") 'toggle-truncate-lines)
 (global-set-key (kbd "M-9") 'hl-line-mode)
 (global-set-key (kbd "C-c M-1") 'randomize-buffer-background)
 (global-set-key (kbd "C-c M-2") 'toggle-mode-line)
-;(global-set-key (kbd "<<f7>") 'visual-line-mode)
-;(global-set-key (kbd "<<f8>") 'toggle-truncate-lines)
-;(global-set-key (kbd "<<f9>") 'hl-line-mode)
-;(global-set-key (kbd "<<f11>") 'randomize-buffer-background)
-;(global-set-key (kbd "<<f12>") 'toggle-mode-line)
-
-;; (global-set-key (kbd "<<f1>")
+;(global-set-key (kbd "<f7>") 'visual-line-mode)
+;(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+;(global-set-key (kbd "<f9>") 'hl-line-mode)
+;(global-set-key (kbd "<f11>") 'randomize-buffer-background)
+;(global-set-key (kbd "<f12>") 'toggle-mode-line)
+;; (global-set-key (kbd "<f1>")
 ;;                 (lambda () (interactive)
 ;;                   (load-file "/home/danny/.emacs.d/elpa/anti-zenburn-theme-20131119.2333/anti-zenburn-theme.el")))
-;; (global-set-key (kbd "<<f2>")
+;; (global-set-key (kbd "<f2>")
 ;;                 (lambda () (interactive)
 ;;                   (load-file "/home/danny/.emacs.d/elpa/zenburn-theme-20131123.1547/zenburn-theme.el")))
-
 
 (global-set-key (kbd "M-1")
                 (lambda () (interactive)
@@ -354,34 +310,22 @@ narrowed."
                   (xterm-set-background-color "#cccccc")
                   (xterm-set-foreground-color "#333333")
                   (xterm-set-cursor-color "#99bbdd")))
-
 (set-light)
-
 
 ;;;;;;;; EXTERNAL COMMANDS KEYBINDINGS
 (global-set-key (kbd "C-c d") (lambda() (interactive) (message (format-time-string "%c" (current-time)))))
-
 ;;;;;;;; FRAME RELATED KEYBINDINGS
 (global-set-key (kbd "C-c z") (lambda () (interactive) (delete-frame)))
-
 ;;;;;;;; ELECTRIC PAIRS
-
 (electric-pair-mode)
-
 ;;;;;;;; AUTO-COMPLETE
-
 (require 'auto-complete)
 ;;(auto-complete-mode)
-
 ;;;;;;;; YASNIPPET
-
 (require 'yasnippet)
-
 ;;;;;;;; FLYCHECK
-
 (require 'flycheck)
 (flycheck-mode)
-
 ;;;;;;;; EDIFF
 ;; http://stackoverflow.com/a/1680994
 ;; ("Is there any way to get Ediff to not open its navigation interface in an external window?")
@@ -399,9 +343,7 @@ narrowed."
 			  (add-hook 'ediff-cleanup-hook 'ediff-toggle-wide-display)
 			  (add-hook 'ediff-suspend-hook 'ediff-toggle-wide-display)))))
 
-
 ;;;;;;;; BIDI
-
 (defun bidi ()
   (interactive)
   (setq bidi-display-reordering t)
@@ -422,22 +364,18 @@ narrowed."
   (interactive)
   (setq bidi-paragraph-direction nil)
 )
-
 ;;;;;;;; JAVA-SETUP
-
 (let ((filename "~/.emacs.d/java-setup.el"))
   (if (file-exists-p filename)
       (load-file filename)))
-
 ;;;;;;;; WEB DEV
 (require 'multi-web-mode)
 (setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags '((php-mode "<<\\?php\\|<<\\? \\|<<\\?=" "\\?>")
-                  (js-mode "<<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "<</script>")
-                  (css-mode "<<style +type=\"text/css\"[^>]*>" "<</style>")))
+(setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+                  (js-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+                  (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
-
 ;; (require 'simple-httpd)
 ;; (setq httpd-root "/var/www")
 ;; (httpd-start)
@@ -446,46 +384,30 @@ narrowed."
 ;; (add-hook 'css-mode-hook 'skewer-css-mode)
 ;; (add-hook 'html-mode-hook 'skewer-html-mode)
 
-
-;;;;;;;; SVN
-(require 'vc-svn)
-(require 'dsvn)
-
 ;;;;;;;; GIT-GUTTER
-
 
 ;; If you enable global minor mode
 (global-git-gutter-mode t)
-
 ;; If you enable git-gutter-mode for some modes
 ;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
-
 (global-set-key (kbd "C-c u t") 'git-gutter:toggle)
 (global-set-key (kbd "C-c u =") 'git-gutter:popup-diff)
-
 ;; Jump to next/previous hunk
 (global-set-key (kbd "C-c u p") 'git-gutter:previous-hunk)
 (global-set-key (kbd "C-c u n") 'git-gutter:next-hunk)
-
 ;; Revert current hunk
 (global-set-key (kbd "C-c u r") 'git-gutter:revert-hunk)
-
 
 ;;;;;;;; CSV
 (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
 (autoload 'csv-mode "csv-mode"
   "Major mode for editing comma-separated value files." t)
 
-
 ;;;;;;;; ORG-MODE (TODO: organize)
-
 (setq org-list-allow-alphabetical t)
-
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
-
 ;; (load-file "~/.emacs.d/plugins/latex-live-preview.el") 
-
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
 	 "* TODO %?\n  %i\n  %a")
@@ -493,13 +415,10 @@ narrowed."
 	 "* %?\nEntered on %U\n  %i\n  %a")
         ))
 
-
 ;;(setq org-default-notes-file (concat org-directory "~/myorg.org"))
-
 
 ;; (make-face 'org-base-face)
 ;;(set-face-background 'org-base-face "navy")
-
 (add-hook
  'org-mode-hook
  (lambda ()
@@ -507,14 +426,12 @@ narrowed."
    ;; (buffer-face-mode t)
    ;; (buffer-face-set 'org-base-face)
    (bidi)
-   (local-set-key (kbd "<<C-tab>") 'other-window)  ; Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
+   (local-set-key (kbd "<C-tab>") 'other-window)  ; Avoid org-mode's binding to (org-force-cycle-archived). (Somehow, local-unset-key was not enough here -- another specific binding took place.)
    (bidi-unfix)
    )
  )
-
 (make-face 'agenda-base-face)
 ;;(set-face-background 'agenda-base-face "orchid4")
-
 (add-hook 
  'org-finalize-agenda-hook 
  (lambda () 
@@ -525,7 +442,6 @@ narrowed."
    (bidi-unfix)
    )
  )
-
 
 ;; http://members.optusnet.com.au/~charles57/GTD/mydotemacs.txt
 ;; .emacs file     Selected entries from ~/.emacs.el
@@ -553,22 +469,17 @@ narrowed."
 ;;(setq org-tags-column -78)
 ;;(setq org-time-stamp-rounding-minutes 1)
 ;;(setq org-use-fast-todo-selection t)
-
 ;;(setq org-tags-match-list-sublevels 'indented)
 ;;(setq org-use-tag-inheritance nil)
-
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-
 ;;(setq org-agenda-include-diary nil)
 ;;(setq org-timeline-show-empty-dates t)
 ;;(setq org-insert-mode-line-in-empty-file t)
-
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/.notes")
-
 (setq org-agenda-custom-commands
 '(
   ("P" "Projects"   
@@ -590,12 +501,9 @@ narrowed."
 )
 
 
-
 (setq org-return-follows-link t)
-
 (setq org-export-with-toc nil)
 (setq org-export-author-info nil)
-
 
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/org-present-20130426.1155")
 ;; (autoload 'org-present "org-present" nil t)
@@ -603,37 +511,28 @@ narrowed."
 ;;           (lambda ()
 ;;             (org-present-big)
 ;;             (org-display-inline-images)))
-
 ;; (add-hook 'org-present-mode-quit-hook
 ;;           (lambda ()
 ;;             (org-present-small)
 ;;             (org-remove-inline-images)))
 
 
-
 ;;(add-to-list 'load-path "/home/danny/.emacs.d/elpa/cdlatex-4.0/")
 ;;(require 'cdlatex)
-
 ;;(openwith-mode t)
-
 (setq dired-dwin-target t)
-
 (setq dired-recursive-copies (quote always))
 (setq dired-recursive-deletes (quote top))
-
 (setq dired-dwim-target t)
-
 ;; (setq dired-external-apps-list 
 ;;       (append (list "libreoffice" "xpdf" "evince" "vlc" "eog" "gimp") dired-external-apps-list))
 ;; (dired-external-apps-generate-wrapper-functions-for-apps) ;; reinitialize after changes
 (setq dired-external-apps-save-to-registers-flag t)
-
 ;; ;; http://lists.gnu.org/archive/html/help-gnu-emacs/2002-10/msg00556.html
 (defun dired-copy-filename ()
   "push the path and filename of the file under the point to the kill ring"
   (interactive)
   (message "added %s to kill ring" (kill-new (dired-get-filename))))
-
 (add-hook 'dired-mode-hook
                  '(lambda ()
 		    ;;(highline-mode)
@@ -653,7 +552,6 @@ narrowed."
 		    ;;   )
 		    ;; )
 		 ))
-
 
 ;; http://www.emacswiki.org/emacs/DiredDoShellAsynchronous
 (defun dired-shell-stuff-it (command file-list on-each &optional raw-arg)
@@ -687,12 +585,9 @@ narrowed."
   	    (setq files (concat dired-mark-prefix files dired-mark-postfix)))
   	(funcall stuff-it files)))))
 
-
 (setq wdired-allow-to-change-permissions t)
 
-
 ;;;;;;;; CODING CONVENTIONS
-
 ;; https://www.bunkus.org/blog/2009/12/switching-identifier-naming-style-between-camel-case-and-c-style-in-emacs/
 (defun mo-toggle-identifier-naming-style ()
   "Toggles the symbol at point between lisp-style naming,
@@ -706,7 +601,7 @@ narrowed."
     (save-excursion
       (narrow-to-region (car symbol-pos) (cdr symbol-pos))
       (setq cstyle (string-match-p "-" (buffer-string))
-            regexp (if cstyle "\\(?:\\-<<\\|-\\)\\(\\w\\)" "\\([A-Z]\\)")
+            regexp (if cstyle "\\(?:\\-<\\|-\\)\\(\\w\\)" "\\([A-Z]\\)")
             func (if cstyle
                      'capitalize
                    (lambda (s)
@@ -722,10 +617,8 @@ narrowed."
       (widen))))
 (define-key global-map "\C-c-" 'mo-toggle-identifier-naming-style)
 
-
 ;;;;;;;; ORG-TRELLO
 (require 'org-trello)
-
 
 ;;;;;;;; BABEL
 (org-babel-do-load-languages
@@ -737,10 +630,8 @@ narrowed."
    (sh . t)
    (latex . t)
 ))
-
 (setq org-export-babel-evaluate nil)
 (setq org-confirm-babel-evaluate nil)
-
 ;;;;;;;; BABEL WITH CLOJURE
 ;; ;; https://groups.google.com/forum/?fromgroups=#!topic/clojure/B3Rc_HfnlQI
 ;; ;; Add org-babel support
@@ -752,10 +643,8 @@ narrowed."
 ;;    'org-babel-load-languages
 ;;    '((emacs-lisp . t)
 ;;      (clojure    . t))))
-
 ;; ;; Pull in the htmlize library for pretty source code in HTML output
 ;; ;;(require 'htmlize)
-
 ;; ;; fontify source code in org-latex export to PDF
 ;; (require 'org-latex)
 ;; (setq org-export-latex-listings 'minted)
@@ -773,13 +662,10 @@ narrowed."
 ;;                                  "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f"))
 
 
-
   
 ;;;;;;;; LOG4J-MODE
-
 (autoload 'log4j-mode "log4j-mode" "Major mode for viewing log files." t)
 (add-to-list 'auto-mode-alist '("\\.log\\'" . log4j-mode))
-
 (add-hook
  'log4j-mode-hook
  (lambda ()
@@ -787,15 +673,11 @@ narrowed."
    (define-key log4j-mode-local-map [(control up)] 'log4j-backward-record)))
 
 
-
 ;;;;;;;; DISPLAY
-
 (display-time-mode)
-
 ;; http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs
 ;; Use a specific font for Hebrew, since some of the mono fots are actually not mono in Hebrew.
 (set-fontset-font "fontset-default" '(#x5d0 . #x5ff) "Miriam Mono CLM:bold")
-
 
 
 (defun randomize-buffer-background ()
@@ -814,7 +696,7 @@ narrowed."
                                       (> y 1) 
                                       1 ;;(- 2 y)
                                     (if 
-                                        (<< y 0)
+                                        (< y 0)
                                         0 ;;(- y)
                                       y)))))
 	       (color-name-to-rgb (face-background 'default))))
@@ -829,18 +711,14 @@ narrowed."
 
 
 
-
 (set-fringe-style '(0 . 0))
-
 ;; (color-theme-jb-simple)
 ;; (color-theme-jedit-grey)
 ;; (require 'calmer-forest-theme)
 ;; (color-theme-calm-forest)
-
 ;;;;;;;; BACKUP
 ;; http://stackoverflow.com/a/151946
 (setq backup-directory-alist `(("." . "~/.saves")))
-
 
 ;;;;;;;; IIMAGE
 (defun refresh-iimages ()
@@ -849,15 +727,12 @@ narrowed."
   (clear-image-cache nil)
   (iimage-mode nil)
   (iimage-mode t))
-
 (add-to-list 'compilation-finish-functions 
              (lambda (buffer msg)
                (save-excursion
                  (set-buffer buffer)
                  (refresh-iimages))))
-
 ;;;;;;;; MODE-LINE
-
 ;; http://stackoverflow.com/questions/5079466/hide-emacs-echo-area-during-inactivity
 (defun toggle-mode-line () "toggles the modeline on and off"
   (interactive) 
@@ -866,7 +741,6 @@ narrowed."
 	    (default-value 'mode-line-format)
 	  nil))
   (redraw-display))
-
 ;; http://rwiki.sciviews.org/doku.php?id=guides:ess-tips
 ; Enable which-func
 (which-func-mode)
@@ -877,9 +751,7 @@ narrowed."
    global-mode-string " (" mode-name minor-mode-alist "%n)"
    (which-func-mode (" " which-func-format ""))))
 
-
 ;; https://gist.githubusercontent.com/anonymous/4434524/raw/dce9687dc23a008e082024632e688e3222b9d272/clean-mode-line.el
-
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . " α")
     (git-gutter-mode . " γ")
@@ -894,7 +766,6 @@ narrowed."
 When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *in lieu of* the original.")
-
 (defun clean-mode-line ()
   (interactive)
   (loop for cleaner in mode-line-cleaner-alist
@@ -906,32 +777,23 @@ want to use in the modeline *in lieu of* the original.")
                ;; major mode
              (when (eq mode major-mode)
                (setq mode-name mode-str)))))
-
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
-
 ;;;;;;;; ENSIME
-
 ;; ;; load the ensime lisp code...
 ;; (add-to-list 'load-path "/home/we/installations/ensime/elisp/")
 ;; (require 'ensime)
-
 ;; ;; This step causes the ensime-mode to be started whenever
 ;; ;; scala-mode is started for a buffer. You may have to customize this step
 ;; ;; if you're not using the standard scala mode.
 ;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
 ;; ;; assuming that this is $SCALA_HOME:
 ;; (push "/usr/bin/" exec-path)
-
 ;; ;; http://stackoverflow.com/a/15720945
 ;; (setq ensime-inf-default-cmd-line '("sbt" "console"))
 
-
 ;;;;;;;; REPL EVAL
-
 ;; ;; http://kazyos.hatenablog.com/entry/2014/04/13/094951
-
 ;; (defun my-repl-eval (repl-buffer-name fun-repl-start fun-repl-send defun-string)
 ;;     "Evaluates expression using a REPL specified by repl-buffer-name. Sends
 ;; expression using a function specified in fun-repl-start. A function definition
@@ -978,19 +840,15 @@ want to use in the modeline *in lieu of* the original.")
 ;; 	;; Go to the next expression
 ;; 	(forward-sexp)
 ;; 	))))
-
 ;; (defun not-implemented ()
 ;;   (interactive)
 ;;   (shell-command "notify-send not implemented"))
-
 ;; (defun my-send-clojure (start end)
 ;;     "Sends expression to *cider-repl* and have it evaluated."
-
 ;;   (let* (;; Assign the current buffer
 ;; 	 (script-window (selected-window))
 ;; 	 ;; Assign the region as a string
 ;; 	 (region-string (buffer-substring-no-properties start end)))
-
 ;;     ;; Change to cider REPL
 ;;     (cider-switch-to-repl-buffer)
 ;;     ;; Move to end of buffer
@@ -1010,7 +868,6 @@ want to use in the modeline *in lieu of* the original.")
 ;;     ;; Return nil
 ;;     nil
 ;;     ))
-
 ;; (my-repl-eval
 ;;  ;; repl-buffer-name
 ;;  "*shell*"
@@ -1021,9 +878,7 @@ want to use in the modeline *in lieu of* the original.")
 ;;  ;;defun-string
 ;;  "(defn ")
 ;; ;;
-
 ;;;;;;;; CLOJURE COOKBOOK
-
 (defun increment-clojure-cookbook ()
   "When reading the Clojure cookbook, find the next section, and
 close the buffer. If the next section is a sub-directory or in
@@ -1036,7 +891,7 @@ the next chapter, open Dired so you can find it manually."
 	 (rec-num (string-to-number rec))
 	 (next-rec-num (1+ rec-num))
 	 (next-rec-s (number-to-string next-rec-num))
-	 (next-rec (if (<< next-rec-num 10)
+	 (next-rec (if (< next-rec-num 10)
 		       (concat "0" next-rec-s)
 		     next-rec-s))
 	 (target (file-name-completion (concat chap "-" next-rec) "")))
@@ -1045,33 +900,25 @@ the next chapter, open Dired so you can find it manually."
 	  (dired (file-name-directory (buffer-file-name)))
 	(find-file target))
       (kill-buffer cur))))
-
 (add-hook 'adoc-mode-hook 'cider-mode)
-
 ;;;;;;;; CLOJURE
-
 
 ;; (add-to-list 'load-path "~/.emacs.d/manual-installations/monroe/")
 ;; (require 'monroe)
 ;; (add-hook 'clojure-mode-hook 'clojure-enable-monroe)
 
-
 (require 'cider)
-
 ;; ;;(setq nrepl-popup-stacktraces nil)
 ;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
 ;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 ;; (add-hook 'cider-repl-mode-hook 'auto-complete-mode)
-
 ;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 ;; (defun my-nrepl-mode-setup ()
 ;;   (require 'nrepl-ritz))
-
 ;; make cider repl use clojure font lock:
 (setq cider-repl-use-clojure-font-lock t)
 ;; (setq cider-repl-use-pretty-printing t)
-
 
 (defun cider-repl-pretify ()
   (interactive)
@@ -1088,9 +935,7 @@ the next chapter, open Dired so you can find it manually."
     (replace-regexp ", " ",\n")
     (indent-region (point-min) (point-max))
     (end-of-buffer)))
-
 (global-set-key (kbd "C-c p") 'cider-repl-pretify)
-
 
 
 ;; Limiting output size, combining
@@ -1108,7 +953,6 @@ the next chapter, open Dired so you can find it manually."
 (defun my-nrepl-connected-hook ()
   (nrepl-limit-print-length))
 (add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
-
 
 
 ;; Suggestion of:
@@ -1187,11 +1031,9 @@ the next chapter, open Dired so you can find it manually."
 ;;              (local-set-key (kbd "C-z") 'my-eval-combination0)
 ;;              (local-set-key (kbd "C-q") 'my-eval-combination1)))
 
-
 ;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
 ;; ;; (add-to-list 'load-path "/home/we/.emacs.d/manual-installations/nrepl-inspect/")
 ;; ;; (require 'nrepl-inspect)
-
 
 ;; ;;;;
 ;; ;; http://stackoverflow.com/a/13031547
@@ -1224,14 +1066,12 @@ the next chapter, open Dired so you can find it manually."
 ;; (global-set-key (kbd "C-c n") 'nrepl-me)
 ;; ;; local to nrepl
 
-
 ;; (defun show-nrepl-and-its-server ()
 ;;   (interactive)
 ;;   (switch-to-buffer "*nrepl*")
 ;;   (split-window)
 ;;   (switch-to-buffer "*nrepl-server*")
 ;;   (other-window))
-
 
 ;; https://github.com/clojure-emacs/ac-nrepl
 (require 'ac-nrepl)
@@ -1247,15 +1087,11 @@ the next chapter, open Dired so you can find it manually."
 (eval-after-load "cider"
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 
-
 ;;;;
 
-
 ;;;;;;;; CLOJURESCRIPT
-
 ;;https://github.com/brentonashworth/one/wiki/Emacs
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
-
 ;; http://martintrojer.github.io/clojure/2014/10/02/clojure-and-emacs-without-cider/
 ;; https://github.com/martintrojer/dotfiles/blob/master/.emacs.d/full-init.el
 (add-hook 'clojure-mode-hook
@@ -1274,16 +1110,13 @@ the next chapter, open Dired so you can find it manually."
                           (lisp-eval-string (format "(require '%s :reload)" sym))
                           (lisp-eval-string (format "(in-ns '%s)" sym)))))
                     (goto-char current-point))))))
-
 ;;;;;;;; COMMON LISP
 ;; http://www.mohiji.org/2011/01/31/modern-common-lisp-on-linux/
 ;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; (setq inferior-lisp-program "sbcl")
 
 
-
 ;;;;;;;; ESS
-
 
 ;; http://www.emacswiki.org/emacs/ESSShiftEnter
 (setq ess-ask-for-ess-directory nil)
@@ -1293,7 +1126,6 @@ the next chapter, open Dired so you can find it manually."
 (setq comint-scroll-to-bottom-on-input t)
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
-
  (setq ess-ask-for-ess-directory nil)
   (setq ess-local-process-name "R")
   (setq ansi-color-for-comint-mode 'filter)
@@ -1301,7 +1133,6 @@ the next chapter, open Dired so you can find it manually."
   (setq comint-scroll-to-bottom-on-input t)
   (setq comint-scroll-to-bottom-on-output t)
   (setq comint-move-point-for-output t)
-
 (defun my-ess-start-R ()
     (interactive)
     (if (not (member "*R*" (mapcar (function buffer-name) (buffer-list))))
@@ -1313,32 +1144,25 @@ the next chapter, open Dired so you can find it manually."
 	(R)
 	(set-window-buffer w2 "*R*")
 	(set-window-buffer w1 w1name))))
-
 (defun my-ess-eval ()
     (interactive)
     (my-ess-start-R)
     (if (and transient-mark-mode mark-active)
 	(call-interactively 'ess-eval-region)
       (call-interactively 'ess-eval-line-and-step)))
-
 (add-hook 'ess-mode-hook
           '(lambda()
              (local-set-key [(shift return)] 'my-ess-eval)))
-
 (add-hook 'inferior-ess-mode-hook
           '(lambda()
              (local-set-key [C-up] 'comint-previous-input)
              (local-set-key [C-down] 'comint-next-input)))
-
 (require 'ess-site)
-
 ;; hooks
-
 (add-hook 'ess-mode-hook 'r-autoyas-ess-activate)
 (add-hook 'ess-mode-hook 'auto-complete-mode)
 (add-hook 'inferior-ess-mode-hook 'r-autoyas-ess-activate)
 (add-hook 'inferior-ess-mode-hook 'auto-complete-mode)
-
 ;; http://stackoverflow.com/questions/3447531/emacs-ess-version-of-clear-console
 (defun clear-shell ()
    (interactive)
@@ -1346,9 +1170,7 @@ the next chapter, open Dired so you can find it manually."
      (setq comint-buffer-maximum-size 0)
      (comint-truncate-buffer)
      (setq comint-buffer-maximum-size old-max)))
-
 (setq ess-smart-operators nil)
-
 
 
 (defun toggle-ess-eval-visibly-p ()
@@ -1356,8 +1178,7 @@ the next chapter, open Dired so you can find it manually."
   (setq ess-eval-visibly-p (not ess-eval-visibly-p)) ;; With nil ess-eval-visibly-p it is supposed to make things faster according to https://stat.ethz.ch/pipermail/ess-help/2011-March/006736.html .
   )
 (toggle-ess-eval-visibly-p)
-(define-key ess-mode-map (kbd "<<C-return>") 'toggle-ess-eval-visibly-p)
-
+(define-key ess-mode-map (kbd "<C-return>") 'toggle-ess-eval-visibly-p)
 (define-key ess-mode-map (kbd "C-c k")
   (lambda ()
     (interactive)
@@ -1365,39 +1186,26 @@ the next chapter, open Dired so you can find it manually."
      (get-process ess-local-process-name)
      (concat "library(knitr); knit2html(\"" buffer-file-name "\")"))))
 
-
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . R-mode))
-
 ;;;;;;;; JULIA
 ;; https://github.com/emacs-ess/ESS/wiki/Julia
 (setq inferior-julia-program-name "/path/to/julia/julia")
-
 ;; ;;;;;;;; BITLBEE
-
 ;; (add-to-list 'load-path "~/.emacs.d/manual-installations/")
-
 ;; (require 'bitlbee)
 
-
 ;;;;;;;; GOOGLE-TRANSLATE
-
 (require 'google-translate)
 (setq google-translate-enable-ido-completion t)
-
 ;;;;;;;; MEDIAWIKI
-
 (require 'mediawiki)
 (setq
  mediawiki-site-alist (quote (("Wikipedia" "http://en.wikipedia.org/w/" "username" "password" "Main Page") ("katros" "http://10.170.13.250/wiki/" "danny" "~~~~~~~~" "Main Page"))))
 
-
 ;;;;;;;; WINDOW MANAGEMENT
 (winner-mode)
-
 (put 'narrow-to-region 'disabled nil)
-
 ;;;;;;;; SCROLLING
-
 ;; http://www.emacswiki.org/emacs/SmoothScrolling
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
@@ -1405,7 +1213,6 @@ the next chapter, open Dired so you can find it manually."
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
     
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-
 
 ;; ;; http://web.archive.org/web/20061025212623/http://www.cs.utexas.edu/users/hllu/EmacsSmoothScrolling.html
 ;; (setq default-truncate-lines t)
@@ -1431,19 +1238,15 @@ the next chapter, open Dired so you can find it manually."
 ;;       (progn (scroll-down 1)
 ;;              (previous-line 1))
 ;;     (previous-line 1)))
-;; (global-set-key (kbd "<<down>") 'next-one-line)
-;; (global-set-key (kbd "<<up>") 'previous-one-line)
+;; (global-set-key (kbd "<down>") 'next-one-line)
+;; (global-set-key (kbd "<up>") 'previous-one-line)
 (put 'scroll-left 'disabled nil)
 
 
-
 ;;;;;;;; IDO
-
 (ido-vertical-mode)
-
 ;;;;;;;; EWW
 (setq shr-inhibit-images t)
-
 ;; http://oremacs.com/2014/12/30/ace-link-eww/
 (defun oleh-eww-hook ()
   (define-key eww-mode-map "j" 'oww-down)
@@ -1485,11 +1288,8 @@ the next chapter, open Dired so you can find it manually."
       (define-key eww-link-keymap "o" 'ace-link-eww)
       (define-key eww-mode-map "o" 'ace-link-eww))))
 (ace-link-setup-default)
-
 ;;;;;;;; W3M
-
 (setq w3m-use-cookies t)
-
 (add-hook 'w3m-mode-hook
 	  (lambda ()
 	    (visual-line-mode)
@@ -1500,7 +1300,6 @@ the next chapter, open Dired so you can find it manually."
 	    (local-set-key (kbd "M-p") 'w3m-previous-buffer)
 	    (local-set-key (kbd "M-n") 'w3m-next-buffer)))
 
-
 (defun add-url-at-point-to-todo ()
   "Add url at point to /home/we/todo.txt."
   (interactive)
@@ -1509,18 +1308,14 @@ the next chapter, open Dired so you can find it manually."
            (message cmd))))
 (global-set-key (kbd "C-c C-d") 'add-url-at-point-to-todo)
 
-
 ;;;;;;;; SMART-SCAN
-
 (let ((filename "~/.emacs.d/manual-installations/smart-scan/smartscan.el"))
   (if (file-exists-p filename)
       (progn
         (load-file filename)
         (require 'smartscan)
         (global-smartscan-mode))))
-
 ;;;;;;;; REMEMBER
-
 ;; http://lists.gnu.org/archive/html/emacs-orgmode/2007-09/msg00172.html
 ;; (defun my-remember nil
 ;;   (interactive)
@@ -1537,29 +1332,22 @@ the next chapter, open Dired so you can find it manually."
 ;;           (if frame
 ;;               (delete-frame frame t))))))
          
-
 ;; http://lists.gnu.org/archive/html/emacs-orgmode/2007-09/msg00203.html
 (add-hook 'remember-mode-hook 'delete-other-windows)
-
 (defun remember-finalize-and-delete-frame ()
   (interactive)
   (progn
     (remember-finalize)
     (delete-frame)))
-
 (add-hook
  'remember-mode-hook
  (lambda ()
    (local-set-key (kbd "C-c C-d") 'remember-finalize-and-delete-frame)))
-
 (setq remember-data-file "~/.notes.org")
-
 ;; ;; http://comments.gmane.org/gmane.emacs.orgmode/17612
 ;; (setq sx-notes-file-name "~/.notes.org")
 
-
 ;;;;;;;; ORG-CAPTURE
-
 ;; http://permalink.gmane.org/gmane.emacs.orgmode/33743
 (defadvice org-capture-finalize (after delete-capture-frame activate)
   "Advise capture-finalize to close the frame if it is the capture frame"
@@ -1572,52 +1360,41 @@ the next chapter, open Dired so you can find it manually."
   (select-frame-by-name "capture")
   (delete-other-windows)
   (org-capture))
-
 ;; (add-hook 'org-capture-mode-hook 'delete-other-windows)
-
 (add-to-list 'org-capture-templates
              '("m" "Madlan" entry (file+headline "~/org/madlan.org" "Madlan")
                "* %?\n  %i\n  %a")
              '("f" "Features" entry (file+headline "~/org/features.org" "Features")
                "* %?\n  %i\n  %a"))
-
 (global-set-key (kbd "C-c c") 'org-capture)
-
 ;;;;;;;; QUICK REPL
-
 (defun quick-repl ()
   (interactive)
-  <x-color><param>grey55</param>(</x-color>shell
-   <x-color><param>grey55</param>(</x-color>generate-new-buffer
-    <x-color><param>grey55</param>(</x-color>generate-new-buffer-name <x-color><param>Green4</param>"*shell*"</x-color><x-color><param>grey55</param>)))</x-color>
-  <x-color><param>grey55</param>(</x-color>insert <x-color><param>Green4</param>"quick repl\n"</x-color><x-color><param>grey55</param>))</x-color>
+  (shell
+   (generate-new-buffer
+    (generate-new-buffer-name "*shell*")))
+  (insert "quick repl\n"))
 
+;;;;;;;; MU4E
+;;https://gist.github.com/areina/3879626
 
-;;;;;;;; <x-color><param>Red3</param>MU4E
-</x-color>;;<x-color><param>Red3</param>https://gist.github.com/areina/3879626
-</x-color>
-<x-color><param>grey55</param>(</x-color>add-to-list 'load-path <x-color><param>Green4</param>"~/installations/mu/mu4e"</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color><x-color><param>Purple</param>require</x-color> '<x-color><param>Maroon</param>mu4e</x-color><x-color><param>grey55</param>)</x-color>
+(add-to-list 'load-path "~/installations/mu/mu4e")
+(require 'mu4e)
+;; default
+(setq mu4e-maildir (expand-file-name "~/.Mail/daniel@madlan.co.il"))
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Trash")
+;; ;; don't save message to Sent Messages, GMail/IMAP will take care of this
+;; (setq mu4e-sent-messages-behavior 'delete)
 
-;; <x-color><param>Red3</param>default
-</x-color><x-color><param>grey55</param>(</x-color>setq mu4e-maildir <x-color><param>grey55</param>(</x-color>expand-file-name <x-color><param>Green4</param>"~/.Mail/daniel@madlan.co.il"</x-color><x-color><param>grey55</param>))</x-color>
-
-<x-color><param>grey55</param>(</x-color>setq mu4e-drafts-folder <x-color><param>Green4</param>"/[Gmail].Drafts"</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>setq mu4e-sent-folder   <x-color><param>Green4</param>"/[Gmail].Sent Mail"</x-color><x-color><param>grey55</param>)</x-color>
-<x-color><param>grey55</param>(</x-color>setq mu4e-trash-folder  <x-color><param>Green4</param>"/[Gmail].Trash"</x-color><x-color><param>grey55</param>)</x-color>
-
-;; <x-color><param>Red3</param>;; don't save message to Sent Messages, GMail/IMAP will take care of this
-</x-color>;; <x-color><param>Red3</param>(setq mu4e-sent-messages-behavior 'delete)
-</x-color>
-;; <x-color><param>Red3</param>setup some handy shortcuts
-</x-color><x-color><param>grey55</param>(</x-color>setq mu4e-maildir-shortcuts
-      '<x-color><param>grey55</param>((</x-color><x-color><param>Green4</param>"/INBOX"</x-color>             . ?i<x-color><param>grey55</param>)</x-color>
-        <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"/[Gmail].Sent Mail"</x-color> . ?s<x-color><param>grey55</param>)</x-color>
-        <x-color><param>grey55</param>(</x-color><x-color><param>Green4</param>"/[Gmail].Trash"</x-color>     . ?t<x-color><param>grey55</param>)))</x-color>
-
+;; setup some handy shortcuts
+(setq mu4e-maildir-shortcuts
+      '(("/INBOX"             . ?i)
+        ("/[Gmail].Sent Mail" . ?s)
+        ("/[Gmail].Trash"     . ?t)))
 ;; ;; allow for updating mail using 'U' in the main view:
 (setq mu4e-get-mail-command "offlineimap")
-
 ;; something about ourselves
 ;; I don't use a signature...
 (setq
@@ -1628,13 +1405,10 @@ the next chapter, open Dired so you can find it manually."
  ;;    "Foo X. Bar\n"
  ;;    "http://www.example.com\n")
 )
-
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
 ;; package 'gnutls-bin' in Debian/Ubuntu, 'gnutls' in Archlinux.
-
 (require 'smtpmail)
-
 (setq message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
       smtpmail-starttls-credentials
@@ -1646,11 +1420,8 @@ the next chapter, open Dired so you can find it manually."
       smtpmail-smtp-service 587
       smtpmail-debug-info t)
 
-
 ;;;;;;;; OTHER
-
 ;; (setq ring-bell-function 'ignore)
-
 ;; ;; http://www.emacswiki.org/emacs/IncrementNumber    
 ;; (defun increment-number-at-point ()
 ;;   (interactive)
@@ -1689,7 +1460,6 @@ the next chapter, open Dired so you can find it manually."
 ;; ;
                                         ; (global-set-key (kbd "M-9") 'undouble-number-at-point)
 ;; (global-set-key (kbd "M-0") 'double-number-at-point)
-
 ;; TODO: Avoid code duplication by integrating with this version.
 ;; ;; http://www.emacswiki.org/emacs/IncrementNumber
 ;; (defun transform-number-at-point (transf)
@@ -1707,17 +1477,13 @@ the next chapter, open Dired so you can find it manually."
 ;; (global-set-key (kbd "C-0") 'decrement-number-at-point)
 ;; (global-set-key (kbd "C-9") 'increment-number-at-point)
 
-
 ;; ;;;;;;;; XTERM EXTRAS
-
 ;; (when (string-match "^xterm" (getenv "TERM"))
 ;;   (require 'xterm-extras)
 ;;  (xterm-extra-keys))
 
 
-
 (setenv "R_HOME" "/usr/local/lib/R")
-
 
 ;;;;;;;; NOTIFY-SEND
 ;; http://emacs-fu.blogspot.co.il/2009/11/showing-pop-ups.html
@@ -1725,23 +1491,17 @@ the next chapter, open Dired so you can find it manually."
   (shell-command (concat "notify-send "
                          msg)))
 
-
 ;;;;;;;; FOLDING
 (require 'origami)
-
 (define-key origami-mode-map
- (kbd "<<tab>")
+ (kbd "<tab>")
   'origami-toggle-node)
-
 (define-key origami-mode-map
- (kbd "<<backtab>")
+ (kbd "<backtab>")
   'origami-toggle-all-nodes)
-
 ;;;;;;;; KILL RING
 (require 'browse-kill-ring)
-
 ;;;;;;;; GENERATED CODE
-
 
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.
@@ -1839,10 +1599,8 @@ the next chapter, open Dired so you can find it manually."
 ;;  ;; If there is more than one, they won't work right.
 ;;  )
 
-
 ;;;;;;;; EMACS SERVER
 (server-start)
-
 ;;;;;;;; CUSTOM
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -1866,7 +1624,11 @@ the next chapter, open Dired so you can find it manually."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 (defun m ()
   (interactive)
   (find-file "/192.168.10.156:/home/we/enc/projects/mad-lan/clj/m.clj"))
+
+
+;;;;;;;; SVN
+(require 'vc-svn)
+(require 'dsvn)
