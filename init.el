@@ -1691,7 +1691,9 @@ the next chapter, open Dired so you can find it manually."
 
 ;;;;;;;; ;; SVN
 (require 'vc-svn)
-(require 'dsvn)
+;;(require 'dsvn)
+
+
 
 
 
