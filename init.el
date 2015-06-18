@@ -25,6 +25,7 @@
                                   ;; scala
                                   scala-mode2
                                   ;; clojure
+                                  monroe
                                   clojure-quick-repls
                                   clojure-mode
                                   cider
@@ -125,7 +126,9 @@
                                   ;;expand-region
                                   ace-isearch
                                   history
-                                  elmacro)
+                                  elmacro
+                                  emacs-eclim
+                                  google-c-style)
   "A list of packages to ensure are installed at launch.")
 ;; Add in your own as you wish:
 (dolist (p my-packages)
@@ -371,6 +374,34 @@ narrowed."
 (let ((filename "~/.emacs.d/java-setup.el"))
   (if (file-exists-p filename)
       (load-file filename)))
+
+(require 'eclim)
+(global-eclim-mode)
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+(require 'ac-emacs-eclim-source)
+(ac-emacs-eclim-config)
+
+;; http://stackoverflow.com/questions/18839777/change-java-modes-indentation-style-in-emacs/18842720#18842720
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (subword-mode)
+            (google-set-c-style)
+            (google-make-newline-indent)
+            (setq c-basic-offset 4)))
+;; http://www.emacswiki.org/emacs/IndentingJava
+(add-hook 'java-mode-hook
+          (lambda ()
+            "Treat Java 1.5 @-style annotations as comments."
+            (setq c-comment-start-regexp "(@|/(/|[*][*]?))")
+            (modify-syntax-entry ?@ "< b" java-mode-syntax-table)))
+ ;; (add-hook 'java-mode-hook (lambda ()
+ ;;                                (setq c-basic-offset 4
+ ;;                                      tab-width 4
+ ;;                                      indent-tabs-mode t)))
+
 ;;;;;;;; WEB DEV
 (require 'multi-web-mode)
 (setq mweb-default-major-mode 'html-mode)
@@ -681,6 +712,7 @@ narrowed."
 ;; http://stackoverflow.com/questions/6083496/how-do-you-specify-a-fallback-font-in-emacs
 ;; Use a specific font for Hebrew, since some of the mono fots are actually not mono in Hebrew.
 (set-fontset-font "fontset-default" '(#x5d0 . #x5ff) "Miriam Mono CLM:bold")
+(auto-fill-mode nil)
 
 
 (defun randomize-buffer-background ()
@@ -911,19 +943,21 @@ the next chapter, open Dired so you can find it manually."
 ;; (add-to-list 'load-path "~/.emacs.d/manual-installations/monroe/")
 ;; (require 'monroe)
 ;; (add-hook 'clojure-mode-hook 'clojure-enable-monroe)
+(require 'monroe)
+(add-hook 'clojure-mode-hook 'clojure-enable-monroe)
 
-(require 'cider)
-;; ;;(setq nrepl-popup-stacktraces nil)
-;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
-;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-;; (add-hook 'cider-repl-mode-hook 'auto-complete-mode)
-;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
-;; (defun my-nrepl-mode-setup ()
-;;   (require 'nrepl-ritz))
-;; make cider repl use clojure font lock:
-(setq cider-repl-use-clojure-font-lock t)
-;; (setq cider-repl-use-pretty-printing t)
+;; (require 'cider)
+;; ;; ;;(setq nrepl-popup-stacktraces nil)
+;; ;; ;;(add-to-list 'same-window-buffer-names "*nrepl*")
+;; ;; ;;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+;; (add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; ;; (add-hook 'cider-repl-mode-hook 'auto-complete-mode)
+;; ;; (add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
+;; ;; (defun my-nrepl-mode-setup ()
+;; ;;   (require 'nrepl-ritz))
+;; ;; make cider repl use clojure font lock:
+;; (setq cider-repl-use-clojure-font-lock t)
+;; ;; (setq cider-repl-use-pretty-printing t)
 
 (defun cider-repl-pretify ()
   (interactive)
@@ -943,98 +977,98 @@ the next chapter, open Dired so you can find it manually."
 (global-set-key (kbd "C-c p") 'cider-repl-pretify)
 
 
-;; Limiting output size, combining
-;; https://github.com/clojure-emacs/nrepl.el/issues/30
-;; https://gist.github.com/jonneale/5669318
-;; (What is the difference between nrepl-send-string-sync to
-;; nrepl-interactive-eval ?).
-;;
-(defun nrepl-limit-print-length ()
-  (interactive)
-  (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
-(defun nrepl-unlimit-print-length ()
-  (interactive)
-  (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
-(defun my-nrepl-connected-hook ()
-  (nrepl-limit-print-length))
-(add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
+;; ;; Limiting output size, combining
+;; ;; https://github.com/clojure-emacs/nrepl.el/issues/30
+;; ;; https://gist.github.com/jonneale/5669318
+;; ;; (What is the difference between nrepl-send-string-sync to
+;; ;; nrepl-interactive-eval ?).
+;; ;;
+;; (defun nrepl-limit-print-length ()
+;;   (interactive)
+;;   (nrepl-send-string-sync "(do (set! *print-length* 128) (set! *print-level* 64))" "clojure.core"))
+;; (defun nrepl-unlimit-print-length ()
+;;   (interactive)
+;;   (nrepl-send-string-sync "(set! *print-length* nil) (set! *print-level* nil)" "clojure.core"))
+;; (defun my-nrepl-connected-hook ()
+;;   (nrepl-limit-print-length))
+;; (add-hook 'nrepl-connected-hook 'my-nrepl-connected-hook)
 
 
-;; Suggestion of:
-;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
-;; commented out:
+;; ;; Suggestion of:
+;; ;; http://stackoverflow.com/questions/13103177/nrepl-el-how-to-eval-clojure-buffer-form-to-nrepl-buffer-instead-of-echo-area
+;; ;; commented out:
+;; ;; (defun my-interactive-eval-to-repl (form)
+;; ;;   (let ((buffer nrepl-repl-buffer))
+;; ;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
+;; ;; I
+;; ;; my variation:
+;; (defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
+;;   (replace-regexp-in-string
+;;    "nrepl"
+;;    "cider-repl"
+;;   (replace-regexp-in-string
+;;    "-connection"
+;;    ""
+;;    (first nrepl-connection-list))))
+;; (defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
+;;   (let ((orig-buffer (current-buffer)))
+;;     (progn
+;;       (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
+;;       ;; TODO: How not to assume this specific name?
+;;       ;; nrepl-repl-buffer seems not to work.
+;;       (cider-repl--replace-input (concat prefix form suffix))
+;;       (cider-repl-return)
+;;       (switch-to-buffer orig-buffer))))
 ;; (defun my-interactive-eval-to-repl (form)
-;;   (let ((buffer nrepl-repl-buffer))
-;;     (nrepl-send-string form (nrepl-handler buffer) nrepl-buffer-ns)))
-;; I
-;; my variation:
-(defun find-nrepl-buffer-name-corresponding-to-default-nrepl-connection ()
-  (replace-regexp-in-string
-   "nrepl"
-   "cider-repl"
-  (replace-regexp-in-string
-   "-connection"
-   ""
-   (first nrepl-connection-list))))
-(defun my-interactive-eval-to-repl-with-prefix-and-suffix (prefix form suffix)
-  (let ((orig-buffer (current-buffer)))
-    (progn
-      (switch-to-buffer (find-nrepl-buffer-name-corresponding-to-default-nrepl-connection))
-      ;; TODO: How not to assume this specific name?
-      ;; nrepl-repl-buffer seems not to work.
-      (cider-repl--replace-input (concat prefix form suffix))
-      (cider-repl-return)
-      (switch-to-buffer orig-buffer))))
-(defun my-interactive-eval-to-repl (form)
-  (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
-(defun my-interactive-eval-def-to-repl (form)
-  (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
-;; same as original suggestion from here:
-(defun my-eval-last-expression-to-repl ()
-  (interactive)
-  (my-interactive-eval-to-repl
-   (if mark-active
-	(buffer-substring (region-beginning) (region-end))
-     (cider-last-expression))))
-(defun my-eval-def-last-expression-to-repl ()
-  (interactive)
-  (my-interactive-eval-def-to-repl
-   (if mark-active
-       (buffer-substring (region-beginning) (region-end))
-     (cider-last-expression))))
-(defun my-eval-combination0 ()
-  (interactive)
-  (mark-sexp)
-  (my-eval-last-expression-to-repl)
-  (next-line)
-  (while (= 32 (char-after)) (next-line)))
-(defun my-eval-combination1 ()
-  (interactive)
-  (mark-sexp 2)
-  (my-eval-def-last-expression-to-repl)
-  (next-line)
-  (while (= 32 (char-after)) (next-line)))
-(defun cider-repl-print-stack-trace ()
-  (interactive)
-  (my-interactive-eval-to-repl  "(clojure.stacktrace/print-stack-trace *e)"))
-(defun cider-repl-repload ()
-  (interactive)
-  (my-interactive-eval-to-repl "(use 'repload) (repload)"))
-(defun cider-repl-add-standard-tools ()
-  (interactive)
-  (my-interactive-eval-to-repl "(use '[clojure pprint repl])"))
-;(cider-repl-add-shortcut "add standard tools" 'cider-repl-add-standard-tools)
-;; keybindings:
-;; (add-hook 'clojure-mode-hook
-;; 	  '(lambda()
-;; 	     ;; (highline-mode)
-;;              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
-;;              ;; (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
-;;              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
-;;              (local-set-key [(control meta return)] 'my-eval-combination0)
-;;              (local-set-key [(control meta shift return)] 'my-eval-combination1)
-;;              (local-set-key (kbd "C-z") 'my-eval-combination0)
-;;              (local-set-key (kbd "C-q") 'my-eval-combination1)))
+;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "" form ""))
+;; (defun my-interactive-eval-def-to-repl (form)
+;;   (my-interactive-eval-to-repl-with-prefix-and-suffix "(def " form ")"))
+;; ;; same as original suggestion from here:
+;; (defun my-eval-last-expression-to-repl ()
+;;   (interactive)
+;;   (my-interactive-eval-to-repl
+;;    (if mark-active
+;; 	(buffer-substring (region-beginning) (region-end))
+;;      (cider-last-expression))))
+;; (defun my-eval-def-last-expression-to-repl ()
+;;   (interactive)
+;;   (my-interactive-eval-def-to-repl
+;;    (if mark-active
+;;        (buffer-substring (region-beginning) (region-end))
+;;      (cider-last-expression))))
+;; (defun my-eval-combination0 ()
+;;   (interactive)
+;;   (mark-sexp)
+;;   (my-eval-last-expression-to-repl)
+;;   (next-line)
+;;   (while (= 32 (char-after)) (next-line)))
+;; (defun my-eval-combination1 ()
+;;   (interactive)
+;;   (mark-sexp 2)
+;;   (my-eval-def-last-expression-to-repl)
+;;   (next-line)
+;;   (while (= 32 (char-after)) (next-line)))
+;; (defun cider-repl-print-stack-trace ()
+;;   (interactive)
+;;   (my-interactive-eval-to-repl  "(clojure.stacktrace/print-stack-trace *e)"))
+;; (defun cider-repl-repload ()
+;;   (interactive)
+;;   (my-interactive-eval-to-repl "(use 'repload) (repload)"))
+;; (defun cider-repl-add-standard-tools ()
+;;   (interactive)
+;;   (my-interactive-eval-to-repl "(use '[clojure pprint repl])"))
+;; ;(cider-repl-add-shortcut "add standard tools" 'cider-repl-add-standard-tools)
+;; ;; keybindings:
+;; ;; (add-hook 'clojure-mode-hook
+;; ;; 	  '(lambda()
+;; ;; 	     ;; (highline-mode)
+;; ;;              (local-set-key [(shift return)] 'my-eval-last-expression-to-repl)
+;; ;;              ;; (local-set-key (kbd "C-c c")  'my-eval-last-expression-to-repl)
+;; ;;              (local-set-key [(control shift return)] 'my-eval-def-last-expression-to-repl)
+;; ;;              (local-set-key [(control meta return)] 'my-eval-combination0)
+;; ;;              (local-set-key [(control meta shift return)] 'my-eval-combination1)
+;; ;;              (local-set-key (kbd "C-z") 'my-eval-combination0)
+;; ;;              (local-set-key (kbd "C-q") 'my-eval-combination1)))
 
 ;; ;; ;; https://github.com/vitalreactor/nrepl-inspect
 ;; ;; (add-to-list 'load-path "/home/we/.emacs.d/manual-installations/nrepl-inspect/")
@@ -1078,19 +1112,19 @@ the next chapter, open Dired so you can find it manually."
 ;;   (switch-to-buffer "*nrepl-server*")
 ;;   (other-window))
 
-;; https://github.com/clojure-emacs/ac-nrepl
-(require 'ac-nrepl)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-;; (eval-after-load "auto-complete"
-;;   '(add-to-list 'ac-modes 'cider-repl-mode))
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(eval-after-load "cider"
-  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
+;; ;; https://github.com/clojure-emacs/ac-nrepl
+;; (require 'ac-nrepl)
+;; (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+;; (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+;; ;; (eval-after-load "auto-complete"
+;; ;;   '(add-to-list 'ac-modes 'cider-repl-mode))
+;; (defun set-auto-complete-as-completion-at-point-function ()
+;;   (setq completion-at-point-functions '(auto-complete)))
+;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (eval-after-load "cider"
+;;   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 
 ;;;;
 
@@ -1688,18 +1722,9 @@ the next chapter, open Dired so you can find it manually."
 
 
 
-
 ;;;;;;;; ;; SVN
 (require 'vc-svn)
-;;(require 'dsvn)
-
-
-
-
-
-
-
-
+(require 'dsvn)
 
 
 
